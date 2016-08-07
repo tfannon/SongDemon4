@@ -108,7 +108,7 @@ class MusicPlayer {
     
     class var playbackTime : Int {
         get {
-            return MP.applePlayer.currentPlaybackRate.isNormal ? Int(MP.applePlayer.currentPlaybackTime) : 0
+            return MP.applePlayer.currentPlaybackRate.isNormal && !MP.applePlayer.currentPlaybackTime.isNaN  ? Int(MP.applePlayer.currentPlaybackTime) : 0
         }
         set(seconds) {
             MP.applePlayer.currentPlaybackTime = Double(seconds)
