@@ -12,6 +12,7 @@
 		655CB7991D5740F9005E0B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 655CB7971D5740F9005E0B78 /* LaunchScreen.storyboard */; };
 		655CB7A41D5740F9005E0B78 /* SongDemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CB7A31D5740F9005E0B78 /* SongDemonTests.swift */; };
 		655CB7AF1D5740F9005E0B78 /* SongDemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CB7AE1D5740F9005E0B78 /* SongDemonUITests.swift */; };
+		6FC907FD2756837C01ADE936 /* Pods_SongDemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311597B76EF76C579BE15FBB /* Pods_SongDemon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		311597B76EF76C579BE15FBB /* Pods_SongDemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SongDemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AEFE761F2469AE01982CCA6 /* Pods-SongDemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon.release.xcconfig"; sourceTree = "<group>"; };
+		4525F2785758C7B96637FC2A /* Pods-SongDemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon.debug.xcconfig"; sourceTree = "<group>"; };
 		655CB78B1D5740F9005E0B78 /* SongDemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongDemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		655CB7931D5740F9005E0B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		655CB7951D5740F9005E0B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC907FD2756837C01ADE936 /* Pods_SongDemon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4970DF84468CDE95E835C182 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4525F2785758C7B96637FC2A /* Pods-SongDemon.debug.xcconfig */,
+				3AEFE761F2469AE01982CCA6 /* Pods-SongDemon.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		655CB7821D5740F9005E0B78 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +91,8 @@
 				655CB7A21D5740F9005E0B78 /* SongDemonTests */,
 				655CB7AD1D5740F9005E0B78 /* SongDemonUITests */,
 				655CB78C1D5740F9005E0B78 /* Products */,
+				4970DF84468CDE95E835C182 /* Pods */,
+				C040547BB6D1C04DFADE8398 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +135,14 @@
 			path = SongDemonUITests;
 			sourceTree = "<group>";
 		};
+		C040547BB6D1C04DFADE8398 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				311597B76EF76C579BE15FBB /* Pods_SongDemon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 655CB7B31D5740F9005E0B78 /* Build configuration list for PBXNativeTarget "SongDemon" */;
 			buildPhases = (
+				2C120D4163F77B64EDAA4D9B /* [CP] Check Pods Manifest.lock */,
 				655CB7871D5740F9005E0B78 /* Sources */,
 				655CB7881D5740F9005E0B78 /* Frameworks */,
 				655CB7891D5740F9005E0B78 /* Resources */,
+				C04370A19B296EF865C7F58D /* [CP] Embed Pods Frameworks */,
+				AFB49E4561C82D17F4DE2CD9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,17 +215,20 @@
 					655CB78A1D5740F9005E0B78 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = K9HP5J9XB3;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					655CB79E1D5740F9005E0B78 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = K9HP5J9XB3;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 655CB78A1D5740F9005E0B78;
 					};
 					655CB7A91D5740F9005E0B78 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = K9HP5J9XB3;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 655CB78A1D5740F9005E0B78;
 					};
@@ -250,6 +280,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C120D4163F77B64EDAA4D9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AFB49E4561C82D17F4DE2CD9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C04370A19B296EF865C7F58D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		655CB7871D5740F9005E0B78 /* Sources */ = {
@@ -403,6 +481,7 @@
 		};
 		655CB7B41D5740F9005E0B78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4525F2785758C7B96637FC2A /* Pods-SongDemon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K9HP5J9XB3;
@@ -416,6 +495,7 @@
 		};
 		655CB7B51D5740F9005E0B78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AEFE761F2469AE01982CCA6 /* Pods-SongDemon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K9HP5J9XB3;
@@ -500,6 +580,7 @@
 				655CB7B51D5740F9005E0B78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		655CB7B61D5740F9005E0B78 /* Build configuration list for PBXNativeTarget "SongDemonTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +589,7 @@
 				655CB7B81D5740F9005E0B78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		655CB7B91D5740F9005E0B78 /* Build configuration list for PBXNativeTarget "SongDemonUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +598,7 @@
 				655CB7BB1D5740F9005E0B78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
