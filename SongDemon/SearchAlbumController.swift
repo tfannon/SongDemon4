@@ -35,16 +35,15 @@ class SearchAlbumController: UIViewController, UITableViewDataSource, UITableVie
         super.viewWillAppear(animated)
         //if the artist changed, reload the table
         artistCheck()
-        //if there is a song being played and we came in from search button, scroll to playing song
-        if !artistSelectedWithPicker && MusicPlayer.currentSong != nil {
+        //if we came in via the search button and clicked artist, use the current song to try and scroll the view
+        //there may not be a song playing or it may not be in the library
+        if !artistSelectedWithPicker && songsByAlbum.count != 0 && MusicPlayer.currentSong != nil {
             let indexPath = getIndexPathForCurrentSong()
             tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: false)
         }
     }
     
     // MARK: - helpers for getting song/artist
-    
-
     func getIndexPathForCurrentSong() -> IndexPath {
         guard let currentSong = MusicPlayer.currentSong else {
             return IndexPath()

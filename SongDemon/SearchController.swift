@@ -34,10 +34,12 @@ class SearchController: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //we have to account for the fact that a song may be playing that is not in the system
-        if currentlyPlayingArtist != nil && LibraryManager.hasArtist(currentlyPlayingArtist!) {
-            let searchAlbumController = self.viewControllers![1] as! SearchAlbumController
+        let searchAlbumController = self.viewControllers![1] as! SearchAlbumController
+        //a song may be playing that is not in our library
+        if currentlyPlayingArtist != nil {
             searchAlbumController.selectedArtist = currentlyPlayingArtist!
+        }
+        if LibraryManager.hasArtist(currentlyPlayingArtist!) {
             searchAlbumController.artistSelectedWithPicker = false
             self.selectedIndex = 1
         }
