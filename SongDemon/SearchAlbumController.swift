@@ -13,22 +13,22 @@ class SearchAlbumController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lblArtist: UILabel!
 
-    var previousArtist : String! = nil
-    var songsByAlbum : [[MPMediaItem]] = []
-    var songsForPlaylist : [MPMediaItem] = []
-    var selectedArtist : String! = nil
-    var artistSelectedWithPicker : Bool = false
+    var previousArtist: String! = nil
+    var songsByAlbum: [[MPMediaItem]] = []
+    var songsForPlaylist: [MPMediaItem] = []
+    var selectedArtist: String! = nil
+    var artistSelectedWithPicker: Bool = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         //if no image exists dont screw up image
         //playingSongImage = playingSongImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        self.tableView.backgroundColor = UIColor.black
+        tableView.backgroundColor = UIColor.black
         //empty cells wont create lines
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,26 +42,40 @@ class SearchAlbumController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    //MARK: helpers for getting song/artist
+    // MARK: - helpers for getting song/artist
+    
+
     func getIndexPathForCurrentSong() -> IndexPath {
+        guard let currentSong = MusicPlayer.currentSong else {
+            return IndexPath()
+        }
+        let albums = songsByAlbum.map { $0[0].albumTitle! }
         //grab the album title from the first song of the album
-        let albums : [String] = songsByAlbum.map { $0[0].albumTitle! }
-        let section = albums.find { $0 == MusicPlayer.currentSong!.albumTitle }!
-        let row = songsByAlbum[section].find {  $0.title == MusicPlayer.currentSong!.title }!
-        let indexPath = IndexPath(row: row, section: section)
-        return indexPath
+        //if there is no album title to song we cant do anything
+        guard let albumTitle = currentSong.albumTitle else {
+            return IndexPath(row: 0, section: 0)
+        }
+        //it might be an album we dont have in our catalog
+        guard let section = albums.find ({ $0 == albumTitle }) else {
+            return IndexPath(row: 0, section: 0)
+        }
+        //it might be asong we dont have in our catalog
+        guard let row = songsByAlbum[section].find ({ $0.title == currentSong.title }) else {
+            return IndexPath(row:0, section: section)
+        }
+        return IndexPath(row: row, section: section)
     }
     
     //returns true if artist changed
     func artistCheck() {
+        //it is expected that the selected artist got set by the artist picker
         if previousArtist == nil || selectedArtist != previousArtist {
-            print ("switching artist to \(selectedArtist)")
-            self.lblArtist.text = selectedArtist
+            lblArtist.text = selectedArtist
             //this call returns a tuple,  the first value are the songs grouped by album. 
             //the second is a straight list of songs that can be sent to media player
-            (self.songsByAlbum, self.songsForPlaylist) = LibraryManager.getArtistSongsWithoutSettingPlaylist(selectedArtist)
-            self.tableView.reloadData()
-            self.previousArtist = selectedArtist
+            (songsByAlbum, songsForPlaylist) = LibraryManager.getArtistSongsWithoutSettingPlaylist(selectedArtist)
+            tableView.reloadData()
+            previousArtist = selectedArtist
         }
     }
     
