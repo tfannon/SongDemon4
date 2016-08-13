@@ -71,7 +71,7 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let c = cell as! VideoCell
-        c.unload()
+        c.recycle()
     }
 
     /*
