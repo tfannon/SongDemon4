@@ -4,6 +4,7 @@ use_frameworks!
 
 def shared_pods
     pod 'ObjectMapper', :git => 'https://github.com/Hearst-DD/ObjectMapper.git', :branch => 'swift-3'
+    pod 'YouTubePlayer'
 end
 
 target 'SongDemonChat' do

@@ -1,10 +1,12 @@
 PODS:
   - Alamofire (3.4.1)
   - ObjectMapper (1.3.0)
+  - YouTubePlayer (0.3.0)
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift3`)
   - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-3`)
+  - YouTubePlayer
 
 EXTERNAL SOURCES:
   Alamofire:
@@ -25,7 +27,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
 
-PODFILE CHECKSUM: 8496ac86ae917b5aeb6489464d08da969cad24fb
+PODFILE CHECKSUM: ec00d166a7e6baa049c8354be12e0320e400cedf
 
 COCOAPODS: 1.0.1
