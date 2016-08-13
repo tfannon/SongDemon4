@@ -1111,6 +1111,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42EBC2441EA489A78D2E69DA /* Pods-SongDemonChat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = SongDemonChat/SongDemonChat.entitlements;
 				DEVELOPMENT_TEAM = K9HP5J9XB3;
@@ -1127,6 +1128,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 886CF68705C607379F4BB417 /* Pods-SongDemonChat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = SongDemonChat/SongDemonChat.entitlements;
 				DEVELOPMENT_TEAM = K9HP5J9XB3;

@@ -44,7 +44,7 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: VideoCellIdentifier,
                                                  for: indexPath) as! VideoCell
         
-        let video = demonVideos[indexPath.row]
+        _ = demonVideos[indexPath.row]
         let player : YouTubePlayerView = YouTubePlayerView()
         player.translatesAutoresizingMaskIntoConstraints = false;
         player.backgroundColor = UIColor.blue
@@ -59,7 +59,7 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let cell = tableView.cellForRow(at: indexPath) {
+        if tableView.cellForRow(at: indexPath) != nil {
         }
     }
 

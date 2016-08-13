@@ -157,7 +157,8 @@ class LibraryManager {
 
                         if song.rating >= 1 {
                             switch (song.rating) {
-                            case 0:""
+                            case 0:
+                                break
                             //we take 1 star to mean disliked in itunes
                             case 1:
                                 disliked = true
@@ -166,7 +167,6 @@ class LibraryManager {
                             default:
                                 LM.RatedSongs.append(song.hashKey)
                                 artistInfo!.likedSongs += 1
-
                             }
                         }
                         else if song.playCount >= 0 && song.playCount <= 2 {
