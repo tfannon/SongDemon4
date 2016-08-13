@@ -1,0 +1,6 @@
+framework module Pods_SongDemon {
+  umbrella header "Pods-SongDemon-umbrella.h"
+
+  export *
+  module * { export * }
+}
