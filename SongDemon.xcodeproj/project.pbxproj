@@ -404,16 +404,15 @@
 		6598C5FE1D5EC12E00042FE6 /* SongDemonChat */ = {
 			isa = PBXGroup;
 			children = (
-				66AD107B1D5FAB3900ABA703 /* YouTubePlayer.swift */,
-				66AD107C1D5FAB3900ABA703 /* YTPlayer.html */,
 				6598C60E1D5EC15900042FE6 /* SongDemonChat.entitlements */,
+				6598C6011D5EC12E00042FE6 /* MainInterface.storyboard */,
 				6598C5FF1D5EC12E00042FE6 /* MessagesViewController.swift */,
 				6678A2061D5F5E3600F78A07 /* VideoViewController.swift */,
 				6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */,
-				6598C6011D5EC12E00042FE6 /* MainInterface.storyboard */,
+				6678A2081D5F5EC700F78A07 /* DemonVideo.swift */,
 				6598C6041D5EC12E00042FE6 /* Assets.xcassets */,
 				6598C6061D5EC12E00042FE6 /* Info.plist */,
-				6678A2081D5F5EC700F78A07 /* DemonVideo.swift */,
+				669BE20B1D5FB72600F8DDD5 /* YouTube */,
 			);
 			path = SongDemonChat;
 			sourceTree = "<group>";
@@ -493,6 +492,15 @@
 				65E7C95F1D57467700BBFFBD /* sliderlabel@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		669BE20B1D5FB72600F8DDD5 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				66AD107B1D5FAB3900ABA703 /* YouTubePlayer.swift */,
+				66AD107C1D5FAB3900ABA703 /* YTPlayer.html */,
+			);
+			name = YouTube;
 			sourceTree = "<group>";
 		};
 		C040547BB6D1C04DFADE8398 /* Frameworks */ = {
