@@ -584,6 +584,7 @@
 					6598C5FA1D5EC12E00042FE6 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = K9HP5J9XB3;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1114,6 +1115,7 @@
 				6598C60B1D5EC12E00042FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
