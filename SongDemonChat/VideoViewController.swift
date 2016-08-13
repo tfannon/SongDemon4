@@ -66,13 +66,22 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
             ]
             player.loadVideoURL(url)
         }
-        
+
+        _ = demonVideos[indexPath.row]
+        let player : YouTubePlayerView = YouTubePlayerView()
+        player.translatesAutoresizingMaskIntoConstraints = false;
+        player.backgroundColor = UIColor.blue
+        cell.playerView.addSubview(player)
+//        let viewsDictionary = ["subView": player]
+//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: viewsDictionary))
+//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", options: NSLayoutFormatOptions.alignAllLeft, metrics: nil, views: viewsDictionary))
+                
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let cell = tableView.cellForRow(at: indexPath) {
+        if tableView.cellForRow(at: indexPath) != nil {
         }
     }
 

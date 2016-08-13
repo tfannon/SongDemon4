@@ -17,6 +17,8 @@
 		6598C6051D5EC12E00042FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6598C6041D5EC12E00042FE6 /* Assets.xcassets */; };
 		6598C6091D5EC12E00042FE6 /* SongDemonChat.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6598C5FB1D5EC12E00042FE6 /* SongDemonChat.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6598C60F1D5EC2A800042FE6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96A1D57467700BBFFBD /* Utils.swift */; };
+		65CC2D861D5F674800C0E3A8 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CC2D851D5F674800C0E3A8 /* VideoLibrary.swift */; };
+		65CC2D881D5F675400C0E3A8 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CC2D871D5F675400C0E3A8 /* Video.swift */; };
 		65E7C96F1D57467700BBFFBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9191D57467700BBFFBD /* AppDelegate.swift */; };
 		65E7C9711D57467700BBFFBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C91C1D57467700BBFFBD /* LaunchScreen.storyboard */; };
 		65E7C9721D57467700BBFFBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C91E1D57467700BBFFBD /* Main.storyboard */; };
@@ -164,6 +166,8 @@
 		6598C6061D5EC12E00042FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6598C60E1D5EC15900042FE6 /* SongDemonChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SongDemonChat.entitlements; sourceTree = "<group>"; };
 		6598C6101D5ECECA00042FE6 /* SongDemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SongDemon.entitlements; sourceTree = "<group>"; };
+		65CC2D851D5F674800C0E3A8 /* VideoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoLibrary.swift; sourceTree = "<group>"; };
+		65CC2D871D5F675400C0E3A8 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		65E7C9191D57467700BBFFBD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65E7C91D1D57467700BBFFBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65E7C91F1D57467700BBFFBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 		655CB78D1D5740F9005E0B78 /* SongDemon */ = {
 			isa = PBXGroup;
 			children = (
+				65CC2D841D5F66AD00C0E3A8 /* DTOs */,
 				6598C6101D5ECECA00042FE6 /* SongDemon.entitlements */,
 				65E7C91B1D57467700BBFFBD /* Base.lproj */,
 				65E7C9221D57467700BBFFBD /* External */,
@@ -405,6 +410,15 @@
 				6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */,
 			);
 			path = SongDemonChat;
+			sourceTree = "<group>";
+		};
+		65CC2D841D5F66AD00C0E3A8 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				65CC2D851D5F674800C0E3A8 /* VideoLibrary.swift */,
+				65CC2D871D5F675400C0E3A8 /* Video.swift */,
+			);
+			name = DTOs;
 			sourceTree = "<group>";
 		};
 		65E7C91B1D57467700BBFFBD /* Base.lproj */ = {
@@ -799,6 +813,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65CC2D861D5F674800C0E3A8 /* VideoLibrary.swift in Sources */,
 				65E7C9741D57467700BBFFBD /* Extensions.swift in Sources */,
 				65E7C9BE1D57467800BBFFBD /* Videos.swift in Sources */,
 				65E7C9BC1D57467800BBFFBD /* VideoCell.swift in Sources */,
@@ -809,6 +824,7 @@
 				65E7C9781D57467700BBFFBD /* ITunesUtils.swift in Sources */,
 				65E7C9B71D57467800BBFFBD /* SearchController.swift in Sources */,
 				65E7C9821D57467700BBFFBD /* PlayVideoController.swift in Sources */,
+				65CC2D881D5F675400C0E3A8 /* Video.swift in Sources */,
 				65E7C97E1D57467700BBFFBD /* PlaylistAlbumSongCell.swift in Sources */,
 				65E7C9B41D57467800BBFFBD /* SearchAlbumTrackCell.swift in Sources */,
 				65E7C9B51D57467800BBFFBD /* SearchArtistCell.swift in Sources */,
@@ -1095,6 +1111,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42EBC2441EA489A78D2E69DA /* Pods-SongDemonChat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = SongDemonChat/SongDemonChat.entitlements;
 				DEVELOPMENT_TEAM = K9HP5J9XB3;
@@ -1111,6 +1128,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 886CF68705C607379F4BB417 /* Pods-SongDemonChat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_ENTITLEMENTS = SongDemonChat/SongDemonChat.entitlements;
 				DEVELOPMENT_TEAM = K9HP5J9XB3;
