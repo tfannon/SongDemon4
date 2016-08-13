@@ -97,7 +97,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeT-hA-aen" userLabel="Label2">
                                                     <color key="backgroundColor" red="0.48086202386672872" green="1" blue="0.23313222282637225" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="xQL-VW-GeS"/>
+                                                        <constraint firstAttribute="height" constant="20" id="xQL-VW-GeS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                     <nil key="textColor"/>
@@ -106,7 +106,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwk-yj-Jx3" userLabel="Label1">
                                                     <color key="backgroundColor" red="1" green="0.52736547001666767" blue="0.32603662283429002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="d8B-dB-iGm"/>
+                                                        <constraint firstAttribute="height" constant="20" id="d8B-dB-iGm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
@@ -116,7 +116,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="cwk-yj-Jx3" secondAttribute="trailing" id="7u8-c9-bIS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="cEF-RX-Eug" secondAttribute="trailing" id="9AP-bS-rTN"/>
-                                                <constraint firstItem="XeT-hA-aen" firstAttribute="top" secondItem="cwk-yj-Jx3" secondAttribute="bottom" constant="10" id="HbC-41-35t"/>
+                                                <constraint firstItem="XeT-hA-aen" firstAttribute="top" secondItem="cwk-yj-Jx3" secondAttribute="bottom" id="HbC-41-35t"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="XeT-hA-aen" secondAttribute="leading" id="LAS-Fm-yWv"/>
                                                 <constraint firstItem="vRM-B0-VPa" firstAttribute="leading" secondItem="1ce-kc-BQJ" secondAttribute="leadingMargin" id="UzI-FG-nHd"/>
                                                 <constraint firstItem="cwk-yj-Jx3" firstAttribute="top" secondItem="vRM-B0-VPa" secondAttribute="bottom" constant="5" id="heG-LW-uHb"/>

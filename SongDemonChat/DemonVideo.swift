@@ -15,6 +15,8 @@ class DemonVideo {
     var Title : String { return _title }
     var Link : String { return _link }
     var Artist : String { return _artist }
+    var Liked : Bool = false
+    
     init(title : String, link : String, artist : String) {
         _title = title
         _link = link

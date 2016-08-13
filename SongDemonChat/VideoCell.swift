@@ -16,13 +16,14 @@ class VideoCell: UITableViewCell {
     @IBOutlet weak var label2: UILabel!
 
     var player : YouTubePlayerView = YouTubePlayerView()
+    var video : DemonVideo!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        label1.backgroundColor = .none
-//        label2.backgroundColor = .none
-//        player.backgroundColor = .none
+        label1.backgroundColor = .none
+        label2.backgroundColor = .none
+        player.backgroundColor = .none
         
         playerView.addSubview(player)
         player.bindSizeToSuperview()
@@ -31,12 +32,26 @@ class VideoCell: UITableViewCell {
             "controls": "0",
             "showinfo": "0"
         ]
+        
+        self.liker.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onLikedTapped))
+        tapGesture.numberOfTapsRequired = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func onLikedTapped() {
+        video.Liked = !video.Liked
+        if video.Liked {
+            liker.image = UIImage(named: "Heart Filled-50")
+        }
+        else {
+            liker.image = UIImage(named: "Heart-50")
+        }
     }
     
     func load(video : DemonVideo) {
