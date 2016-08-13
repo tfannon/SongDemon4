@@ -19,6 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         setupAppearance()
         //FBLoginView.self
+        let defaults = Utils.AppGroupDefaults
+        defaults.set("Hello from SongDemon", forKey: "SongDemonMain")
+        if let foo = defaults.object(forKey: "SongDemonMain") as? String {
+            print (foo)
+        }
+        
+        if let bar = defaults.object(forKey: "SongDemonChat") as? String {
+            print (bar)
+        }
         
         Async.background {
             LibraryManager.scanLibrary()

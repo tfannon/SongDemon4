@@ -11,6 +11,12 @@
 		655CB7961D5740F9005E0B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655CB7951D5740F9005E0B78 /* Assets.xcassets */; };
 		655CB7A41D5740F9005E0B78 /* SongDemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CB7A31D5740F9005E0B78 /* SongDemonTests.swift */; };
 		655CB7AF1D5740F9005E0B78 /* SongDemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CB7AE1D5740F9005E0B78 /* SongDemonUITests.swift */; };
+		6598C5FD1D5EC12E00042FE6 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6598C5FC1D5EC12E00042FE6 /* Messages.framework */; };
+		6598C6001D5EC12E00042FE6 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6598C5FF1D5EC12E00042FE6 /* MessagesViewController.swift */; };
+		6598C6031D5EC12E00042FE6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6598C6011D5EC12E00042FE6 /* MainInterface.storyboard */; };
+		6598C6051D5EC12E00042FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6598C6041D5EC12E00042FE6 /* Assets.xcassets */; };
+		6598C6091D5EC12E00042FE6 /* SongDemonChat.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6598C5FB1D5EC12E00042FE6 /* SongDemonChat.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6598C60F1D5EC2A800042FE6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96A1D57467700BBFFBD /* Utils.swift */; };
 		65E7C96F1D57467700BBFFBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9191D57467700BBFFBD /* AppDelegate.swift */; };
 		65E7C9711D57467700BBFFBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C91C1D57467700BBFFBD /* LaunchScreen.storyboard */; };
 		65E7C9721D57467700BBFFBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C91E1D57467700BBFFBD /* Main.storyboard */; };
@@ -108,7 +114,28 @@
 			remoteGlobalIDString = 655CB78A1D5740F9005E0B78;
 			remoteInfo = SongDemon;
 		};
+		6598C6071D5EC12E00042FE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 655CB7831D5740F9005E0B78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6598C5FA1D5EC12E00042FE6;
+			remoteInfo = SongDemonChat;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6598C60D1D5EC12E00042FE6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6598C6091D5EC12E00042FE6 /* SongDemonChat.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		311597B76EF76C579BE15FBB /* Pods_SongDemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SongDemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +151,14 @@
 		655CB7AA1D5740F9005E0B78 /* SongDemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SongDemonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		655CB7AE1D5740F9005E0B78 /* SongDemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDemonUITests.swift; sourceTree = "<group>"; };
 		655CB7B01D5740F9005E0B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6598C5FB1D5EC12E00042FE6 /* SongDemonChat.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SongDemonChat.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6598C5FC1D5EC12E00042FE6 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		6598C5FF1D5EC12E00042FE6 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		6598C6021D5EC12E00042FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		6598C6041D5EC12E00042FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6598C6061D5EC12E00042FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6598C60E1D5EC15900042FE6 /* SongDemonChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SongDemonChat.entitlements; sourceTree = "<group>"; };
+		6598C6101D5ECECA00042FE6 /* SongDemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SongDemon.entitlements; sourceTree = "<group>"; };
 		65E7C9191D57467700BBFFBD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65E7C91D1D57467700BBFFBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65E7C91F1D57467700BBFFBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -228,6 +263,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6598C5F81D5EC12E00042FE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6598C5FD1D5EC12E00042FE6 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -256,6 +299,7 @@
 				655CB78D1D5740F9005E0B78 /* SongDemon */,
 				655CB7A21D5740F9005E0B78 /* SongDemonTests */,
 				655CB7AD1D5740F9005E0B78 /* SongDemonUITests */,
+				6598C5FE1D5EC12E00042FE6 /* SongDemonChat */,
 				655CB78C1D5740F9005E0B78 /* Products */,
 				4970DF84468CDE95E835C182 /* Pods */,
 				C040547BB6D1C04DFADE8398 /* Frameworks */,
@@ -268,6 +312,7 @@
 				655CB78B1D5740F9005E0B78 /* SongDemon.app */,
 				655CB79F1D5740F9005E0B78 /* SongDemonTests.xctest */,
 				655CB7AA1D5740F9005E0B78 /* SongDemonUITests.xctest */,
+				6598C5FB1D5EC12E00042FE6 /* SongDemonChat.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,6 +320,7 @@
 		655CB78D1D5740F9005E0B78 /* SongDemon */ = {
 			isa = PBXGroup;
 			children = (
+				6598C6101D5ECECA00042FE6 /* SongDemon.entitlements */,
 				65E7C91B1D57467700BBFFBD /* Base.lproj */,
 				65E7C9221D57467700BBFFBD /* External */,
 				65E7C9321D57467700BBFFBD /* Resources */,
@@ -331,6 +377,18 @@
 				655CB7B01D5740F9005E0B78 /* Info.plist */,
 			);
 			path = SongDemonUITests;
+			sourceTree = "<group>";
+		};
+		6598C5FE1D5EC12E00042FE6 /* SongDemonChat */ = {
+			isa = PBXGroup;
+			children = (
+				6598C60E1D5EC15900042FE6 /* SongDemonChat.entitlements */,
+				6598C5FF1D5EC12E00042FE6 /* MessagesViewController.swift */,
+				6598C6011D5EC12E00042FE6 /* MainInterface.storyboard */,
+				6598C6041D5EC12E00042FE6 /* Assets.xcassets */,
+				6598C6061D5EC12E00042FE6 /* Info.plist */,
+			);
+			path = SongDemonChat;
 			sourceTree = "<group>";
 		};
 		65E7C91B1D57467700BBFFBD /* Base.lproj */ = {
@@ -405,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				311597B76EF76C579BE15FBB /* Pods_SongDemon.framework */,
+				6598C5FC1D5EC12E00042FE6 /* Messages.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -422,10 +481,12 @@
 				655CB7891D5740F9005E0B78 /* Resources */,
 				C04370A19B296EF865C7F58D /* [CP] Embed Pods Frameworks */,
 				AFB49E4561C82D17F4DE2CD9 /* [CP] Copy Pods Resources */,
+				6598C60D1D5EC12E00042FE6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6598C6081D5EC12E00042FE6 /* PBXTargetDependency */,
 			);
 			name = SongDemon;
 			productName = SongDemon;
@@ -468,6 +529,23 @@
 			productReference = 655CB7AA1D5740F9005E0B78 /* SongDemonUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		6598C5FA1D5EC12E00042FE6 /* SongDemonChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6598C60C1D5EC12E00042FE6 /* Build configuration list for PBXNativeTarget "SongDemonChat" */;
+			buildPhases = (
+				6598C5F71D5EC12E00042FE6 /* Sources */,
+				6598C5F81D5EC12E00042FE6 /* Frameworks */,
+				6598C5F91D5EC12E00042FE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SongDemonChat;
+			productName = SongDemonChat;
+			productReference = 6598C5FB1D5EC12E00042FE6 /* SongDemonChat.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -483,6 +561,11 @@
 						DevelopmentTeam = K9HP5J9XB3;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					655CB79E1D5740F9005E0B78 = {
 						CreatedOnToolsVersion = 8.0;
@@ -497,6 +580,16 @@
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 655CB78A1D5740F9005E0B78;
+					};
+					6598C5FA1D5EC12E00042FE6 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = K9HP5J9XB3;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -516,6 +609,7 @@
 				655CB78A1D5740F9005E0B78 /* SongDemon */,
 				655CB79E1D5740F9005E0B78 /* SongDemonTests */,
 				655CB7A91D5740F9005E0B78 /* SongDemonUITests */,
+				6598C5FA1D5EC12E00042FE6 /* SongDemonChat */,
 			);
 		};
 /* End PBXProject section */
@@ -588,6 +682,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6598C5F91D5EC12E00042FE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6598C6051D5EC12E00042FE6 /* Assets.xcassets in Resources */,
+				6598C6031D5EC12E00042FE6 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,6 +800,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6598C5F71D5EC12E00042FE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6598C6001D5EC12E00042FE6 /* MessagesViewController.swift in Sources */,
+				6598C60F1D5EC2A800042FE6 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -710,9 +822,22 @@
 			target = 655CB78A1D5740F9005E0B78 /* SongDemon */;
 			targetProxy = 655CB7AB1D5740F9005E0B78 /* PBXContainerItemProxy */;
 		};
+		6598C6081D5EC12E00042FE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6598C5FA1D5EC12E00042FE6 /* SongDemonChat */;
+			targetProxy = 6598C6071D5EC12E00042FE6 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6598C6011D5EC12E00042FE6 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6598C6021D5EC12E00042FE6 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		65E7C91C1D57467700BBFFBD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -831,6 +956,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SongDemon/SongDemon.entitlements;
 				DEVELOPMENT_TEAM = K9HP5J9XB3;
 				INFOPLIST_FILE = SongDemon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -847,6 +973,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SongDemon/SongDemon.entitlements;
 				DEVELOPMENT_TEAM = K9HP5J9XB3;
 				INFOPLIST_FILE = SongDemon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -911,6 +1038,36 @@
 			};
 			name = Release;
 		};
+		6598C60A1D5EC12E00042FE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = SongDemonChat/SongDemonChat.entitlements;
+				DEVELOPMENT_TEAM = K9HP5J9XB3;
+				INFOPLIST_FILE = SongDemonChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stingraydev.SongDemon.SongDemonChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6598C60B1D5EC12E00042FE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = SongDemonChat/SongDemonChat.entitlements;
+				DEVELOPMENT_TEAM = K9HP5J9XB3;
+				INFOPLIST_FILE = SongDemonChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stingraydev.SongDemon.SongDemonChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -949,6 +1106,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6598C60C1D5EC12E00042FE6 /* Build configuration list for PBXNativeTarget "SongDemonChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6598C60A1D5EC12E00042FE6 /* Debug */,
+				6598C60B1D5EC12E00042FE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
