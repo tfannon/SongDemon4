@@ -11,6 +11,27 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    // MARK: - Classes
+    class DemonVideo {
+        private var _title : String
+        private var _link : String
+        private var _artist : String
+        var Title : String { return _title }
+        var Link : String { return _link }
+        var Artist : String { return _artist }
+        init(title : String, link : String, artist : String) {
+            _title = title
+            _link = link
+            _artist = artist
+        }
+    }
+    
+    // MARK: - Outlets & Actions
+    @IBAction func shareVideos(_ sender: UIButton) {
+        onShareVideos()
+    }
+    
+    // MARK: - UIView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,12 +44,57 @@ class MessagesViewController: MSMessagesAppViewController {
         if let bar = defaults.object(forKey: "SongDemonChat") as? String {
             print (bar)
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Events
+    
+    private func onShareVideos() {
+        // return the extension to compact mode
+        requestPresentationStyle(.compact)
+        
+        // do a quick sanity check to make sure we have a conversation to work with
+        guard let conversation = activeConversation else { return }
+        
+        // populate a collection of URLs (test)
+        let links =
+            [
+                DemonVideo(title: "Daughters", link: "https://www.youtube.com/watch?v=_jIzC1ChqDU", artist: "AR Studios"),
+                DemonVideo(title: "Rogue Squadron", link: "https://www.youtube.com/watch?v=frdj1zb9sMY", artist: "Disney")
+            ]
+        
+        // convert our information into URLQueryItem objects
+        var components = URLComponents()
+        var items = [URLQueryItem]()
+        for (index, video) in links.enumerated() {
+            items.append(URLQueryItem(name: "title-\(index)", value: video.Title))
+            items.append(URLQueryItem(name: "link-\(index)", value: video.Link))
+            items.append(URLQueryItem(name: "artist-\(index)", value: video.Artist))
+        }
+        components.queryItems = items
+
+        // use the existing session or create a new one
+        let session = conversation.selectedMessage?.session ?? MSSession()
+        
+        // create a new message from the session and assign it the URL we created from our dates and votes
+        let message = MSMessage(session: session)
+        message.url = components.url
+        
+        // create a blank, default message layout
+        let layout = MSMessageTemplateLayout()
+        layout.caption = "Check out these videos!"
+        message.layout = layout
+        
+        // insert it into the conversation
+        conversation.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
     }
     
     // MARK: - Conversation Handling
