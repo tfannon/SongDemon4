@@ -61,7 +61,7 @@ class VideoListController : UITableViewController {
                 //println(data!.count)
                 gVideos.NeedsRefresh = false
                 if let song = MusicPlayer.currentSong {
-                    lblHeader.text = "\(song.albumArtist) - \(song.title)"
+                    lblHeader.text = "\(song.safeArtist) - \(song.safeTitle)"
                 }
             }
         }
@@ -80,11 +80,12 @@ class VideoListController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let x = self.data[(indexPath as NSIndexPath).row]
-        //let snippet = x["snippet"].object!
-        //let title = x["snippet"]["title"].string!
+        let x = self.data[indexPath.row]
+        let title = x["snippet"]["title"].string!
         let description = x["snippet"]["description"].string!
         let thumb = x["snippet"]["thumbnails"]["default"]["url"].string!
+        print ("Title:\(title)")
+        print ("\(description) \n")
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
         cell.lblDescription.text = description
         //clear the image before the async fetch
@@ -93,12 +94,12 @@ class VideoListController : UITableViewController {
         }
         //go fetch the image form the thumb
         let imgURL = URL(string: thumb)!
-        let session = URLSession()
-        session.dataTask(with: imgURL) { data, response, error in
+        let task = URLSession.shared.dataTask(with: imgURL) { data, response, error in
             if error == nil {
                 cell.imgVideo.image = UIImage(data: data!)
             }
         }
+        task.resume()
         return cell
     }
     

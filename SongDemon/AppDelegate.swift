@@ -9,17 +9,15 @@
 import UIKit
 import AVFoundation
 import MediaPlayer
+import Alamofire
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        setupAppearance()
-        
+    
+    func testVideos() {
         _ = VideoLibrary.addVideo(url: "https://www.youtube.com/watch?v=5C-W3Tq-zgM", artist: "Inquisition", title: "Power From the Center of the Cosmic Black Spiral")
         
         _ = VideoLibrary.addVideo(url: "https://www.youtube.com/watch?v=w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013")
@@ -28,36 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print (VideoLibrary.sharedInstance.videos.count)
         VideoLibrary.reload()
         print (VideoLibrary.sharedInstance.videos.count)
+    }
+    
 
-        /*
-        if let foo = defaults.object(forKey: "video") as? String,
-           let v = Mapper<VideoLibrary>().map(foo) {
-                print (v)
-        }
-
-        
-        defaults.set("Hello from SongDemon", forKey: "SongDemonMain")
-        if let foo = defaults.object(forKey: "SongDemonMain") as? String {
-            print (foo)
-        }
-        
-        if let bar = defaults.object(forKey: "SongDemonChat") as? String {
-            print (bar)
-        }
-        */
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        setupAppearance()
         Async.background {
             LibraryManager.scanLibrary()
         }
-        
         return true
     }
     
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        //let wasHandled = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
-        //return wasHandled
-        return true;
-    }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -76,14 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//        FBAppEvents.activateApp()
-//        FBAppCall.handleDidBecomeActive()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         //LibraryManager.serializeCurrentPlaylist()
-        //FBSession.activeSession().close()
     }
     
     func setupAppearance() {
