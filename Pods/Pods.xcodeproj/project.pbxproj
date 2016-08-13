@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03365F37F71C5B654C2ECCC04AF77C60 /* Pods-SongDemonChat-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A73A90920C41A554404864651A467C /* Pods-SongDemonChat-dummy.m */; };
 		13E39355B9B2F07FC6619E46E2488EB9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89D67881C503531B65AA4039E41DF8B /* Result.swift */; };
 		1494389C8E30F964D52FC95176FBAC1D /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CB927547ABF3A6FC4A29A9F35CC416 /* TaskDelegate.swift */; };
 		173152CB50392D210B40A6E2DCF373DC /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E1AF8C8B11D5516A17A05F6D6B73F8 /* FromJSON.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1F6359D09A3C04232B57C7F7D9734CF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		34C51E312FF2649E5DABB1BB0157D61C /* Pods-SongDemonChat-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A73A90920C41A554404864651A467C /* Pods-SongDemonChat-dummy.m */; };
+		1EC7AF1DFFB6F17CC377279538665872 /* Pods-SongDemonChat-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D95D13DEB3806F16DC09A084B216302 /* Pods-SongDemonChat-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2352CF29341DFDE7A67E01A4F2FE115A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		38FD65F98DC17A7B6FB3D7BAD8D1BA6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3290018E7357000C5F7F616A57C879 /* Timeline.swift */; };
-		3906013D384FB8E6F2B839407A7118B9 /* Pods-SongDemonChat-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D95D13DEB3806F16DC09A084B216302 /* Pods-SongDemonChat-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FA0011E6B95DE999C32DC65A5DB1A93 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		3FC608FC88CDA077F29912E176F70EA4 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB85C1FD90CE2299D3B84A07117C075F /* Alamofire-dummy.m */; };
 		418134548DBB8A1168C6DB0984827234 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBD5229E896FFBE6C4E3244A627404B /* Map.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -53,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6E868884D5BA39DF8EEF0561C6BCADED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5D6200D4BE741574DBD4FB768A6F55B;
+			remoteInfo = ObjectMapper;
+		};
 		70A5960ACB811FDD5440F45BDCC1D997 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -142,19 +149,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2BC599611B9052E475AA6BD05958EBC6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F6359D09A3C04232B57C7F7D9734CF8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8CFF055CC9D308C73235AA849D9CABF5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B35C225A8132174D4A5606D4FFB84DF5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8DD2657EB317BA8F6804DA6645CD47F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2352CF29341DFDE7A67E01A4F2FE115A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,19 +362,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20F64CE75051ABD063907595C2863A0A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3906013D384FB8E6F2B839407A7118B9 /* Pods-SongDemonChat-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2F24ACEB43D5505BEDE0C209B616E2D3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C34F209E7E5BE856F1DF50F470304424 /* Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EDEEB7D857D5D705F81DB56A2E0BBEC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC7AF1DFFB6F17CC377279538665872 /* Pods-SongDemonChat-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,23 +389,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1DB75DE5CCC8BF3E112095A0A5386767 /* Pods-SongDemonChat */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00D11347BEB4D4E9C9D9F36B3A6DA6 /* Build configuration list for PBXNativeTarget "Pods-SongDemonChat" */;
-			buildPhases = (
-				BB717DBD08C06163CC04237A8E6838B3 /* Sources */,
-				2BC599611B9052E475AA6BD05958EBC6 /* Frameworks */,
-				20F64CE75051ABD063907595C2863A0A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-SongDemonChat";
-			productName = "Pods-SongDemonChat";
-			productReference = 9C6D3455C997BE6DC443EB48CBDED171 /* Pods_SongDemonChat.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		1DCD5ECFC4E29C14E310BE87CB0D18C4 /* Pods-SongDemon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A0982918CAB89A90D222E875415046C /* Build configuration list for PBXNativeTarget "Pods-SongDemon" */;
@@ -435,6 +425,24 @@
 			productReference = 0C1D0469F06097BB4C93FC03CAC6DB27 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C2A96DCD4AA17F09B594C44BC2CF2AE1 /* Pods-SongDemonChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DA80F6E52E0484F3A5E8FA362D3EA22 /* Build configuration list for PBXNativeTarget "Pods-SongDemonChat" */;
+			buildPhases = (
+				440DE4C8C3850168988F0E393E09E82E /* Sources */,
+				A8DD2657EB317BA8F6804DA6645CD47F /* Frameworks */,
+				5EDEEB7D857D5D705F81DB56A2E0BBEC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CDEA48E1F95C812DB0169DF0852071B /* PBXTargetDependency */,
+			);
+			name = "Pods-SongDemonChat";
+			productName = "Pods-SongDemonChat";
+			productReference = 9C6D3455C997BE6DC443EB48CBDED171 /* Pods_SongDemonChat.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D5D6200D4BE741574DBD4FB768A6F55B /* ObjectMapper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38397B75086B2C5B13E749C02A469E1A /* Build configuration list for PBXNativeTarget "ObjectMapper" */;
@@ -467,6 +475,9 @@
 					7B6F52488EC10931E5A24414ECAE1BD4 = {
 						LastSwiftMigration = 0800;
 					};
+					C2A96DCD4AA17F09B594C44BC2CF2AE1 = {
+						LastSwiftMigration = 0800;
+					};
 					D5D6200D4BE741574DBD4FB768A6F55B = {
 						LastSwiftMigration = 0800;
 					};
@@ -487,7 +498,7 @@
 				7B6F52488EC10931E5A24414ECAE1BD4 /* Alamofire */,
 				D5D6200D4BE741574DBD4FB768A6F55B /* ObjectMapper */,
 				1DCD5ECFC4E29C14E310BE87CB0D18C4 /* Pods-SongDemon */,
-				1DB75DE5CCC8BF3E112095A0A5386767 /* Pods-SongDemonChat */,
+				C2A96DCD4AA17F09B594C44BC2CF2AE1 /* Pods-SongDemonChat */,
 			);
 		};
 /* End PBXProject section */
@@ -514,6 +525,14 @@
 				1494389C8E30F964D52FC95176FBAC1D /* TaskDelegate.swift in Sources */,
 				38FD65F98DC17A7B6FB3D7BAD8D1BA6A /* Timeline.swift in Sources */,
 				CC7F234B388263547F80F7C55ECB76EE /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		440DE4C8C3850168988F0E393E09E82E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03365F37F71C5B654C2ECCC04AF77C60 /* Pods-SongDemonChat-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,17 +567,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB717DBD08C06163CC04237A8E6838B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34C51E312FF2649E5DABB1BB0157D61C /* Pods-SongDemonChat-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5CDEA48E1F95C812DB0169DF0852071B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ObjectMapper;
+			target = D5D6200D4BE741574DBD4FB768A6F55B /* ObjectMapper */;
+			targetProxy = 6E868884D5BA39DF8EEF0561C6BCADED /* PBXContainerItemProxy */;
+		};
 		61FF75150F5025ED94232208F4898106 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ObjectMapper;
@@ -646,6 +663,40 @@
 			};
 			name = Release;
 		};
+		46E7520D8FEE3D1585007893E409DA14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F5F6ED0B02F2E7B9287A2F88D83818F /* Pods-SongDemonChat.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SongDemonChat/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SongDemonChat;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		4ABA2FF629C6B06BDD756ABD2A34E268 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80C70FD3C8AB2E25B84D0D58DDB37CA9 /* Pods-SongDemon.release.xcconfig */;
@@ -711,40 +762,7 @@
 			};
 			name = Debug;
 		};
-		58851FDB8C613F427F47BF6F1BBA3C12 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F5F6ED0B02F2E7B9287A2F88D83818F /* Pods-SongDemonChat.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SongDemonChat/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SongDemonChat;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5EEF1D8ECC8B23D824BF5495E17C76BA /* Debug */ = {
+		5F39DD69ACD009C813EA478C65F39A7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 303BA81B24D6FCD1FC15A588984F3CAE /* Pods-SongDemonChat.debug.xcconfig */;
 			buildSettings = {
@@ -771,6 +789,8 @@
 				PRODUCT_NAME = Pods_SongDemonChat;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -941,20 +961,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B00D11347BEB4D4E9C9D9F36B3A6DA6 /* Build configuration list for PBXNativeTarget "Pods-SongDemonChat" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5EEF1D8ECC8B23D824BF5495E17C76BA /* Debug */,
-				58851FDB8C613F427F47BF6F1BBA3C12 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		6A0982918CAB89A90D222E875415046C /* Build configuration list for PBXNativeTarget "Pods-SongDemon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF5E3F441FA38E8785654D88A8F74847 /* Debug */,
 				4ABA2FF629C6B06BDD756ABD2A34E268 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DA80F6E52E0484F3A5E8FA362D3EA22 /* Build configuration list for PBXNativeTarget "Pods-SongDemonChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F39DD69ACD009C813EA478C65F39A7B /* Debug */,
+				46E7520D8FEE3D1585007893E409DA14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

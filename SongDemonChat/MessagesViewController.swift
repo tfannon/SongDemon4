@@ -15,8 +15,8 @@ class MessagesViewController: MSMessagesAppViewController {
     let VideoViewControllerIdentifier : String = "VideoViewController"
     let testVideos =
         [
-            DemonVideo(title: "Daughters", link: "https://www.youtube.com/watch?v=_jIzC1ChqDU", artist: "AR Studios"),
-            DemonVideo(title: "Rogue Squadron", link: "https://www.youtube.com/watch?v=frdj1zb9sMY", artist: "Disney")
+            Video(artist: "AR Studios", title: "Daughters", url: "https://www.youtube.com/watch?v=_jIzC1ChqDU"),
+            Video(artist: "Disney", title: "Rogue Squadron", url: "https://www.youtube.com/watch?v=frdj1zb9sMY")
         ]
     
     // MARK: - Outlets & Actions
@@ -63,9 +63,9 @@ class MessagesViewController: MSMessagesAppViewController {
         var components = URLComponents()
         var items = [URLQueryItem]()
         for (index, video) in videos.enumerated() {
-            items.append(URLQueryItem(name: "title-\(index)", value: video.Title))
-            items.append(URLQueryItem(name: "link-\(index)", value: video.Link))
-            items.append(URLQueryItem(name: "artist-\(index)", value: video.Artist))
+            items.append(URLQueryItem(name: "title-\(index)", value: video.title))
+            items.append(URLQueryItem(name: "link-\(index)", value: video.url))
+            items.append(URLQueryItem(name: "artist-\(index)", value: video.artist))
         }
         components.queryItems = items
 

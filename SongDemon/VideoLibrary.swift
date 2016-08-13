@@ -26,7 +26,7 @@ class VideoLibrary: Mappable {
     }
     
     class func addVideo(url: String, artist: String, title: String) -> Video {
-        let v = Video(artist: artist, title: title)
+        let v = Video(artist: artist, title: title, url: url)
         sharedInstance.videos[url] = v
         return v
     }

@@ -11,7 +11,7 @@ import UIKit
 class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Fields 
-    var demonVideos : [DemonVideo] = [] {
+    var demonVideos : [Video] = [] {
         didSet {
             self.tableView.reloadData()
         }

@@ -16,7 +16,7 @@ class VideoCell: UITableViewCell {
     @IBOutlet weak var label2: UILabel!
 
     var player : YouTubePlayerView = YouTubePlayerView()
-    var video : DemonVideo!
+    var video : Video!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,8 +45,8 @@ class VideoCell: UITableViewCell {
     }
     
     func onLikedTapped() {
-        video.Liked = !video.Liked
-        if video.Liked {
+        video.bringIntoLibrary = !video.bringIntoLibrary
+        if video.bringIntoLibrary {
             liker.image = UIImage(named: "Heart Filled-50")
         }
         else {
@@ -54,12 +54,12 @@ class VideoCell: UITableViewCell {
         }
     }
     
-    func load(video : DemonVideo) {
+    func load(video : Video) {
         recycle()
-        if let url = URL(string: video.Link) {
+        if let url = URL(string: video.url) {
             player.loadVideoURL(url)
-            label1.text = video.Artist
-            label2.text = video.Title
+            label1.text = video.artist
+            label2.text = video.title
         }
     }
     
