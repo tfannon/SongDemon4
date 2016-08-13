@@ -110,7 +110,7 @@ class MessagesViewController: MSMessagesAppViewController {
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vc.view)
         
-        // 4: add Auto Layout constraints so the child view continues to fill the full view
+        // 4: add Auto Layout constraints so the child view fills the full view
         vc.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         vc.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         vc.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true

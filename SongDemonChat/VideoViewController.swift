@@ -44,6 +44,11 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         section: Int) -> Int {
         return demonVideos.count
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath:
         IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VideoCellIdentifier,

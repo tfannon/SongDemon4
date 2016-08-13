@@ -16,15 +16,10 @@ class VideoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-
-        player.translatesAutoresizingMaskIntoConstraints = false;
-        player.backgroundColor = UIColor.blue
+        
+        
         playerView.addSubview(player)
-        
-        let viewsDictionary = ["subView": player]
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: viewsDictionary))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", options: NSLayoutFormatOptions.alignAllLeft, metrics: nil, views: viewsDictionary))
-        
+        player.bindSizeToSuperview()
         player.playerVars = [
             "playsinline": "1",
             "controls": "0",
