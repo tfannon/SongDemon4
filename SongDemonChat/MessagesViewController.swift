@@ -11,9 +11,20 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    // MARK: - Fields
+    let VideoViewControllerIdentifier : String = "VideoViewController"
+    let testVideos =
+        [
+            DemonVideo(title: "Daughters", link: "https://www.youtube.com/watch?v=_jIzC1ChqDU", artist: "AR Studios"),
+            DemonVideo(title: "Rogue Squadron", link: "https://www.youtube.com/watch?v=frdj1zb9sMY", artist: "Disney")
+        ]
+    
     // MARK: - Outlets & Actions
     @IBAction func shareVideos(_ sender: UIButton) {
         onShareVideos()
+    }
+    @IBAction func doMisc(_ sender: UIButton) {
+        
     }
     
     // MARK: - UIView
@@ -46,16 +57,12 @@ class MessagesViewController: MSMessagesAppViewController {
         guard let conversation = activeConversation else { return }
         
         // populate a collection of URLs (test)
-        let links =
-            [
-                DemonVideo(title: "Daughters", link: "https://www.youtube.com/watch?v=_jIzC1ChqDU", artist: "AR Studios"),
-                DemonVideo(title: "Rogue Squadron", link: "https://www.youtube.com/watch?v=frdj1zb9sMY", artist: "Disney")
-            ]
+        let videos = testVideos
         
         // convert our information into URLQueryItem objects
         var components = URLComponents()
         var items = [URLQueryItem]()
-        for (index, video) in links.enumerated() {
+        for (index, video) in videos.enumerated() {
             items.append(URLQueryItem(name: "title-\(index)", value: video.Title))
             items.append(URLQueryItem(name: "link-\(index)", value: video.Link))
             items.append(URLQueryItem(name: "artist-\(index)", value: video.Artist))
@@ -80,6 +87,40 @@ class MessagesViewController: MSMessagesAppViewController {
                 print(error)
             }
         }
+    }
+    
+    func onMisc() {
+        requestPresentationStyle(.expanded)
+        showViewController(identifier: VideoViewControllerIdentifier)
+    }
+    
+    // MARK: - UI
+    func showViewController(identifier: String) {
+        
+        // 1: create the child view controller
+        guard let vc =
+            storyboard?.instantiateViewController(withIdentifier: identifier) as?
+            VideoViewController else { return }
+        
+        // 1a: load & delegate so we get info from event controller
+        vc.demonVideos = testVideos
+        
+        // 2: add the child to the parent so that events are forwarded
+        addChildViewController(vc)
+        
+        // 3: give the child a meaningful frame: make it fill our view
+        vc.view.frame = view.bounds
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(vc.view)
+        
+        // 4: add Auto Layout constraints so the child view continues to fill the full view
+        vc.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        vc.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        vc.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
+        vc.view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        
+        // 5: tell the child it has now moved to a new parent view controller
+        vc.didMove(toParentViewController: self)
     }
     
     // MARK: - Conversation Handling

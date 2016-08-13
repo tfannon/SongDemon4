@@ -27,11 +27,21 @@
                                             <action selector="shareVideos:" destination="ObA-dk-sSI" eventType="touchUpInside" id="mb8-6n-mOj"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQw-sX-iK2">
+                                        <state key="normal" title="Misc"/>
+                                        <connections>
+                                            <action selector="doMisc:" destination="ObA-dk-sSI" eventType="touchUpInside" id="6bv-Gq-lvN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="AQw-sX-iK2" firstAttribute="height" secondItem="QeU-sB-IO9" secondAttribute="height" id="8qV-Jw-F6S"/>
+                                    <constraint firstItem="AQw-sX-iK2" firstAttribute="centerX" secondItem="8yZ-nc-ZL9" secondAttribute="centerX" id="HYb-Nw-Jod"/>
+                                    <constraint firstItem="AQw-sX-iK2" firstAttribute="width" secondItem="QeU-sB-IO9" secondAttribute="width" id="RHx-1E-1Cf"/>
                                     <constraint firstItem="QeU-sB-IO9" firstAttribute="centerX" secondItem="8yZ-nc-ZL9" secondAttribute="centerX" id="RKf-EF-OGb"/>
                                     <constraint firstItem="QeU-sB-IO9" firstAttribute="centerY" secondItem="8yZ-nc-ZL9" secondAttribute="centerY" id="gBj-Vu-mSx"/>
+                                    <constraint firstItem="AQw-sX-iK2" firstAttribute="top" secondItem="QeU-sB-IO9" secondAttribute="bottom" constant="8" id="nGB-xE-JS0"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -52,7 +62,7 @@
         <!--Video View Controller-->
         <scene sceneID="eJu-Ga-kOX">
             <objects>
-                <viewController id="hQh-KW-Lyw" customClass="VideoViewController" customModule="SongDemonChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoViewController" id="hQh-KW-Lyw" customClass="VideoViewController" customModule="SongDemonChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jHl-Tg-ap3"/>
                         <viewControllerLayoutGuide type="bottom" id="19A-U9-aeq"/>
@@ -68,7 +78,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ouf-cx-ueK" id="1ce-kc-BQJ">
-                                            <frame key="frameInset" width="343" height="149"/>
+                                            <frame key="frameInset" width="343" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRM-B0-VPa" userLabel="PlayerView">
@@ -103,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Jx-Ic-Sx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="-18"/>
+            <point key="canvasLocation" x="748" y="0.0"/>
         </scene>
     </scenes>
 </document>

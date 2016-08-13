@@ -12,7 +12,11 @@ import YouTubePlayer
 class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Fields 
-    var demonVideos : [DemonVideo] = []
+    var demonVideos : [DemonVideo] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     let VideoCellIdentifier : String = "VideoCell"
     
     // MARK: - Outlets & Actions
@@ -45,14 +49,23 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                                  for: indexPath) as! VideoCell
         
         let video = demonVideos[indexPath.row]
-        let player : YouTubePlayerView = YouTubePlayerView()
-        player.translatesAutoresizingMaskIntoConstraints = false;
-        player.backgroundColor = UIColor.blue
-        cell.playerView.addSubview(player)
-//        let viewsDictionary = ["subView": player]
-//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: viewsDictionary))
-//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", options: NSLayoutFormatOptions.alignAllLeft, metrics: nil, views: viewsDictionary))
-        
+        if let url = URL(string: video.Link) {
+            let player : YouTubePlayerView = YouTubePlayerView()
+            player.translatesAutoresizingMaskIntoConstraints = false;
+            player.backgroundColor = UIColor.blue
+            cell.playerView.addSubview(player)
+
+            let viewsDictionary = ["subView": player]
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: viewsDictionary))
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", options: NSLayoutFormatOptions.alignAllLeft, metrics: nil, views: viewsDictionary))
+
+            player.playerVars = [
+                "playsinline": "1",
+                "controls": "0",
+                "showinfo": "0"
+            ]
+            player.loadVideoURL(url)
+        }
         
         return cell
     }
