@@ -10,6 +10,7 @@
 import UIKit
 
 class VideoCell: UITableViewCell {
+    @IBOutlet weak var playerView: UIView!
     @IBOutlet var imgVideo: UIImageView!
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var lblDescription: UILabel!
