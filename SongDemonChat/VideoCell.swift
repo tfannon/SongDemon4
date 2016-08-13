@@ -20,9 +20,9 @@ class VideoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        label1.backgroundColor = .none
-        label2.backgroundColor = .none
-        player.backgroundColor = .none
+//        label1.backgroundColor = .none
+//        label2.backgroundColor = .none
+//        player.backgroundColor = .none
         
         playerView.addSubview(player)
         player.bindSizeToSuperview()
@@ -38,7 +38,7 @@ class VideoCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
     func load(video : DemonVideo) {
         recycle()
         if let url = URL(string: video.Link) {

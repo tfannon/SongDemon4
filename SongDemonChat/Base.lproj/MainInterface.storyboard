@@ -114,15 +114,15 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cwk-yj-Jx3" secondAttribute="trailing" id="7u8-c9-bIS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="cEF-RX-Eug" secondAttribute="trailing" id="9AP-bS-rTN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="XeT-hA-aen" secondAttribute="bottom" id="SnB-fq-uWh"/>
+                                                <constraint firstItem="XeT-hA-aen" firstAttribute="top" secondItem="cwk-yj-Jx3" secondAttribute="bottom" constant="10" id="HbC-41-35t"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="XeT-hA-aen" secondAttribute="leading" id="LAS-Fm-yWv"/>
                                                 <constraint firstItem="vRM-B0-VPa" firstAttribute="leading" secondItem="1ce-kc-BQJ" secondAttribute="leadingMargin" id="UzI-FG-nHd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="XeT-hA-aen" secondAttribute="trailing" id="VPN-SC-UU7"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="cwk-yj-Jx3" secondAttribute="trailing" id="cZC-B0-1US"/>
-                                                <constraint firstItem="XeT-hA-aen" firstAttribute="top" secondItem="cwk-yj-Jx3" secondAttribute="bottom" constant="8.5" id="fd1-a9-hZs"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="XeT-hA-aen" secondAttribute="leading" id="gvm-W0-29D"/>
+                                                <constraint firstItem="cwk-yj-Jx3" firstAttribute="top" secondItem="vRM-B0-VPa" secondAttribute="bottom" constant="5" id="heG-LW-uHb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XeT-hA-aen" secondAttribute="trailing" id="jxo-JV-cwb"/>
                                                 <constraint firstItem="cEF-RX-Eug" firstAttribute="centerY" secondItem="vRM-B0-VPa" secondAttribute="centerY" id="kUk-w5-C6F"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="cwk-yj-Jx3" secondAttribute="leading" id="r4k-Oa-GNj"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="cwk-yj-Jx3" secondAttribute="leading" id="mZQ-V9-s6v"/>
                                                 <constraint firstItem="vRM-B0-VPa" firstAttribute="top" secondItem="1ce-kc-BQJ" secondAttribute="topMargin" id="wk5-gt-ynU"/>
                                             </constraints>
                                         </tableViewCellContentView>
