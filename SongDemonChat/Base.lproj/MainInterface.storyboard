@@ -49,5 +49,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Video View Controller-->
+        <scene sceneID="eJu-Ga-kOX">
+            <objects>
+                <viewController id="hQh-KW-Lyw" customClass="VideoViewController" customModule="SongDemonChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jHl-Tg-ap3"/>
+                        <viewControllerLayoutGuide type="bottom" id="19A-U9-aeq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TeC-FZ-sMY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YE5-hZ-88O">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="Ouf-cx-ueK" userLabel="VideoCell" customClass="VideoCell" customModule="SongDemonChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ouf-cx-ueK" id="1ce-kc-BQJ">
+                                            <frame key="frameInset" width="343" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRM-B0-VPa" userLabel="PlayerView">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vRM-B0-VPa" firstAttribute="top" secondItem="1ce-kc-BQJ" secondAttribute="topMargin" id="0U5-uO-GgB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vRM-B0-VPa" secondAttribute="trailing" id="44V-NX-tiX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vRM-B0-VPa" secondAttribute="bottom" id="cs5-0j-SUr"/>
+                                                <constraint firstItem="vRM-B0-VPa" firstAttribute="leading" secondItem="1ce-kc-BQJ" secondAttribute="leadingMargin" id="zRd-Nd-Zeo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playerView" destination="vRM-B0-VPa" id="rIa-kx-kgu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="YE5-hZ-88O" secondAttribute="trailing" id="4Zg-Tv-Hwc"/>
+                            <constraint firstItem="YE5-hZ-88O" firstAttribute="top" secondItem="jHl-Tg-ap3" secondAttribute="bottom" id="CJN-yt-Zrt"/>
+                            <constraint firstItem="19A-U9-aeq" firstAttribute="top" secondItem="YE5-hZ-88O" secondAttribute="bottom" id="Y7q-tu-2if"/>
+                            <constraint firstItem="YE5-hZ-88O" firstAttribute="leading" secondItem="TeC-FZ-sMY" secondAttribute="leadingMargin" id="iLD-0K-Ppa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="YE5-hZ-88O" id="GQe-ku-rox"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Jx-Ic-Sx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="636" y="-18"/>
+        </scene>
     </scenes>
 </document>

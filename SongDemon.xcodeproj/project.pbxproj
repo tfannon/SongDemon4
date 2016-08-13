@@ -96,6 +96,9 @@
 		65E7C9BD1D57467800BBFFBD /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96C1D57467700BBFFBD /* VideoListController.swift */; };
 		65E7C9BE1D57467800BBFFBD /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96D1D57467700BBFFBD /* Videos.swift */; };
 		65E7C9BF1D57467800BBFFBD /* videotemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C96E1D57467700BBFFBD /* videotemplate.html */; };
+		6678A2071D5F5E3600F78A07 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678A2061D5F5E3600F78A07 /* VideoViewController.swift */; };
+		6678A2091D5F5EC700F78A07 /* DemonVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678A2081D5F5EC700F78A07 /* DemonVideo.swift */; };
+		6678A20B1D5F5F9D00F78A07 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */; };
 		6FC907FD2756837C01ADE936 /* Pods_SongDemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311597B76EF76C579BE15FBB /* Pods_SongDemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +241,9 @@
 		65E7C96C1D57467700BBFFBD /* VideoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
 		65E7C96D1D57467700BBFFBD /* Videos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
 		65E7C96E1D57467700BBFFBD /* videotemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = videotemplate.html; sourceTree = "<group>"; };
+		6678A2061D5F5E3600F78A07 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		6678A2081D5F5EC700F78A07 /* DemonVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemonVideo.swift; sourceTree = "<group>"; };
+		6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,9 +390,12 @@
 			children = (
 				6598C60E1D5EC15900042FE6 /* SongDemonChat.entitlements */,
 				6598C5FF1D5EC12E00042FE6 /* MessagesViewController.swift */,
+				6678A2061D5F5E3600F78A07 /* VideoViewController.swift */,
 				6598C6011D5EC12E00042FE6 /* MainInterface.storyboard */,
 				6598C6041D5EC12E00042FE6 /* Assets.xcassets */,
 				6598C6061D5EC12E00042FE6 /* Info.plist */,
+				6678A2081D5F5EC700F78A07 /* DemonVideo.swift */,
+				6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */,
 			);
 			path = SongDemonChat;
 			sourceTree = "<group>";
@@ -805,8 +814,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6678A20B1D5F5F9D00F78A07 /* VideoCell.swift in Sources */,
 				6598C6001D5EC12E00042FE6 /* MessagesViewController.swift in Sources */,
+				6678A2091D5F5EC700F78A07 /* DemonVideo.swift in Sources */,
 				6598C60F1D5EC2A800042FE6 /* Utils.swift in Sources */,
+				6678A2071D5F5E3600F78A07 /* VideoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

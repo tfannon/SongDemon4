@@ -11,21 +11,6 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    // MARK: - Classes
-    class DemonVideo {
-        private var _title : String
-        private var _link : String
-        private var _artist : String
-        var Title : String { return _title }
-        var Link : String { return _link }
-        var Artist : String { return _artist }
-        init(title : String, link : String, artist : String) {
-            _title = title
-            _link = link
-            _artist = artist
-        }
-    }
-    
     // MARK: - Outlets & Actions
     @IBAction func shareVideos(_ sender: UIButton) {
         onShareVideos()
