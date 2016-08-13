@@ -79,7 +79,7 @@ class LibraryManager {
             print("\(result.count) queued songs")
             QueuedSongs = result
         }
-        stopwatch.stop("")
+        _ = stopwatch.stop("")
     }
     
         
@@ -183,7 +183,7 @@ class LibraryManager {
                     }
                 }
             }
-            stopwatch.stop("Scanned \(allSongs.count) songs\n  \(LM.RatedSongs.count) songs with >1 rating \n  \(LM.LowRatedSongs.count) songs with =1 rating \n  \(unplayed) songs with playcount <2 \n  \(LM.OtherSongs.count) others songs\n")
+            _ = stopwatch.stop("Scanned \(allSongs.count) songs\n  \(LM.RatedSongs.count) songs with >1 rating \n  \(LM.LowRatedSongs.count) songs with =1 rating \n  \(unplayed) songs with playcount <2 \n  \(LM.OtherSongs.count) others songs\n")
         }
         LM.scanned = true;
         objc_sync_exit(LM.LikedSongs)
@@ -289,7 +289,7 @@ class LibraryManager {
         allLiked.append(contentsOf: LM.RatedSongs)
         //grab n randomly
         let randomLiked = getRandomSongs(count, sourceSongs: allLiked)
-        sw.stop("Built liked list with \(randomLiked.count) songs")
+        _ = sw.stop("Built liked list with \(randomLiked.count) songs")
         if dumpSongs {
             outputSongs(randomLiked)
         }
@@ -322,7 +322,7 @@ class LibraryManager {
         let sw = Stopwatch.start()
         let allSongs = LM.RatedSongs + LM.NotPlayedSongs + LM.OtherSongs
         let randomSongs = getRandomSongs(count, sourceSongs: allSongs)
-        sw.stop("Built mix list with \(randomSongs.count) songs")
+        _ = sw.stop("Built mix list with \(randomSongs.count) songs")
 
         if dumpSongs {
             outputSongs(randomSongs)
@@ -561,6 +561,6 @@ class LibraryManager {
         trimList(LIKED_LIST, list: &LM.LikedSongs)
         trimList(DISLIKED_LIST, list: &LM.DislikedSongs)
         trimList(QUEUED_LIST, list: &LM.QueuedSongs)
-        sw.stop()
+        _ = sw.stop()
     }
 }

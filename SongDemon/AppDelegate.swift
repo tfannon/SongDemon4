@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
@@ -18,8 +19,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         setupAppearance()
-        //FBLoginView.self
-        let defaults = Utils.AppGroupDefaults
+        
+        _ = VideoLibrary.addVideo(url: "https://www.youtube.com/watch?v=5C-W3Tq-zgM", artist: "Inquisition", title: "Power From the Center of the Cosmic Black Spiral")
+        
+        _ = VideoLibrary.addVideo(url: "https://www.youtube.com/watch?v=w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013")
+        
+        VideoLibrary.save()
+        print (VideoLibrary.sharedInstance.videos.count)
+        VideoLibrary.reload()
+        print (VideoLibrary.sharedInstance.videos.count)
+
+        /*
+        if let foo = defaults.object(forKey: "video") as? String,
+           let v = Mapper<VideoLibrary>().map(foo) {
+                print (v)
+        }
+
+        
         defaults.set("Hello from SongDemon", forKey: "SongDemonMain")
         if let foo = defaults.object(forKey: "SongDemonMain") as? String {
             print (foo)
@@ -28,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let bar = defaults.object(forKey: "SongDemonChat") as? String {
             print (bar)
         }
+        */
         
         Async.background {
             LibraryManager.scanLibrary()
