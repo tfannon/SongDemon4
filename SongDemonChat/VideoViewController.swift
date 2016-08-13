@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Fields 
     var demonVideos : [DemonVideo] = []
-    let VideoCell : String = "VideoCell"
+    let VideoCellIdentifier : String = "VideoCell"
     
     // MARK: - Outlets & Actions
     @IBOutlet weak var tableView: UITableView!
@@ -40,10 +41,17 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath:
         IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: VideoCell,
+        let cell = tableView.dequeueReusableCell(withIdentifier: VideoCellIdentifier,
                                                  for: indexPath) as! VideoCell
-        let video = demonVideos[indexPath.row]
         
+        let video = demonVideos[indexPath.row]
+        let player : YouTubePlayerView = YouTubePlayerView()
+        player.translatesAutoresizingMaskIntoConstraints = false;
+        player.backgroundColor = UIColor.blue
+        cell.playerView.addSubview(player)
+//        let viewsDictionary = ["subView": player]
+//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: viewsDictionary))
+//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", options: NSLayoutFormatOptions.alignAllLeft, metrics: nil, views: viewsDictionary))
         
         
         return cell

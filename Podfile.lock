@@ -1,8 +1,10 @@
 PODS:
   - Alamofire (3.4.1)
+  - YouTubePlayer (0.3.0)
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift3`)
+  - YouTubePlayer
 
 EXTERNAL SOURCES:
   Alamofire:
@@ -16,7 +18,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
 
-PODFILE CHECKSUM: ff5c140df62a8395d1a9043136621c56302c4263
+PODFILE CHECKSUM: e30ce07c8af941f33ff1c809fc3787b3147efcbe
 
 COCOAPODS: 1.0.1
