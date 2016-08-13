@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import YouTubePlayer
 
 class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

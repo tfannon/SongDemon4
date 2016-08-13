@@ -3,7 +3,6 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'SongDemonChat' do
-    pod 'YouTubePlayer'
 end
 
 target 'SongDemon' do

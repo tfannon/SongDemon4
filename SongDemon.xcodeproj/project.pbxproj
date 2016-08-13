@@ -101,6 +101,8 @@
 		6678A2071D5F5E3600F78A07 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678A2061D5F5E3600F78A07 /* VideoViewController.swift */; };
 		6678A2091D5F5EC700F78A07 /* DemonVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678A2081D5F5EC700F78A07 /* DemonVideo.swift */; };
 		6678A20B1D5F5F9D00F78A07 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */; };
+		66AD107D1D5FAB3900ABA703 /* YouTubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AD107B1D5FAB3900ABA703 /* YouTubePlayer.swift */; };
+		66AD107E1D5FAB3900ABA703 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = 66AD107C1D5FAB3900ABA703 /* YTPlayer.html */; };
 		6FC907FD2756837C01ADE936 /* Pods_SongDemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311597B76EF76C579BE15FBB /* Pods_SongDemon.framework */; };
 		ACEFAE8ECF6F664A9D0516DF /* Pods_SongDemonChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58B2F24729D0415051B3AB1 /* Pods_SongDemonChat.framework */; };
 /* End PBXBuildFile section */
@@ -250,6 +252,8 @@
 		6678A2061D5F5E3600F78A07 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		6678A2081D5F5EC700F78A07 /* DemonVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemonVideo.swift; sourceTree = "<group>"; };
 		6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		66AD107B1D5FAB3900ABA703 /* YouTubePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubePlayer.swift; sourceTree = "<group>"; };
+		66AD107C1D5FAB3900ABA703 /* YTPlayer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YTPlayer.html; sourceTree = "<group>"; };
 		886CF68705C607379F4BB417 /* Pods-SongDemonChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemonChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.release.xcconfig"; sourceTree = "<group>"; };
 		B58B2F24729D0415051B3AB1 /* Pods_SongDemonChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SongDemonChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -400,6 +404,8 @@
 		6598C5FE1D5EC12E00042FE6 /* SongDemonChat */ = {
 			isa = PBXGroup;
 			children = (
+				66AD107B1D5FAB3900ABA703 /* YouTubePlayer.swift */,
+				66AD107C1D5FAB3900ABA703 /* YTPlayer.html */,
 				6598C60E1D5EC15900042FE6 /* SongDemonChat.entitlements */,
 				6598C5FF1D5EC12E00042FE6 /* MessagesViewController.swift */,
 				6678A2061D5F5E3600F78A07 /* VideoViewController.swift */,
@@ -725,6 +731,7 @@
 			files = (
 				6598C6051D5EC12E00042FE6 /* Assets.xcassets in Resources */,
 				6598C6031D5EC12E00042FE6 /* MainInterface.storyboard in Resources */,
+				66AD107E1D5FAB3900ABA703 /* YTPlayer.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +877,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AD107D1D5FAB3900ABA703 /* YouTubePlayer.swift in Sources */,
 				6678A20B1D5F5F9D00F78A07 /* VideoCell.swift in Sources */,
 				6598C6001D5EC12E00042FE6 /* MessagesViewController.swift in Sources */,
 				6678A2091D5F5EC700F78A07 /* DemonVideo.swift in Sources */,
