@@ -15,8 +15,8 @@ class MessagesViewController: MSMessagesAppViewController {
     let VideoViewControllerIdentifier : String = "VideoViewController"
     let testVideos =
         [
-            DemonVideo(title: "Daughters", link: "https://www.youtube.com/watch?v=_jIzC1ChqDU", artist: "AR Studios"),
-            DemonVideo(title: "Rogue Squadron", link: "https://www.youtube.com/watch?v=frdj1zb9sMY", artist: "Disney")
+            Video(artist: "AR Studios", title: "Daughters", url: "https://www.youtube.com/watch?v=_jIzC1ChqDU"),
+            Video(artist: "Disney", title: "Rogue Squadron", url: "https://www.youtube.com/watch?v=frdj1zb9sMY")
         ]
     
     // MARK: - Outlets & Actions
@@ -24,7 +24,7 @@ class MessagesViewController: MSMessagesAppViewController {
         onShareVideos()
     }
     @IBAction func doMisc(_ sender: UIButton) {
-        
+        onMisc()
     }
     
     // MARK: - UIView
@@ -63,9 +63,9 @@ class MessagesViewController: MSMessagesAppViewController {
         var components = URLComponents()
         var items = [URLQueryItem]()
         for (index, video) in videos.enumerated() {
-            items.append(URLQueryItem(name: "title-\(index)", value: video.Title))
-            items.append(URLQueryItem(name: "link-\(index)", value: video.Link))
-            items.append(URLQueryItem(name: "artist-\(index)", value: video.Artist))
+            items.append(URLQueryItem(name: "title-\(index)", value: video.title))
+            items.append(URLQueryItem(name: "link-\(index)", value: video.url))
+            items.append(URLQueryItem(name: "artist-\(index)", value: video.artist))
         }
         components.queryItems = items
 
@@ -102,9 +102,6 @@ class MessagesViewController: MSMessagesAppViewController {
             storyboard?.instantiateViewController(withIdentifier: identifier) as?
             VideoViewController else { return }
         
-        // 1a: load & delegate so we get info from event controller
-        vc.demonVideos = testVideos
-        
         // 2: add the child to the parent so that events are forwarded
         addChildViewController(vc)
         
@@ -113,7 +110,7 @@ class MessagesViewController: MSMessagesAppViewController {
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vc.view)
         
-        // 4: add Auto Layout constraints so the child view continues to fill the full view
+        // 4: add Auto Layout constraints so the child view fills the full view
         vc.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         vc.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         vc.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
@@ -121,6 +118,9 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // 5: tell the child it has now moved to a new parent view controller
         vc.didMove(toParentViewController: self)
+
+        // 1a: load & delegate so we get info from event controller
+        vc.demonVideos = testVideos
     }
     
     // MARK: - Conversation Handling

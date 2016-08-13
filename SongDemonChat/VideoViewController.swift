@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import YouTubePlayer
 
 class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Fields 
-    var demonVideos : [DemonVideo] = [] {
+    var demonVideos : [Video] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -26,6 +25,8 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,46 +44,34 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         section: Int) -> Int {
         return demonVideos.count
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath:
         IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VideoCellIdentifier,
                                                  for: indexPath) as! VideoCell
-        
-        let video = demonVideos[indexPath.row]
-        if let url = URL(string: video.Link) {
-            let player : YouTubePlayerView = YouTubePlayerView()
-            player.translatesAutoresizingMaskIntoConstraints = false;
-            player.backgroundColor = UIColor.blue
-            cell.playerView.addSubview(player)
-
-            let viewsDictionary = ["subView": player]
-            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: viewsDictionary))
-            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", options: NSLayoutFormatOptions.alignAllLeft, metrics: nil, views: viewsDictionary))
-
-            player.playerVars = [
-                "playsinline": "1",
-                "controls": "0",
-                "showinfo": "0"
-            ]
-            player.loadVideoURL(url)
-        }
-
-        _ = demonVideos[indexPath.row]
-        let player : YouTubePlayerView = YouTubePlayerView()
-        player.translatesAutoresizingMaskIntoConstraints = false;
-        player.backgroundColor = UIColor.blue
-        cell.playerView.addSubview(player)
-//        let viewsDictionary = ["subView": player]
-//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[subView]|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: viewsDictionary))
-//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[subView]|", options: NSLayoutFormatOptions.alignAllLeft, metrics: nil, views: viewsDictionary))
-                
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+        let videoCell = cell as! VideoCell
+        let video = demonVideos[indexPath.row]
+        videoCell.load(video: video)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if tableView.cellForRow(at: indexPath) != nil {
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let c = cell as! VideoCell
+        c.recycle()
     }
 
     /*

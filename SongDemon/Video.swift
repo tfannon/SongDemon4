@@ -10,14 +10,16 @@ import ObjectMapper
 class Video: Mappable {
     var title: String!
     var artist: String!
-
+    var url: String!
+    var bringIntoLibrary: Bool = false
     
     init() {
     }
     
-    init(artist: String, title: String) {
+    init(artist: String, title: String, url: String) {
         self.artist = artist
         self.title = title
+        self.url = url
     }
     
     
@@ -27,6 +29,7 @@ class Video: Mappable {
     func mapping(_ map: Map) {
         title <- map["title"]
         artist <- map["artist"]
+        url <- map["url"]
     }
     
     class func fromJson(jsonString: String) -> Video? {
