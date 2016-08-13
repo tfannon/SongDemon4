@@ -24,7 +24,7 @@ class MessagesViewController: MSMessagesAppViewController {
         onShareVideos()
     }
     @IBAction func doMisc(_ sender: UIButton) {
-        
+        onMisc()
     }
     
     // MARK: - UIView
@@ -102,9 +102,6 @@ class MessagesViewController: MSMessagesAppViewController {
             storyboard?.instantiateViewController(withIdentifier: identifier) as?
             VideoViewController else { return }
         
-        // 1a: load & delegate so we get info from event controller
-        vc.demonVideos = testVideos
-        
         // 2: add the child to the parent so that events are forwarded
         addChildViewController(vc)
         
@@ -121,6 +118,9 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // 5: tell the child it has now moved to a new parent view controller
         vc.didMove(toParentViewController: self)
+
+        // 1a: load & delegate so we get info from event controller
+        vc.demonVideos = testVideos
     }
     
     // MARK: - Conversation Handling
