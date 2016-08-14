@@ -10,9 +10,7 @@
 import UIKit
 
 class VideoCell: UITableViewCell {
-    @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var liker: UIImageView!
     @IBOutlet var imgVideo: UIImageView!
-    @IBOutlet var lblTitle: UILabel!
     @IBOutlet var lblDescription: UILabel!
+    @IBOutlet weak var imgLiked: UIImageView!
 }

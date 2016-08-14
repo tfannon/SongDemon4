@@ -42,6 +42,31 @@ extension MPMediaItem {
         }
     }
     
+    var safeArtist: String {
+        if let ret = self.albumArtist {
+            return ret
+        }
+        if let ret = self.artist {
+            return ret
+        }
+        return ""
+    }
+    
+    var safeAlbum: String {
+        if let ret = self.albumTitle {
+            return ret
+        }
+        return ""
+    }
+    
+    var safeTitle: String {
+        return self.title ?? ""
+//        if let ret = self.title {
+//            return ret
+//        }
+//        return ""
+    }
+    
     //provides a way to persist
     var hashKey: String {
         return self.persistentID.description;

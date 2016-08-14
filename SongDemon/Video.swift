@@ -31,6 +31,11 @@ class Video: Mappable {
         artist <- map["artist"]
         url <- map["url"]
     }
+    
+    class func fromJson(jsonString: String) -> Video? {
+        return Mapper<Video>().map(jsonString)
+    }
+    
 }
 
 
