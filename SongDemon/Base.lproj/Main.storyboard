@@ -400,31 +400,49 @@
                                     <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ibi-TE-ZKX" userLabel="Video Image">
-                                            <frame key="frameInset" minX="8" minY="8" width="122" height="85"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ibi-TE-ZKX" userLabel="Video Image">
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="146" id="Sxw-qo-rbb"/>
+                                            </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXG-vY-Wpx" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                            <frame key="frameInset" minX="8" minY="8" width="146" height="85"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXG-vY-Wpx" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goatwhore - In Deathless Tradition" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="174" translatesAutoresizingMaskIntoConstraints="NO" id="Hgw-jW-eEj" userLabel="Description">
-                                            <frame key="frameInset" minX="162" minY="12" width="205" height="39"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goatwhore - In Deathless Tradition" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="174" translatesAutoresizingMaskIntoConstraints="NO" id="Hgw-jW-eEj" userLabel="Title">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="29" id="56a-7S-eYo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="black-red-note-120.png" translatesAutoresizingMaskIntoConstraints="NO" id="17i-nc-of9">
-                                            <frame key="frameInset" minX="343" minY="59" width="24" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black-red-note-120.png" translatesAutoresizingMaskIntoConstraints="NO" id="17i-nc-of9">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="32" id="d76-pe-CYl"/>
+                                                <constraint firstAttribute="height" constant="32" id="hGQ-hL-kvC"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GXG-vY-Wpx" firstAttribute="width" secondItem="ibi-TE-ZKX" secondAttribute="width" id="3e3-9z-xTw"/>
+                                        <constraint firstItem="GXG-vY-Wpx" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="-146" id="53v-Pg-Vbp"/>
+                                        <constraint firstItem="GXG-vY-Wpx" firstAttribute="height" secondItem="ibi-TE-ZKX" secondAttribute="height" id="bY2-XP-8ry"/>
+                                        <constraint firstItem="Hgw-jW-eEj" firstAttribute="top" secondItem="fEV-63-sgS" secondAttribute="topMargin" constant="4" id="iCY-7q-AKg"/>
+                                        <constraint firstItem="GXG-vY-Wpx" firstAttribute="top" secondItem="ibi-TE-ZKX" secondAttribute="bottom" constant="-85" id="wRi-a0-kit"/>
+                                        <constraint firstItem="Hgw-jW-eEj" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="3" id="yaz-lj-NS9"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="17i-nc-of9" firstAttribute="trailing" secondItem="HWx-oY-GmT" secondAttribute="trailing" constant="-8" id="0Pw-wA-kx8"/>
+                                    <constraint firstItem="ibi-TE-ZKX" firstAttribute="leading" secondItem="HWx-oY-GmT" secondAttribute="leading" constant="8" id="3BI-qk-bLd"/>
+                                    <constraint firstItem="ibi-TE-ZKX" firstAttribute="bottom" secondItem="HWx-oY-GmT" secondAttribute="bottom" constant="-7" id="GJE-Be-IsQ"/>
+                                    <constraint firstItem="ibi-TE-ZKX" firstAttribute="top" secondItem="HWx-oY-GmT" secondAttribute="top" constant="8" id="Pe8-Uj-qs4"/>
+                                    <constraint firstItem="Hgw-jW-eEj" firstAttribute="trailing" secondItem="HWx-oY-GmT" secondAttribute="trailing" constant="-8" id="arA-ID-INh"/>
+                                    <constraint firstItem="17i-nc-of9" firstAttribute="bottom" secondItem="HWx-oY-GmT" secondAttribute="bottom" constant="-17" id="iuz-kx-DLH"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="YouTubePlayer" destination="GXG-vY-Wpx" id="R9b-TV-rOa"/>
                                     <outlet property="imgIsInLibrary" destination="17i-nc-of9" id="stT-GY-LdA"/>
@@ -755,33 +773,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKk-Jd-mw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="517" y="1603"/>
-        </scene>
-        <!--Play Video Controller-->
-        <scene sceneID="sak-Ju-XzL">
-            <objects>
-                <viewController storyboardIdentifier="PlayVideoController" id="tcJ-zs-Lbk" customClass="PlayVideoController" customModule="SongDemon" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5ql-12-klo"/>
-                        <viewControllerLayoutGuide type="bottom" id="UbG-F9-XGW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="25g-go-15W">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bf-TR-R6e" userLabel="HeaderView">
-                                <frame key="frameInset" width="320" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eKe-nH-gve" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="395" y="993"/>
         </scene>
         <!--LyricsController-->
         <scene sceneID="V5l-cd-rGw">
