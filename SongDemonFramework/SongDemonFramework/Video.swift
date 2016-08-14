@@ -8,23 +8,24 @@
 import ObjectMapper
 
 public class Video: Mappable {
-    var id: String = ""
-    var title: String = ""
-    var artist: String = ""
-    var artworkUrl: String = ""
-    var bringIntoLibrary: Bool = false
+    public var id: String = ""
+    public var title: String = ""
+    public var artist: String = ""
+    public var artworkUrl: String = ""
+    public var bringIntoLibrary: Bool = false
     
-    var url: String {
+    public var url: String {
         get {
             return "https://www.youtube.com/watch?v=\(self.id)"
         }
     }
     
-    init() {
+    public init() {
     }
     
     //this will initialize it from youtube api
-    public init(json: JSON) {
+    public init(json: String) {
+        let json = JSON.parse(json)
         self.id = json["id"]["videoId"].string!
         self.artworkUrl = json["snippet"]["thumbnails"]["default"]["url"].string!
         self.title = json["snippet"]["title"].string!
@@ -49,16 +50,6 @@ public class Video: Mappable {
     
     public class func fromJson(_ jsonString: String) -> Video? {
         return Mapper<Video>().map(jsonString)
-    }
-    
-    //this will take the return of the YouTube API query and return a bunch of parsed videos
-    //the artist came from the current song and has to be supplied by the caller
-    public class func fromJson(_ json: JSON, artist: String = "") -> [Video] {
-        return json["items"].array!.map {
-            let vid = Video(json: $0)
-            vid.artist = artist
-            return vid
-        }
     }
 }
 
