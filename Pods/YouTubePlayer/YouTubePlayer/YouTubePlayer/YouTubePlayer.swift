@@ -62,7 +62,7 @@ private extension URL {
 }
 
 public func videoIDFromYouTubeURL(_ videoURL: URL) -> String? {
-    if let host = videoURL.host , videoURL.pathComponents.count > 1 && host.hasSuffix("youtu.be") {
+    if let host = videoURL.host, videoURL.pathComponents.count > 1 && host.hasSuffix("youtu.be") {
         return videoURL.pathComponents[1]
     }
     return videoURL.queryStringComponents()["v"] as? String
@@ -314,7 +314,7 @@ public class YouTubePlayerView: UIView, UIWebViewDelegate {
         let url = request.url
 
         // Check if ytplayer event and, if so, pass to handleJSEvent
-        if let url = url , url.scheme == "ytplayer" { handleJSEvent(url) }
+        if let url = url where url.scheme == "ytplayer" { handleJSEvent(url) }
 
         return true
     }

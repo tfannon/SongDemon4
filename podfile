@@ -1,14 +1,17 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 
-target 'SongDemonChat' do
+def shared_pods
     pod 'ObjectMapper', :git => 'https://github.com/Hearst-DD/ObjectMapper.git', :branch => 'swift-3'
+    pod 'YouTubePlayer'
+end
+
+target 'SongDemonChat' do
+    shared_pods
 end
 
 target 'SongDemon' do
     pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'swift3'
-
-
-    pod 'ObjectMapper', :git => 'https://github.com/Hearst-DD/ObjectMapper.git', :branch => 'swift-3'
+    shared_pods
 end
