@@ -56,7 +56,7 @@ class Videos {
                     }
                     let json = JSON(data: response.data!)
                     gVideos.state = .available
-                    gVideos.videos = Video.fromJson(json: json, artist: item.safeArtist)
+                    gVideos.videos = VideoLibrary.fromYouTube(json: json, artist: item.safeArtist)
                     if let first = gVideos.videos.first {
                         let vc = RootController.getPlayVideoController()
                         vc.load(first)
