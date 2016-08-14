@@ -15,9 +15,6 @@ class VideoLibrary: Mappable {
     var videos = [String:Video]()
     
     private init() {
-        if Utils.inSimulator {
-            VideoLibrary.createTestData()
-        }
         self.load()
     }
     
