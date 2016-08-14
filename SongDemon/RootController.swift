@@ -30,7 +30,7 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
         playlistController = self.storyboard!.instantiateViewController(withIdentifier: "PlaylistController") as! UITableViewController
         videoController = self.storyboard!.instantiateViewController(withIdentifier: "VideoListController") as! UITableViewController
 
-        controllers = [playlistController, mainController, lyricsController, videoController]
+        controllers = [playlistController, mainController, videoController, lyricsController]
 
         //set the initial controller to the main one
         let viewControllers : [UIViewController] = [mainController]
