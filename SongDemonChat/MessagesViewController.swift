@@ -16,7 +16,7 @@ class MessagesViewController: MSMessagesAppViewController {
     let testVideos =
         [
 
-            Video(id: "jIzC1ChqDU", artist: "AR Studios", title: "Daughters"),
+            Video(id: "_jIzC1ChqDU", artist: "AR Studios", title: "Daughters"),
             Video(id: "frdj1zb9sMY", artist: "Disney",  title: "Rogue Squadron")
 /*
             Video(artist: "AR Studios", title: "Daughters", url: "https://www.youtube.com/watch?v=_jIzC1ChqDU"),
@@ -73,7 +73,7 @@ class MessagesViewController: MSMessagesAppViewController {
         var items = [URLQueryItem]()
         for (index, video) in videos.enumerated() {
             items.append(URLQueryItem(name: "title-\(index)", value: video.title))
-            items.append(URLQueryItem(name: "url-\(index)", value: video.url))
+            items.append(URLQueryItem(name: "id-\(index)", value: video.id))
             items.append(URLQueryItem(name: "artist-\(index)", value: video.artist))
         }
         components.queryItems = items
@@ -155,7 +155,7 @@ class MessagesViewController: MSMessagesAppViewController {
         for i in stride(from: 0, through: queryItems.count - 1, by: 3) {
             let index = i / 3
             var title : String = ""
-            var url : String = ""
+            var id : String = ""
             var artist : String = ""
             
             for j in 0..<3 {
@@ -166,16 +166,17 @@ class MessagesViewController: MSMessagesAppViewController {
                 else if queryItem.name == "artist-\(index)" {
                     artist = queryItem.value ?? ""
                 }
-                else if queryItem.name == "url-\(index)" {
-                    url = queryItem.value ?? ""
+                else if queryItem.name == "id-\(index)" {
+                    id = queryItem.value ?? ""
                 }
             }
             
-            let video = Video(id: url, artist: artist, title: title)
+            let video = Video(id: id, artist: artist, title: title)
             videos.append(video)
         }
         
-        if let vc = showViewController(identifier: VideoViewControllerIdentifier) {               (vc as! VideoViewController).demonVideos = videos
+        if let vc = showViewController(identifier: VideoViewControllerIdentifier) {
+            (vc as! VideoViewController).demonVideos = videos
         }
     }
     
