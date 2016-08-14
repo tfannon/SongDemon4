@@ -13,7 +13,6 @@ class VideoCell: UITableViewCell, YouTubePlayerDelegate {
 
     @IBOutlet weak var liker: UIImageView!
     @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var imgLiked: UIView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
 
@@ -54,13 +53,20 @@ class VideoCell: UITableViewCell, YouTubePlayerDelegate {
         // Configure the view for the selected state
     }
     
+    private var alphaForBringIntoVideo : CGFloat {
+        get {
+            return (video.bringIntoLibrary) ? 1 : 0.25
+        }
+    }
+    
     func onLikedTapped() {
         video.bringIntoLibrary = !video.bringIntoLibrary
+        liker.alpha = self.alphaForBringIntoVideo
         if video.bringIntoLibrary {
-            liker.image = UIImage(named: "Heart Filled-50")
+            VideoLibrary.addVideo(video: video)
         }
         else {
-            liker.image = UIImage(named: "Heart-50")
+            VideoLibrary.removeVideo(video: video)
         }
     }
     
@@ -73,10 +79,18 @@ class VideoCell: UITableViewCell, YouTubePlayerDelegate {
     func load(video : Video) {
         recycle()
         self.video = video
+        // if the video is already in the library, mark
+        //  it as "bring into library" because it's already there!
+        if VideoLibrary.contains(id: video.id) {
+            video.bringIntoLibrary = true
+        }
+        // setup the UI
         if let url = URL(string: video.url) {
             player.loadVideoURL(url)
             label1.text = video.artist
             label2.text = video.title
+            liker.alpha = self.alphaForBringIntoVideo
+            liker.isHidden = false
         }
     }
     
@@ -84,6 +98,7 @@ class VideoCell: UITableViewCell, YouTubePlayerDelegate {
         player.clear()
         label1.text = ""
         label2.text = ""
+        liker.isHidden = true
     }
     
     // MARK: - YouTubePlayer
