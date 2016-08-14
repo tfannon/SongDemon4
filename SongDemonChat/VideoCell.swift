@@ -9,7 +9,7 @@
 import UIKit
 import YouTubePlayer
 
-class VideoCell: UITableViewCell {
+class VideoCell: UITableViewCell, YouTubePlayerDelegate {
 
     @IBOutlet weak var liker: UIImageView!
     @IBOutlet weak var playerView: UIView!
@@ -33,13 +33,20 @@ class VideoCell: UITableViewCell {
             "controls": "0",
             "showinfo": "0"
         ]
+        player.delegate = self
+        player.isUserInteractionEnabled = false
         
+        // tap gesture for the "keep" image
         self.liker.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onLikedTapped))
         tapGesture.numberOfTapsRequired = 1
         liker.addGestureRecognizer(tapGesture)
+        
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(onPlay))
+        tapGesture2.numberOfTapsRequired = 1
+        self.addGestureRecognizer(tapGesture2)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -53,6 +60,12 @@ class VideoCell: UITableViewCell {
         }
         else {
             liker.image = UIImage(named: "Heart-50")
+        }
+    }
+    
+    func onPlay() {
+        if (player.ready) {
+            player.play()
         }
     }
     
@@ -71,4 +84,13 @@ class VideoCell: UITableViewCell {
         label1.text = ""
         label2.text = ""
     }
+    
+    // MARK: - YouTubePlayer
+    func playerReady(_ videoPlayer: YouTubePlayerView) {
+    }
+    func playerStateChanged(_ videoPlayer: YouTubePlayerView, playerState: YouTubePlayerState) {
+    }
+    func playerQualityChanged(_ videoPlayer: YouTubePlayerView, playbackQuality:  YouTubePlaybackQuality) {
+    }
+    
 }
