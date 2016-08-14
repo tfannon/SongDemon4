@@ -403,45 +403,45 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ibi-TE-ZKX" userLabel="Video Image">
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="146" id="Sxw-qo-rbb"/>
+                                                <constraint firstAttribute="width" constant="130" id="Sxw-qo-rbb"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXG-vY-Wpx" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goatwhore - In Deathless Tradition" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="174" translatesAutoresizingMaskIntoConstraints="NO" id="Hgw-jW-eEj" userLabel="Title">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goatwhore - In Deathless Tradition" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="174" translatesAutoresizingMaskIntoConstraints="NO" id="Hgw-jW-eEj" userLabel="Title">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="29" id="56a-7S-eYo"/>
+                                                <constraint firstAttribute="height" constant="40" id="56a-7S-eYo"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black-red-note-120.png" translatesAutoresizingMaskIntoConstraints="NO" id="17i-nc-of9">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="32" id="d76-pe-CYl"/>
-                                                <constraint firstAttribute="height" constant="32" id="hGQ-hL-kvC"/>
+                                                <constraint firstAttribute="width" constant="24" id="d76-pe-CYl"/>
+                                                <constraint firstAttribute="height" constant="24" id="hGQ-hL-kvC"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="GXG-vY-Wpx" firstAttribute="width" secondItem="ibi-TE-ZKX" secondAttribute="width" id="3e3-9z-xTw"/>
                                         <constraint firstItem="GXG-vY-Wpx" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="-146" id="53v-Pg-Vbp"/>
+                                        <constraint firstItem="17i-nc-of9" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="5" id="Y6g-J4-7eB"/>
                                         <constraint firstItem="GXG-vY-Wpx" firstAttribute="height" secondItem="ibi-TE-ZKX" secondAttribute="height" id="bY2-XP-8ry"/>
                                         <constraint firstItem="Hgw-jW-eEj" firstAttribute="top" secondItem="fEV-63-sgS" secondAttribute="topMargin" constant="4" id="iCY-7q-AKg"/>
                                         <constraint firstItem="GXG-vY-Wpx" firstAttribute="top" secondItem="ibi-TE-ZKX" secondAttribute="bottom" constant="-85" id="wRi-a0-kit"/>
-                                        <constraint firstItem="Hgw-jW-eEj" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="3" id="yaz-lj-NS9"/>
+                                        <constraint firstItem="Hgw-jW-eEj" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="8" id="yaz-lj-NS9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="17i-nc-of9" firstAttribute="trailing" secondItem="HWx-oY-GmT" secondAttribute="trailing" constant="-8" id="0Pw-wA-kx8"/>
                                     <constraint firstItem="ibi-TE-ZKX" firstAttribute="leading" secondItem="HWx-oY-GmT" secondAttribute="leading" constant="8" id="3BI-qk-bLd"/>
                                     <constraint firstItem="ibi-TE-ZKX" firstAttribute="bottom" secondItem="HWx-oY-GmT" secondAttribute="bottom" constant="-7" id="GJE-Be-IsQ"/>
                                     <constraint firstItem="ibi-TE-ZKX" firstAttribute="top" secondItem="HWx-oY-GmT" secondAttribute="top" constant="8" id="Pe8-Uj-qs4"/>
                                     <constraint firstItem="Hgw-jW-eEj" firstAttribute="trailing" secondItem="HWx-oY-GmT" secondAttribute="trailing" constant="-8" id="arA-ID-INh"/>
-                                    <constraint firstItem="17i-nc-of9" firstAttribute="bottom" secondItem="HWx-oY-GmT" secondAttribute="bottom" constant="-17" id="iuz-kx-DLH"/>
+                                    <constraint firstItem="17i-nc-of9" firstAttribute="bottom" secondItem="HWx-oY-GmT" secondAttribute="bottom" constant="-25" id="iuz-kx-DLH"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="YouTubePlayer" destination="GXG-vY-Wpx" id="R9b-TV-rOa"/>

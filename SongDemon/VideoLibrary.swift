@@ -29,14 +29,14 @@ class VideoLibrary: Mappable {
         return sharedInstance.videos.values.map { x in x }
     }
     
-    class func removeVideos() {
-        sharedInstance.videos.removeAll()
-    }
-    
-    class func addVideo(id: String, artist: String, title: String) -> Video {
-        let v = Video(id: id, artist: artist, title: title)
+    class func addVideo(id: String, artist: String, title: String, artworkUrl: String = "") -> Video {
+        let v = Video(id: id, artist: artist, title: title, artworkUrl: artworkUrl)
         sharedInstance.videos[id] = v
         return v
+    }
+
+    class func removeVideos() {
+        sharedInstance.videos.removeAll()
     }
     
     class func addVideo(video: Video) {
@@ -100,13 +100,12 @@ class VideoLibrary: Mappable {
         }
     }
     
-    private class func createTestData() {
+    class func createTestData() {
         //don't accidentally kill real data
         if Utils.inSimulator {
             sharedInstance.clear()
-            _ = VideoLibrary.addVideo(id: "5C-W3Tq-zgM", artist: "Inquisition", title: "Power From the Center of the Cosmic Black Spiral")
-            _ = VideoLibrary.addVideo(id: "w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013")
-            sharedInstance.save()
+            _ = VideoLibrary.addVideo(id: "2XsEmI0pidA", artist: "Inquisition", title: "Inquisition - Desolate Funeral Chant (Cambridge,MA 4/28/12)", artworkUrl: "https://i.ytimg.com/vi/2XsEmI0pidA/default.jpg")
+            _ = VideoLibrary.addVideo(id: "w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013", artworkUrl: "https://i.ytimg.com/vi/w5qmjNe7RVE/default.jpg" )
         }
     }
 }
