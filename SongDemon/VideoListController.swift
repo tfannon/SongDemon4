@@ -26,12 +26,16 @@ class VideoListController : UITableViewController {
         self.refreshControl?.tintColor = UIColor.white
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl?.addTarget(self, action: #selector(VideoListController.refresh(_:)), for: UIControlEvents.valueChanged)
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
         self.tableView.addGestureRecognizer(longPress)
+        
+        if Utils.inSimulator {
+            data = Array(VideoLibrary.sharedInstance.videos.values)
+        }
     }
     
     func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
@@ -60,6 +64,10 @@ class VideoListController : UITableViewController {
         }
     }
     
+    func queueVideo(_ video: Video) {
+        
+    }
+    
     override var shouldAutorotate: Bool {
         return false
     }
@@ -69,8 +77,8 @@ class VideoListController : UITableViewController {
         redrawList()
     }
     
+    //todo: refetch videos based just on artist name
     func refresh(_ sender:AnyObject) {
-        //TODO: change this to go fetch the next
         self.refreshControl?.endRefreshing()
     }
     
@@ -96,17 +104,15 @@ class VideoListController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let video = self.data[indexPath.row]
-        //print ("Title:\(video.title)")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
-        cell.lblDescription.text = video.title
-        //hide the song icon if the library does not contain the video
-        cell.imgLiked.isHidden = !VideoLibrary.contains(id: video.id)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "YouTubeCell", for: indexPath) as! YouTubeCell
+        //the load method will paint the cell as needed
+        cell.load(video: video)
 
-        //this runs but is laggy
-        if let url = URL(string: video.artworkUrl),
-            let data = NSData(contentsOf: url) {
-            cell.imgVideo.image = UIImage(data: data as Data)
-        }
+//        //this runs but is laggy
+//        if let url = URL(string: video.artworkUrl),
+//            let data = NSData(contentsOf: url) {
+//            cell.imgVideo.image = UIImage(data: data as Data)
+//        }
         
         /* async fetch needs to cache the images so not refetching when it rolls back
         cell.imgVideo.image = nil
@@ -122,12 +128,14 @@ class VideoListController : UITableViewController {
         return cell
     }
     
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let video = self.data[indexPath.row]
         let vc = RootController.getPlayVideoController()
         vc.load(video)
         RootController.switchToPlayVideoController()
     }
+    */
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

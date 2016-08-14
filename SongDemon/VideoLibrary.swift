@@ -61,8 +61,9 @@ class VideoLibrary: Mappable {
     func fromJson(jsonString: String) -> VideoLibrary? {
         return Mapper<VideoLibrary>().map(jsonString)
     }
-    
-    //don't expose this to outside.  persistance should be handled internally to this class
+
+    // MARK: - persistance - don't expose to outside
+
     private func save() {
         let defaults = Utils.AppGroupDefaults
         let json = VideoLibrary.toJson()
@@ -71,19 +72,19 @@ class VideoLibrary: Mappable {
     
     private func load() {
         let defaults = Utils.AppGroupDefaults
-        print ("loading videos")
         if let json = defaults.string(forKey: VIDEOS),
             let library = self.fromJson(jsonString: json) {
             self.videos = library.videos
             self.videos.forEach { result in
-                print (result.value.title)
+                print ("\(result.value.id) : \(result.value.title)")
             }
         }
     }
     
-    class func reload() {
-        sharedInstance.load()
+    private func clear() {
+        videos.removeAll()
     }
+    
     
     //this will take the return of the YouTube API query and return a bunch of parsed videos
     //the artist came from the current song and has to be supplied by the caller
@@ -92,6 +93,16 @@ class VideoLibrary: Mappable {
             let vid = Video(json: $0)
             vid.artist = artist
             return vid
+        }
+    }
+    
+    private class func createTestData() {
+        //don't accidentally kill real data
+        if Utils.inSimulator {
+            sharedInstance.clear()
+            _ = VideoLibrary.addVideo(id: "5C-W3Tq-zgM", artist: "Inquisition", title: "Power From the Center of the Cosmic Black Spiral")
+            _ = VideoLibrary.addVideo(id: "w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013")
+            sharedInstance.save()
         }
     }
 }
