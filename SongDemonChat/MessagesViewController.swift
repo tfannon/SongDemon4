@@ -12,13 +12,17 @@ import Messages
 class MessagesViewController: MSMessagesAppViewController, SelectorViewControllerDelegate {
     
     // MARK: - Fields
+    let MessageURLNamePrefix = "Video"
     let VideoViewControllerIdentifier : String = "VideoViewController"
     let SelectorViewController : String = "SelectorViewController"
     let testVideos =
         [
-
             Video(id: "_jIzC1ChqDU", artist: "AR Studios", title: "Daughters"),
-            Video(id: "frdj1zb9sMY", artist: "Disney",  title: "Rogue Squadron")
+            Video(id: "frdj1zb9sMY", artist: "Disney",  title: "Rogue Squadron"),
+            Video(id: "_OBlgSz8sSM", artist: "Charlie",  title: "Charlie Bit Me!"),
+            Video(id: "BIPCn-aYMoM", artist: "Cameron",  title: "Terminator Gun Scene"),
+            Video(id: "A_-KXsee5vA", artist: "Arthur",  title: "Moose"),
+            Video(id: "9V7zbWNznbs", artist: "Monty Python",  title: "French Taunting")
 /*
             Video(artist: "AR Studios", title: "Daughters", url: "https://www.youtube.com/watch?v=_jIzC1ChqDU"),
             Video(artist: "Disney", title: "Rogue Squadron", url: "https://www.youtube.com/watch?v=frdj1zb9sMY"),
@@ -72,9 +76,11 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
     }
     
     func onMisc() {
-        requestPresentationStyle(.expanded)
-        let vc = showViewController(identifier: VideoViewControllerIdentifier) as! VideoViewController
-        vc.videos = testVideos
+//        requestPresentationStyle(.expanded)
+//        let vc = showViewController(identifier: VideoViewControllerIdentifier) as! VideoViewController
+//        vc.videos = testVideos
+        VideoLibrary.removeVideos()
+        testVideos.forEach { x in VideoLibrary.addVideo(video: x) }
     }
     
     func onOpenMessage(conversation: MSConversation) {
@@ -92,7 +98,7 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
         // convert our information into URLQueryItem objects
         var components = URLComponents()
         var items = [URLQueryItem]()
-        items.append(URLQueryItem(name: "video", value: video.toJson()))
+        items.append(URLQueryItem(name: MessageURLNamePrefix, value: video.toJson()))
         components.queryItems = items
         
         // use the existing session or create a new one
@@ -116,6 +122,14 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
     }
     
     // MARK: - UI
+    func removeViewControllers() {
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+    }
+    
     func showViewController(identifier: String) -> UIViewController? {
         
         // create the child view controller
@@ -159,14 +173,17 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
 
         let videos =
             queryItems
-                .filter { x in x.value != nil }
+                .filter { x in x.name.hasPrefix(MessageURLNamePrefix) && x.value != nil }
                 .map { x in x.value! }
                 .map { x in Video.fromJson(jsonString: x) }
                 .filter { x in x != nil }
                 .map { x in x! }
-        
-        if let vc = showViewController(identifier: VideoViewControllerIdentifier) {
+
+        if videos.count > 0, let vc = showViewController(identifier: VideoViewControllerIdentifier) {
             (vc as! VideoViewController).videos = videos
+        }
+        else {
+            print ("no videos to show!")
         }
     }
     
