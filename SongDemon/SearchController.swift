@@ -17,7 +17,7 @@ class SearchController: UITabBarController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    var currentlyPlayingArtist : String?
+    var currentlyPlayingArtist: String?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +38,10 @@ class SearchController: UITabBarController {
         //a song may be playing that is not in our library
         if currentlyPlayingArtist != nil {
             searchAlbumController.selectedArtist = currentlyPlayingArtist!
-        }
-        if LibraryManager.hasArtist(currentlyPlayingArtist!) {
-            searchAlbumController.artistSelectedWithPicker = false
-            self.selectedIndex = 1
+            if LibraryManager.hasArtist(currentlyPlayingArtist!) {
+                searchAlbumController.artistSelectedWithPicker = false
+                self.selectedIndex = 1
+            }
         }
         else {
             self.selectedIndex = 0
