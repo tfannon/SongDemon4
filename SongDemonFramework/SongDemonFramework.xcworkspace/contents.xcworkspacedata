@@ -2,10 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SongDemonFramework/SongDemonFramework.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:SongDemon.xcodeproj">
+      location = "group:SongDemonFramework.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
