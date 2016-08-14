@@ -34,7 +34,7 @@ class VideoListController : UITableViewController {
         self.tableView.addGestureRecognizer(longPress)
         
         if Utils.inSimulator {
-            data = Array(VideoLibrary.sharedInstance.videos.values)
+            data = VideoLibrary.getVideos()
         }
     }
     

@@ -85,13 +85,11 @@ class VideoCell: UITableViewCell, YouTubePlayerDelegate {
             video.bringIntoLibrary = true
         }
         // setup the UI
-        if let url = URL(string: video.url) {
-            player.loadVideoURL(url)
-            label1.text = video.artist
-            label2.text = video.title
-            liker.alpha = self.alphaForBringIntoVideo
-            liker.isHidden = false
-        }
+        player.loadVideoID(video.id)
+        label1.text = video.artist
+        label2.text = video.title
+        liker.alpha = self.alphaForBringIntoVideo
+        liker.isHidden = false
     }
     
     func recycle() {

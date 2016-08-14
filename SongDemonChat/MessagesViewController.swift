@@ -9,10 +9,11 @@
 import UIKit
 import Messages
 
-class MessagesViewController: MSMessagesAppViewController {
+class MessagesViewController: MSMessagesAppViewController, SelectorViewControllerDelegate {
     
     // MARK: - Fields
     let VideoViewControllerIdentifier : String = "VideoViewController"
+    let SelectorViewController : String = "SelectorViewController"
     let testVideos =
         [
 
@@ -30,7 +31,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     // MARK: - Outlets & Actions
     @IBAction func shareVideos(_ sender: UIButton) {
-        onShareVideos()
+        onSelectVideoToShare()
     }
     @IBAction func doMisc(_ sender: UIButton) {
         onMisc()
@@ -57,25 +58,43 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     // MARK: - Events
+    private func onSelectVideoToShare() {
+        // return the extension to compact mode
+        requestPresentationStyle(.compact)
+        
+        // do a quick sanity check to make sure we have a conversation to work with
+        guard let _ = activeConversation else { return }
+
+        // get the vc
+        let vc = showViewController(identifier: SelectorViewController) as! SelectorViewController
+        vc.delegate = self
+        vc.videos = VideoLibrary.getVideos()
+    }
     
-    private func onShareVideos() {
+    func onMisc() {
+        requestPresentationStyle(.expanded)
+        let vc = showViewController(identifier: VideoViewControllerIdentifier) as! VideoViewController
+        vc.videos = testVideos
+    }
+    
+    func onOpenMessage(conversation: MSConversation) {
+        
+    }
+    
+    // MARK: - SelectorViewControllerDelegate
+    func shareVideo(video: Video) {
         // return the extension to compact mode
         requestPresentationStyle(.compact)
         
         // do a quick sanity check to make sure we have a conversation to work with
         guard let conversation = activeConversation else { return }
         
-        // populate a collection of URLs (test)
-        let videos = testVideos
-        
         // convert our information into URLQueryItem objects
         var components = URLComponents()
         var items = [URLQueryItem]()
-        for (index, video) in videos.enumerated() {
-            items.append(URLQueryItem(name: "video-\(index)", value: video.toJson()))
-        }
+        items.append(URLQueryItem(name: "video", value: video.toJson()))
         components.queryItems = items
-
+        
         // use the existing session or create a new one
         let session = conversation.selectedMessage?.session ?? MSSession()
         
@@ -96,23 +115,12 @@ class MessagesViewController: MSMessagesAppViewController {
         }
     }
     
-    func onMisc() {
-        requestPresentationStyle(.expanded)
-        let vc = showViewController(identifier: VideoViewControllerIdentifier) as! VideoViewController
-        vc.videos = testVideos
-    }
-    
-    func onOpenMessage(conversation: MSConversation) {
-        
-    }
-    
     // MARK: - UI
     func showViewController(identifier: String) -> UIViewController? {
         
         // create the child view controller
         guard let vc =
-            storyboard?.instantiateViewController(withIdentifier: identifier) as?
-            VideoViewController else { return nil }
+            storyboard?.instantiateViewController(withIdentifier: identifier) else { return nil }
         
         // add the child to the parent so that events are forwarded
         addChildViewController(vc)
