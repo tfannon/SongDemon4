@@ -29,6 +29,35 @@ class VideoListController : UITableViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        self.tableView.addGestureRecognizer(longPress)
+    }
+    
+    func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        let p = gestureRecognizer.location(in: self.tableView)
+        guard let indexPath = self.tableView.indexPathForRow(at: p) else { return }
+        if gestureRecognizer.state == .ended {
+            let video = data[indexPath.row]
+            let sheet = UIAlertController(title: "\(video.title)", message: "Choose an action for this video", preferredStyle: .actionSheet)
+            let isInLibrary = VideoLibrary.contains(id: video.id)
+            if isInLibrary {
+                let action = UIAlertAction(title: "Remove from library", style: .destructive) { result in
+                    VideoLibrary.removeVideo(video: video)
+                    self.redrawList()
+                }
+                sheet.addAction(action)
+            } else {
+                let action = UIAlertAction(title: "Add to library", style: .default) { result in
+                    VideoLibrary.addVideo(video: video)
+                    self.redrawList()
+                }
+                sheet.addAction(action)
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            sheet.addAction(cancel)
+            self.present(sheet, animated: true) { }
+        }
     }
     
     override var shouldAutorotate: Bool {

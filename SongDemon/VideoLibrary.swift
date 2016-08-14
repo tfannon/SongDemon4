@@ -33,6 +33,12 @@ class VideoLibrary: Mappable {
     
     class func addVideo(video: Video) {
         sharedInstance.videos[video.id] = video
+        sharedInstance.save()
+    }
+    
+    class func removeVideo(video: Video) {
+        sharedInstance.videos[video.id] = nil
+        sharedInstance.save()
     }
     
     class func contains(id: String) -> Bool {
@@ -52,7 +58,8 @@ class VideoLibrary: Mappable {
         return Mapper<VideoLibrary>().map(jsonString)
     }
     
-    class func save() {
+    //don't expose this to outside.  persistance should be handled internally to this class
+    private func save() {
         let defaults = Utils.AppGroupDefaults
         let json = VideoLibrary.toJson()
         defaults.set(json, forKey: VIDEOS)
