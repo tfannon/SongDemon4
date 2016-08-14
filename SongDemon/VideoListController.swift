@@ -101,15 +101,24 @@ class VideoListController : UITableViewController {
         cell.lblDescription.text = video.title
         //hide the song icon if the library does not contain the video
         cell.imgLiked.isHidden = !VideoLibrary.contains(id: video.id)
-        //blank the existing image before fetching image
-        cell.imageView?.image = nil
-        let imgURL = URL(string: video.artworkUrl)!
-        let task = URLSession.shared.dataTask(with: imgURL) { data, response, error in
-            if error == nil {
-                cell.imgVideo.image = UIImage(data: data!)
-            }
+
+        //this runs but is laggy
+        if let url = URL(string: video.artworkUrl),
+            let data = NSData(contentsOf: url) {
+            cell.imgVideo.image = UIImage(data: data as Data)
         }
-        task.resume()
+        
+        /* async fetch needs to cache the images so not refetching when it rolls back
+        cell.imgVideo.image = nil
+        if let url = URL(string: video.artworkUrl) {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                if error == nil {
+                    cell.imgVideo.image = UIImage(data: data!)
+                }
+            }
+            task.resume()
+        }
+        */
         return cell
     }
     

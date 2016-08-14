@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = VideoLibrary.addVideo(id: "w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013")
         
-        VideoLibrary.save()
         print (VideoLibrary.sharedInstance.videos.count)
         VideoLibrary.reload()
         print (VideoLibrary.sharedInstance.videos.count)
