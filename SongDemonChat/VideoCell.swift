@@ -13,6 +13,7 @@ class VideoCell: UITableViewCell {
 
     @IBOutlet weak var liker: UIImageView!
     @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var imgLiked: UIView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
 

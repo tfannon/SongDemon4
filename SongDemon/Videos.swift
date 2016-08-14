@@ -56,11 +56,7 @@ class Videos {
                     }
                     let json = JSON(data: response.data!)
                     gVideos.state = .available
-                    //todo: convert to a map
-                    for item in json["items"].array! {
-                        let vid = YouTubeVideo(json: item)
-                        gVideos.videos.append(vid)
-                    }
+                    gVideos.videos = YouTubeVideo.fromJson(json: json, artist: item.safeArtist)
                     if let first = gVideos.videos.first {
                         let vc = RootController.getPlayVideoController()
                         vc.load(first)

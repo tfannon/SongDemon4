@@ -26,6 +26,7 @@ class PlayVideoController : UIViewController {
     
     func load(_ video: YouTubeVideo) {
         let request = URLRequest(method: .get, urlString: video.url)
+        print ("loading: \(video.url)")
         myWeb.load(request)
     }
 }

@@ -67,11 +67,12 @@ class VideoListController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let video = self.data[indexPath.row]
-        print ("Title:\(video.title)")
+        //print ("Title:\(video.title)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
         cell.lblDescription.text = video.title
+        cell.imgLiked.isHidden = false
         //blank the existing image before fetching image
-        cell.imageView!.image = nil
+        cell.imageView?.image = nil
         let imgURL = URL(string: video.artworkUrl)!
         let task = URLSession.shared.dataTask(with: imgURL) { data, response, error in
             if error == nil {

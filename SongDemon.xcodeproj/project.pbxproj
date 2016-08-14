@@ -168,7 +168,7 @@
 		6598C6041D5EC12E00042FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6598C6061D5EC12E00042FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6598C60E1D5EC15900042FE6 /* SongDemonChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SongDemonChat.entitlements; sourceTree = "<group>"; };
-		6598C6101D5ECECA00042FE6 /* SongDemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SongDemon.entitlements; sourceTree = "<group>"; };
+		6598C6101D5ECECA00042FE6 /* SongDemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SongDemon.entitlements; path = ../SongDemon.entitlements; sourceTree = "<group>"; };
 		65CC2D851D5F674800C0E3A8 /* VideoLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoLibrary.swift; sourceTree = "<group>"; };
 		65CC2D871D5F675400C0E3A8 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		65E7C9191D57467700BBFFBD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -341,11 +341,11 @@
 			isa = PBXGroup;
 			children = (
 				65CC2D841D5F66AD00C0E3A8 /* DTOs */,
-				6598C6101D5ECECA00042FE6 /* SongDemon.entitlements */,
 				65E7C91B1D57467700BBFFBD /* Base.lproj */,
 				65E7C9221D57467700BBFFBD /* External */,
 				65E7C9321D57467700BBFFBD /* Resources */,
 				655CB79A1D5740F9005E0B78 /* Info.plist */,
+				65E7C91E1D57467700BBFFBD /* Main.storyboard */,
 				65E7C9191D57467700BBFFBD /* AppDelegate.swift */,
 				65E7C9201D57467700BBFFBD /* Constants.swift */,
 				65E7C9211D57467700BBFFBD /* Extensions.swift */,
@@ -428,8 +428,8 @@
 		65E7C91B1D57467700BBFFBD /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				6598C6101D5ECECA00042FE6 /* SongDemon.entitlements */,
 				65E7C91C1D57467700BBFFBD /* LaunchScreen.storyboard */,
-				65E7C91E1D57467700BBFFBD /* Main.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -927,6 +927,7 @@
 				65E7C91F1D57467700BBFFBD /* Base */,
 			);
 			name = Main.storyboard;
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
