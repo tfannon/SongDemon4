@@ -12,7 +12,7 @@ let VIDEOS = "Videos"
 class VideoLibrary: Mappable {
     static let sharedInstance = VideoLibrary()
     
-    var videos = [String:Video]()
+    private var videos = [String:Video]()
     
     private init() {
         self.load()
@@ -27,6 +27,10 @@ class VideoLibrary: Mappable {
     
     class func getVideos() -> [Video] {
         return sharedInstance.videos.values.map { x in x }
+    }
+    
+    class func removeVideos() {
+        sharedInstance.videos.removeAll()
     }
     
     class func addVideo(id: String, artist: String, title: String) -> Video {
