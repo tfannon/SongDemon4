@@ -64,7 +64,7 @@ class MessagesViewController: MSMessagesAppViewController {
         var items = [URLQueryItem]()
         for (index, video) in videos.enumerated() {
             items.append(URLQueryItem(name: "title-\(index)", value: video.title))
-            items.append(URLQueryItem(name: "link-\(index)", value: video.url))
+            items.append(URLQueryItem(name: "url-\(index)", value: video.url))
             items.append(URLQueryItem(name: "artist-\(index)", value: video.artist))
         }
         components.queryItems = items
@@ -91,36 +91,41 @@ class MessagesViewController: MSMessagesAppViewController {
     
     func onMisc() {
         requestPresentationStyle(.expanded)
-        showViewController(identifier: VideoViewControllerIdentifier)
+        let vc = showViewController(identifier: VideoViewControllerIdentifier) as! VideoViewController
+        vc.demonVideos = testVideos
+    }
+    
+    func onOpenMessage(conversation: MSConversation) {
+        
     }
     
     // MARK: - UI
-    func showViewController(identifier: String) {
+    func showViewController(identifier: String) -> UIViewController? {
         
-        // 1: create the child view controller
+        // create the child view controller
         guard let vc =
             storyboard?.instantiateViewController(withIdentifier: identifier) as?
-            VideoViewController else { return }
+            VideoViewController else { return nil }
         
-        // 2: add the child to the parent so that events are forwarded
+        // add the child to the parent so that events are forwarded
         addChildViewController(vc)
         
-        // 3: give the child a meaningful frame: make it fill our view
+        // give the child a meaningful frame: make it fill our view
         vc.view.frame = view.bounds
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vc.view)
         
-        // 4: add Auto Layout constraints so the child view fills the full view
+        // add Auto Layout constraints so the child view fills the full view
         vc.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         vc.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         vc.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         vc.view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
         
-        // 5: tell the child it has now moved to a new parent view controller
+        // tell the child it has now moved to a new parent view controller
         vc.didMove(toParentViewController: self)
-
-        // 1a: load & delegate so we get info from event controller
-        vc.demonVideos = testVideos
+        
+        // return it
+        return vc
     }
     
     // MARK: - Conversation Handling
@@ -130,6 +135,39 @@ class MessagesViewController: MSMessagesAppViewController {
         // This will happen when the extension is about to present UI.
         
         // Use this method to configure the extension and restore previously stored state.
+
+        guard let message = conversation.selectedMessage else { return }
+        guard let messageURL = message.url else { return }
+        guard let urlComponents = NSURLComponents(url: messageURL,
+                                                  resolvingAgainstBaseURL: false) else { return }
+        guard let queryItems = urlComponents.queryItems else { return }
+
+        var videos : [Video] = []
+        for i in stride(from: 0, through: queryItems.count - 1, by: 3) {
+            let index = i / 3
+            var title : String = ""
+            var url : String = ""
+            var artist : String = ""
+            
+            for j in 0..<3 {
+                let queryItem = queryItems[i + j]
+                if queryItem.name == "title-\(index)" {
+                    title = queryItem.value ?? ""
+                }
+                else if queryItem.name == "artist-\(index)" {
+                    artist = queryItem.value ?? ""
+                }
+                else if queryItem.name == "url-\(index)" {
+                    url = queryItem.value ?? ""
+                }
+            }
+            
+            let video = Video(artist: artist, title: title, url: url)
+            videos.append(video)
+        }
+        
+        if let vc = showViewController(identifier: VideoViewControllerIdentifier) {               (vc as! VideoViewController).demonVideos = videos
+        }
     }
     
     override func didResignActive(with conversation: MSConversation) {
