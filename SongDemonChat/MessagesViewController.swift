@@ -99,7 +99,7 @@ class MessagesViewController: MSMessagesAppViewController {
     func onMisc() {
         requestPresentationStyle(.expanded)
         let vc = showViewController(identifier: VideoViewControllerIdentifier) as! VideoViewController
-        vc.demonVideos = testVideos
+        vc.videos = testVideos
     }
     
     func onOpenMessage(conversation: MSConversation) {
@@ -158,7 +158,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 .map { x in x! }
         
         if let vc = showViewController(identifier: VideoViewControllerIdentifier) {
-            (vc as! VideoViewController).demonVideos = videos
+            (vc as! VideoViewController).videos = videos
         }
     }
     
