@@ -25,6 +25,10 @@ class VideoLibrary: Mappable {
         videos <- map["videos"]
     }
     
+    class func getVideos() -> [Video] {
+        return sharedInstance.videos.values.map { x in x }
+    }
+    
     class func addVideo(id: String, artist: String, title: String) -> Video {
         let v = Video(id: id, artist: artist, title: title)
         sharedInstance.videos[id] = v
