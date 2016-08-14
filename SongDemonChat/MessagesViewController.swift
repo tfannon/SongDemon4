@@ -15,8 +15,17 @@ class MessagesViewController: MSMessagesAppViewController {
     let VideoViewControllerIdentifier : String = "VideoViewController"
     let testVideos =
         [
+
             Video(id: "jIzC1ChqDU", artist: "AR Studios", title: "Daughters"),
             Video(id: "frdj1zb9sMY", artist: "Disney",  title: "Rogue Squadron")
+/*
+            Video(artist: "AR Studios", title: "Daughters", url: "https://www.youtube.com/watch?v=_jIzC1ChqDU"),
+            Video(artist: "Disney", title: "Rogue Squadron", url: "https://www.youtube.com/watch?v=frdj1zb9sMY"),
+            Video(artist: "Charlie", title: "Charlie Bit Me!", url: "https://www.youtube.com/watch?v=_OBlgSz8sSM"),
+            Video(artist: "Cameron", title: "Terminator Gun Scene", url: "https://www.youtube.com/watch?v=BIPCn-aYMoM"),
+            Video(artist: "Arthur", title: "Moose", url: "https://www.youtube.com/watch?v=A_-KXsee5vA"),
+            Video(artist: "Monty Python", title: "French Taunting", url: "https://www.youtube.com/watch?v=9V7zbWNznbs")
+*/
         ]
     
     // MARK: - Outlets & Actions
