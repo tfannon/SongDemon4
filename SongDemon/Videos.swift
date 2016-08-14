@@ -27,7 +27,7 @@ class Videos {
     var needsRefresh = true
     //we store this because if the one coming in is the same, its a noop
     var currentUrl = ""
-    var videos = [YouTubeVideo]()
+    var videos = [Video]()
     
     class func fetchVideos(for song: MPMediaItem?) {
         guard let item = song else { return }
@@ -56,7 +56,7 @@ class Videos {
                     }
                     let json = JSON(data: response.data!)
                     gVideos.state = .available
-                    gVideos.videos = YouTubeVideo.fromJson(json: json, artist: item.safeArtist)
+                    gVideos.videos = Video.fromJson(json: json, artist: item.safeArtist)
                     if let first = gVideos.videos.first {
                         let vc = RootController.getPlayVideoController()
                         vc.load(first)

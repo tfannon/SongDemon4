@@ -15,8 +15,8 @@ class MessagesViewController: MSMessagesAppViewController {
     let VideoViewControllerIdentifier : String = "VideoViewController"
     let testVideos =
         [
-            Video(artist: "AR Studios", title: "Daughters", url: "https://www.youtube.com/watch?v=_jIzC1ChqDU"),
-            Video(artist: "Disney", title: "Rogue Squadron", url: "https://www.youtube.com/watch?v=frdj1zb9sMY")
+            Video(id: "jIzC1ChqDU", artist: "AR Studios", title: "Daughters"),
+            Video(id: "frdj1zb9sMY", artist: "Disney",  title: "Rogue Squadron")
         ]
     
     // MARK: - Outlets & Actions
@@ -162,7 +162,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 }
             }
             
-            let video = Video(artist: artist, title: title, url: url)
+            let video = Video(id: url, artist: artist, title: title)
             videos.append(video)
         }
         

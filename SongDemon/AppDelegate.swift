@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func testVideos() {
-        _ = VideoLibrary.addVideo(url: "https://www.youtube.com/watch?v=5C-W3Tq-zgM", artist: "Inquisition", title: "Power From the Center of the Cosmic Black Spiral")
+        _ = VideoLibrary.addVideo(id: "5C-W3Tq-zgM", artist: "Inquisition", title: "Power From the Center of the Cosmic Black Spiral")
         
-        _ = VideoLibrary.addVideo(url: "https://www.youtube.com/watch?v=w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013")
+        _ = VideoLibrary.addVideo(id: "w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013")
         
         VideoLibrary.save()
         print (VideoLibrary.sharedInstance.videos.count)
@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         setupAppearance()
+        //testVideos()
         Async.background {
             LibraryManager.scanLibrary()
         }

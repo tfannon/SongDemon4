@@ -12,7 +12,7 @@ import WebKit
 class PlayVideoController : UIViewController {
     
     var myWeb = WKWebView()
-    var currentVideo: YouTubeVideo?
+    var currentVideo: Video?
   
     override var shouldAutorotate: Bool {
         return true
@@ -24,7 +24,7 @@ class PlayVideoController : UIViewController {
         self.view.addSubview(myWeb)
     }
     
-    func load(_ video: YouTubeVideo) {
+    func load(_ video: Video) {
         let request = URLRequest(method: .get, urlString: video.url)
         print ("loading: \(video.url)")
         myWeb.load(request)

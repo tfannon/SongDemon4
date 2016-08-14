@@ -12,7 +12,7 @@ class VideoListController : UITableViewController {
     
     @IBOutlet var lblHeader: UILabel!
     
-    var data = [YouTubeVideo]()
+    var data = [Video]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,8 @@ class VideoListController : UITableViewController {
         //print ("Title:\(video.title)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
         cell.lblDescription.text = video.title
-        cell.imgLiked.isHidden = false
+        //hide the song icon if the library does not contain the video
+        cell.imgLiked.isHidden = !VideoLibrary.contains(id: video.id)
         //blank the existing image before fetching image
         cell.imageView?.image = nil
         let imgURL = URL(string: video.artworkUrl)!

@@ -25,19 +25,22 @@ class VideoLibrary: Mappable {
         videos <- map["videos"]
     }
     
-    class func addVideo(url: String, artist: String, title: String) -> Video {
-        let v = Video(artist: artist, title: title, url: url)
-        sharedInstance.videos[url] = v
+    class func addVideo(id: String, artist: String, title: String) -> Video {
+        let v = Video(id: id, artist: artist, title: title)
+        sharedInstance.videos[id] = v
         return v
     }
     
-    class func addVideo(url: String, video: Video) {
-        sharedInstance.videos[url] = video
+    class func addVideo(video: Video) {
+        sharedInstance.videos[video.id] = video
     }
     
+    class func contains(id: String) -> Bool {
+        return sharedInstance.videos[id] != nil
+    }
     
-    class func getVideo(url: String) -> Video? {
-        return sharedInstance.videos[url]
+    class func get(id: String) -> Video? {
+        return sharedInstance.videos[id]
     }
     
     class func toJson(prettyPrint: Bool = false) -> String {
@@ -57,9 +60,13 @@ class VideoLibrary: Mappable {
     
     private func load() {
         let defaults = Utils.AppGroupDefaults
+        print ("loading videos")
         if let json = defaults.string(forKey: VIDEOS),
             let library = self.fromJson(jsonString: json) {
             self.videos = library.videos
+            self.videos.forEach { result in
+                print (result.value.title)
+            }
         }
     }
     
