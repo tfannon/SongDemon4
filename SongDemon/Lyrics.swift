@@ -34,7 +34,7 @@ class Lyrics {
             }
             else {
                 print("Not enough info available for lyric fetch")
-                gVideos.State = .notAvailable
+                gLyrics.State = .notAvailable
                 return
             }
         }

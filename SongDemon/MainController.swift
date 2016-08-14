@@ -493,7 +493,7 @@ class MainController: UIViewController, LibraryScanListener {
             return
         }
         Async.background {
-            Videos.fetchVideosFor(MusicPlayer.currentSong)
+            Videos.fetchVideos(for: MusicPlayer.currentSong)
         }
     }
     
