@@ -11,7 +11,7 @@ import UIKit
 class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Fields 
-    var demonVideos : [Video] = [] {
+    var videos : [Video] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -42,7 +42,7 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection
         section: Int) -> Int {
-        return demonVideos.count
+        return videos.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,7 +59,7 @@ class VideoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
         let videoCell = cell as! VideoCell
-        let video = demonVideos[indexPath.row]
+        let video = videos[indexPath.row]
         videoCell.load(video: video)
     }
     

@@ -72,9 +72,7 @@ class MessagesViewController: MSMessagesAppViewController {
         var components = URLComponents()
         var items = [URLQueryItem]()
         for (index, video) in videos.enumerated() {
-            items.append(URLQueryItem(name: "title-\(index)", value: video.title))
-            items.append(URLQueryItem(name: "id-\(index)", value: video.id))
-            items.append(URLQueryItem(name: "artist-\(index)", value: video.artist))
+            items.append(URLQueryItem(name: "video-\(index)", value: video.toJson()))
         }
         components.queryItems = items
 
@@ -101,7 +99,7 @@ class MessagesViewController: MSMessagesAppViewController {
     func onMisc() {
         requestPresentationStyle(.expanded)
         let vc = showViewController(identifier: VideoViewControllerIdentifier) as! VideoViewController
-        vc.demonVideos = testVideos
+        vc.videos = testVideos
     }
     
     func onOpenMessage(conversation: MSConversation) {
@@ -151,32 +149,16 @@ class MessagesViewController: MSMessagesAppViewController {
                                                   resolvingAgainstBaseURL: false) else { return }
         guard let queryItems = urlComponents.queryItems else { return }
 
-        var videos : [Video] = []
-        for i in stride(from: 0, through: queryItems.count - 1, by: 3) {
-            let index = i / 3
-            var title : String = ""
-            var id : String = ""
-            var artist : String = ""
-            
-            for j in 0..<3 {
-                let queryItem = queryItems[i + j]
-                if queryItem.name == "title-\(index)" {
-                    title = queryItem.value ?? ""
-                }
-                else if queryItem.name == "artist-\(index)" {
-                    artist = queryItem.value ?? ""
-                }
-                else if queryItem.name == "id-\(index)" {
-                    id = queryItem.value ?? ""
-                }
-            }
-            
-            let video = Video(id: id, artist: artist, title: title)
-            videos.append(video)
-        }
+        let videos =
+            queryItems
+                .filter { x in x.value != nil }
+                .map { x in x.value! }
+                .map { x in Video.fromJson(jsonString: x) }
+                .filter { x in x != nil }
+                .map { x in x! }
         
         if let vc = showViewController(identifier: VideoViewControllerIdentifier) {
-            (vc as! VideoViewController).demonVideos = videos
+            (vc as! VideoViewController).videos = videos
         }
     }
     

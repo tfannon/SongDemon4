@@ -88,7 +88,7 @@
                                                         <constraint firstAttribute="width" constant="160" id="Xru-ND-8Vq"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart-50" translatesAutoresizingMaskIntoConstraints="NO" id="cEF-RX-Eug">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black-red-note-120.png" translatesAutoresizingMaskIntoConstraints="NO" id="cEF-RX-Eug">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="Se3-jd-zlt"/>
                                                         <constraint firstAttribute="height" constant="50" id="WW5-EU-JPU"/>
@@ -154,6 +154,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Heart-50" width="50" height="50"/>
+        <image name="black-red-note-120.png" width="120" height="120"/>
     </resources>
 </document>
