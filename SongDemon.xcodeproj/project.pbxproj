@@ -93,7 +93,6 @@
 		65E7C9B71D57467800BBFFBD /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9661D57467700BBFFBD /* SearchController.swift */; };
 		65E7C9B81D57467800BBFFBD /* SongInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9671D57467700BBFFBD /* SongInfo.swift */; };
 		65E7C9B91D57467800BBFFBD /* TimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9681D57467700BBFFBD /* TimeStruct.swift */; };
-		65E7C9BA1D57467800BBFFBD /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9691D57467700BBFFBD /* UIHelpers.swift */; };
 		65E7C9BB1D57467800BBFFBD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96A1D57467700BBFFBD /* Utils.swift */; };
 		65E7C9BC1D57467800BBFFBD /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96B1D57467700BBFFBD /* VideoCell.swift */; };
 		65E7C9BD1D57467800BBFFBD /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96C1D57467700BBFFBD /* VideoListController.swift */; };
@@ -243,7 +242,6 @@
 		65E7C9661D57467700BBFFBD /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		65E7C9671D57467700BBFFBD /* SongInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongInfo.swift; sourceTree = "<group>"; };
 		65E7C9681D57467700BBFFBD /* TimeStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStruct.swift; sourceTree = "<group>"; };
-		65E7C9691D57467700BBFFBD /* UIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 		65E7C96A1D57467700BBFFBD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		65E7C96B1D57467700BBFFBD /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		65E7C96C1D57467700BBFFBD /* VideoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
@@ -370,7 +368,6 @@
 				65E7C9661D57467700BBFFBD /* SearchController.swift */,
 				65E7C9671D57467700BBFFBD /* SongInfo.swift */,
 				65E7C9681D57467700BBFFBD /* TimeStruct.swift */,
-				65E7C9691D57467700BBFFBD /* UIHelpers.swift */,
 				65E7C96A1D57467700BBFFBD /* Utils.swift */,
 				65E7C96B1D57467700BBFFBD /* VideoCell.swift */,
 				65E7C96C1D57467700BBFFBD /* VideoListController.swift */,
@@ -839,7 +836,6 @@
 				65E7C97F1D57467700BBFFBD /* PlaylistAlbumTitleCell.swift in Sources */,
 				65E7C9801D57467700BBFFBD /* PlaylistCell.swift in Sources */,
 				65E7C9BB1D57467800BBFFBD /* Utils.swift in Sources */,
-				65E7C9BA1D57467800BBFFBD /* UIHelpers.swift in Sources */,
 				65E7C9831D57467700BBFFBD /* Protocols.swift in Sources */,
 				65E7C9B61D57467800BBFFBD /* SearchArtistController.swift in Sources */,
 				65E7C9731D57467700BBFFBD /* Constants.swift in Sources */,

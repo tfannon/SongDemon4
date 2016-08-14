@@ -81,6 +81,16 @@ extension MPMediaItem {
     }
 }
 
+extension UIViewController {
+    func alert(title: String? = nil, message:String = "") {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in }))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+    }
+}
+
 extension UISlider {
     var timeValue : TimeStruct {
         get {

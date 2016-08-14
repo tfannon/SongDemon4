@@ -290,7 +290,7 @@ class MainController: UIViewController, LibraryScanListener {
             }
         }
         else {
-            UIHelpers.messageBox(message:"There are no songs in the playlist")
+            self.alert(message:"There are no songs in the playlist")
         }
         if message != nil {
             displayFadingStatus(message!)
