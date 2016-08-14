@@ -58,6 +58,10 @@ class VideoListController : UITableViewController {
                 }
                 sheet.addAction(action)
             }
+            let action = UIAlertAction(title: "Info", style: .default) { result in
+                print (video.toJson(prettyPrint: true))
+            }
+            sheet.addAction(action)
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
             sheet.addAction(cancel)
             self.present(sheet, animated: true) { }
