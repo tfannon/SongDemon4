@@ -37,6 +37,7 @@ class VideoCell: UITableViewCell {
         self.liker.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onLikedTapped))
         tapGesture.numberOfTapsRequired = 1
+        liker.addGestureRecognizer(tapGesture)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -57,6 +58,7 @@ class VideoCell: UITableViewCell {
     
     func load(video : Video) {
         recycle()
+        self.video = video
         if let url = URL(string: video.url) {
             player.loadVideoURL(url)
             label1.text = video.artist
