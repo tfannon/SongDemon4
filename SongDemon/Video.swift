@@ -51,14 +51,8 @@ class Video: Mappable {
         return Mapper<Video>().map(jsonString)
     }
     
-    //this will take the return of the YouTube API query and return a bunch of parsed videos
-    //the artist came from the current song and has to be supplied by the caller
-    class func fromJson(json: JSON, artist: String = "") -> [Video] {
-        return json["items"].array!.map {
-            let vid = Video(json: $0)
-            vid.artist = artist
-            return vid
-        }
+    func toJson(prettyPrint: Bool = true) -> String {
+        return Mapper().toJSONString(self, prettyPrint: prettyPrint)!
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		651310C71D60C87B00A476AF /* SearchVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651310C61D60C87B00A476AF /* SearchVideoController.swift */; };
 		65557B5E1D5747B8002F98F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65557B5D1D5747B8002F98F9 /* Default-568h@2x.png */; };
 		655826701D60373800ED3AD8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9241D57467700BBFFBD /* SwiftyJSON.swift */; };
 		655CB7961D5740F9005E0B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655CB7951D5740F9005E0B78 /* Assets.xcassets */; };
@@ -149,6 +150,7 @@
 		3AEFE761F2469AE01982CCA6 /* Pods-SongDemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon.release.xcconfig"; sourceTree = "<group>"; };
 		42EBC2441EA489A78D2E69DA /* Pods-SongDemonChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemonChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.debug.xcconfig"; sourceTree = "<group>"; };
 		4525F2785758C7B96637FC2A /* Pods-SongDemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon.debug.xcconfig"; sourceTree = "<group>"; };
+		651310C61D60C87B00A476AF /* SearchVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVideoController.swift; sourceTree = "<group>"; };
 		65557B5D1D5747B8002F98F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		655CB78B1D5740F9005E0B78 /* SongDemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongDemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		655CB7951D5740F9005E0B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				65E7C9631D57467700BBFFBD /* SearchAlbumTrackCell.swift */,
 				65E7C9641D57467700BBFFBD /* SearchArtistCell.swift */,
 				65E7C9651D57467700BBFFBD /* SearchArtistController.swift */,
+				651310C61D60C87B00A476AF /* SearchVideoController.swift */,
 				65E7C9661D57467700BBFFBD /* SearchController.swift */,
 				65E7C9671D57467700BBFFBD /* SongInfo.swift */,
 				65E7C9681D57467700BBFFBD /* TimeStruct.swift */,
@@ -827,6 +830,7 @@
 				65E7C97E1D57467700BBFFBD /* PlaylistAlbumSongCell.swift in Sources */,
 				65E7C9B41D57467800BBFFBD /* SearchAlbumTrackCell.swift in Sources */,
 				65E7C9B51D57467800BBFFBD /* SearchArtistCell.swift in Sources */,
+				651310C71D60C87B00A476AF /* SearchVideoController.swift in Sources */,
 				65E7C9791D57467700BBFFBD /* LibraryManager.swift in Sources */,
 				65E7C9B21D57467800BBFFBD /* SearchAlbumController.swift in Sources */,
 				65E7C9751D57467700BBFFBD /* Async.swift in Sources */,
