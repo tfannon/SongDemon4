@@ -14,7 +14,6 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
     var lyricsController: UIViewController!
     var playlistController: UITableViewController!
     var videoController: UITableViewController!
-    var playVideoController: UIViewController!
     var controllers : [UIViewController] = []
     var currentIndex = 1
     
@@ -30,9 +29,8 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
         lyricsController = self.storyboard!.instantiateViewController(withIdentifier: "LyricsController") 
         playlistController = self.storyboard!.instantiateViewController(withIdentifier: "PlaylistController") as! UITableViewController
         videoController = self.storyboard!.instantiateViewController(withIdentifier: "VideoListController") as! UITableViewController
-        playVideoController = self.storyboard!.instantiateViewController(withIdentifier: "PlayVideoController") 
 
-        controllers = [playlistController, mainController, lyricsController, videoController, playVideoController]
+        controllers = [playlistController, mainController, lyricsController, videoController]
 
         //set the initial controller to the main one
         let viewControllers : [UIViewController] = [mainController]
@@ -93,24 +91,9 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
         root.setViewControllers(viewControllers, direction: .forward, animated: false, completion: {done in })
     }
     
-    /*
-    class func switchToVideoListController() {
-        var app = UIApplication.sharedApplication().keyWindow.rootViewController as RootController
-        let viewControllers : [UIViewController] = [app.videoController]
-        app.setViewControllers(viewControllers, direction: .Forward, animated: false, completion: {done in })
-    }
-    */
-    
-    class func switchToPlayVideoController() {
+    class func getVideoController() -> VideoListController {
         let root = UIApplication.shared.keyWindow!.rootViewController as! RootController
-        root.currentIndex = 4
-        let viewControllers : [UIViewController] = [root.playVideoController]
-        root.setViewControllers(viewControllers, direction: .forward, animated: false, completion: {done in })
-    }
-    
-    class func getPlayVideoController() -> PlayVideoController {
-        let root = UIApplication.shared.keyWindow!.rootViewController as! RootController
-        return root.playVideoController as! PlayVideoController
+        return root.videoController as! VideoListController
     }
     
     class func getLyricsController() -> LyricsController {

@@ -13,10 +13,7 @@ class Utils {
     static var MIGRATED : String = "Migrated"
 
     class var inSimulator : Bool {
-        get {
-            let device = UIDevice.current.model
-            return NSString(string:device).contains("Simulator")
-        }
+        return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
     }
     
     //app group has been created in the ios provisioning portal

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		651310C71D60C87B00A476AF /* SearchVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651310C61D60C87B00A476AF /* SearchVideoController.swift */; };
+		651310C91D60F0C700A476AF /* YouTubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651310C81D60F0C700A476AF /* YouTubeCell.swift */; };
 		65557B5E1D5747B8002F98F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65557B5D1D5747B8002F98F9 /* Default-568h@2x.png */; };
 		655826701D60373800ED3AD8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9241D57467700BBFFBD /* SwiftyJSON.swift */; };
 		655CB7961D5740F9005E0B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655CB7951D5740F9005E0B78 /* Assets.xcassets */; };
@@ -39,7 +40,6 @@
 		65E7C97F1D57467700BBFFBD /* PlaylistAlbumTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C92D1D57467700BBFFBD /* PlaylistAlbumTitleCell.swift */; };
 		65E7C9801D57467700BBFFBD /* PlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C92E1D57467700BBFFBD /* PlaylistCell.swift */; };
 		65E7C9811D57467700BBFFBD /* PlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C92F1D57467700BBFFBD /* PlaylistController.swift */; };
-		65E7C9821D57467700BBFFBD /* PlayVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9301D57467700BBFFBD /* PlayVideoController.swift */; };
 		65E7C9831D57467700BBFFBD /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9311D57467700BBFFBD /* Protocols.swift */; };
 		65E7C9841D57467700BBFFBD /* 1176-bulleted-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C9331D57467700BBFFBD /* 1176-bulleted-list.png */; };
 		65E7C9851D57467700BBFFBD /* 1176-bulleted-list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C9341D57467700BBFFBD /* 1176-bulleted-list@2x.png */; };
@@ -95,7 +95,6 @@
 		65E7C9B81D57467800BBFFBD /* SongInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9671D57467700BBFFBD /* SongInfo.swift */; };
 		65E7C9B91D57467800BBFFBD /* TimeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9681D57467700BBFFBD /* TimeStruct.swift */; };
 		65E7C9BB1D57467800BBFFBD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96A1D57467700BBFFBD /* Utils.swift */; };
-		65E7C9BC1D57467800BBFFBD /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96B1D57467700BBFFBD /* VideoCell.swift */; };
 		65E7C9BD1D57467800BBFFBD /* VideoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96C1D57467700BBFFBD /* VideoListController.swift */; };
 		65E7C9BE1D57467800BBFFBD /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96D1D57467700BBFFBD /* Videos.swift */; };
 		65E7C9BF1D57467800BBFFBD /* videotemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C96E1D57467700BBFFBD /* videotemplate.html */; };
@@ -151,6 +150,7 @@
 		42EBC2441EA489A78D2E69DA /* Pods-SongDemonChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemonChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.debug.xcconfig"; sourceTree = "<group>"; };
 		4525F2785758C7B96637FC2A /* Pods-SongDemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon.debug.xcconfig"; sourceTree = "<group>"; };
 		651310C61D60C87B00A476AF /* SearchVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVideoController.swift; sourceTree = "<group>"; };
+		651310C81D60F0C700A476AF /* YouTubeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeCell.swift; sourceTree = "<group>"; };
 		65557B5D1D5747B8002F98F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		655CB78B1D5740F9005E0B78 /* SongDemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongDemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		655CB7951D5740F9005E0B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,7 +189,6 @@
 		65E7C92D1D57467700BBFFBD /* PlaylistAlbumTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistAlbumTitleCell.swift; sourceTree = "<group>"; };
 		65E7C92E1D57467700BBFFBD /* PlaylistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistCell.swift; sourceTree = "<group>"; };
 		65E7C92F1D57467700BBFFBD /* PlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
-		65E7C9301D57467700BBFFBD /* PlayVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoController.swift; sourceTree = "<group>"; };
 		65E7C9311D57467700BBFFBD /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		65E7C9331D57467700BBFFBD /* 1176-bulleted-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1176-bulleted-list.png"; sourceTree = "<group>"; };
 		65E7C9341D57467700BBFFBD /* 1176-bulleted-list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1176-bulleted-list@2x.png"; sourceTree = "<group>"; };
@@ -245,7 +244,6 @@
 		65E7C9671D57467700BBFFBD /* SongInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongInfo.swift; sourceTree = "<group>"; };
 		65E7C9681D57467700BBFFBD /* TimeStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStruct.swift; sourceTree = "<group>"; };
 		65E7C96A1D57467700BBFFBD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		65E7C96B1D57467700BBFFBD /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		65E7C96C1D57467700BBFFBD /* VideoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListController.swift; sourceTree = "<group>"; };
 		65E7C96D1D57467700BBFFBD /* Videos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
 		65E7C96E1D57467700BBFFBD /* videotemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = videotemplate.html; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 				65E7C92D1D57467700BBFFBD /* PlaylistAlbumTitleCell.swift */,
 				65E7C92E1D57467700BBFFBD /* PlaylistCell.swift */,
 				65E7C92F1D57467700BBFFBD /* PlaylistController.swift */,
-				65E7C9301D57467700BBFFBD /* PlayVideoController.swift */,
 				65E7C9311D57467700BBFFBD /* Protocols.swift */,
 				65E7C9601D57467700BBFFBD /* RootController.swift */,
 				65E7C9611D57467700BBFFBD /* SearchAlbumController.swift */,
@@ -372,11 +369,11 @@
 				65E7C9671D57467700BBFFBD /* SongInfo.swift */,
 				65E7C9681D57467700BBFFBD /* TimeStruct.swift */,
 				65E7C96A1D57467700BBFFBD /* Utils.swift */,
-				65E7C96B1D57467700BBFFBD /* VideoCell.swift */,
 				65E7C96C1D57467700BBFFBD /* VideoListController.swift */,
 				65E7C96D1D57467700BBFFBD /* Videos.swift */,
 				65E7C96E1D57467700BBFFBD /* videotemplate.html */,
 				655CB7951D5740F9005E0B78 /* Assets.xcassets */,
+				651310C81D60F0C700A476AF /* YouTubeCell.swift */,
 			);
 			path = SongDemon;
 			sourceTree = "<group>";
@@ -818,14 +815,13 @@
 				65CC2D861D5F674800C0E3A8 /* VideoLibrary.swift in Sources */,
 				65E7C9741D57467700BBFFBD /* Extensions.swift in Sources */,
 				65E7C9BE1D57467800BBFFBD /* Videos.swift in Sources */,
-				65E7C9BC1D57467800BBFFBD /* VideoCell.swift in Sources */,
+				651310C91D60F0C700A476AF /* YouTubeCell.swift in Sources */,
 				65E7C96F1D57467700BBFFBD /* AppDelegate.swift in Sources */,
 				65E7C97B1D57467700BBFFBD /* LyricsController.swift in Sources */,
 				65E7C97D1D57467700BBFFBD /* MusicPlayer.swift in Sources */,
 				65E7C9B11D57467800BBFFBD /* RootController.swift in Sources */,
 				65E7C9781D57467700BBFFBD /* ITunesUtils.swift in Sources */,
 				65E7C9B71D57467800BBFFBD /* SearchController.swift in Sources */,
-				65E7C9821D57467700BBFFBD /* PlayVideoController.swift in Sources */,
 				65CC2D881D5F675400C0E3A8 /* Video.swift in Sources */,
 				65E7C97E1D57467700BBFFBD /* PlaylistAlbumSongCell.swift in Sources */,
 				65E7C9B41D57467800BBFFBD /* SearchAlbumTrackCell.swift in Sources */,

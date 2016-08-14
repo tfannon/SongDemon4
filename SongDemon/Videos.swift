@@ -49,7 +49,7 @@ class Videos {
             gVideos.needsRefresh = true
             
             Alamofire.request(urlStr, withMethod: .get)
-                .responseString{ response in
+                .responseString { response in
                     guard response.result.isSuccess else {
                         gVideos.state = .notAvailable
                         return
@@ -58,8 +58,7 @@ class Videos {
                     gVideos.state = .available
                     gVideos.videos = VideoLibrary.fromYouTube(json: json, artist: item.safeArtist)
                     if let first = gVideos.videos.first {
-                        let vc = RootController.getPlayVideoController()
-                        vc.load(first)
+                        RootController.getVideoController().queueVideo(first)
                     }
             }
         }
