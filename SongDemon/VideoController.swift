@@ -9,8 +9,15 @@
 import UIKit
 
 enum VideoControllerMode {
-    case search
-    case list
+    case library
+    case youTubeSong
+    case youTubeArtist
+    
+    var isYouTube: Bool {
+        return self == VideoControllerMode.youTubeSong || self == VideoControllerMode.youTubeArtist
+    }
+    
+    static var `default` = VideoControllerMode.youTubeSong
 }
 
 class VideoController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -18,7 +25,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet var tableView: UITableView!
     
     var videos = [Video]()
-    var mode: VideoControllerMode = .list
+    var mode = VideoControllerMode.default
     
     // MARK: - UIViewController
     override func viewDidLoad() {
@@ -28,13 +35,6 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //empty cells wont create lines
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        
-        /*
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.tintColor = UIColor.white
-        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl?.addTarget(self, action: #selector(VideoController.refresh(_:)), for: UIControlEvents.valueChanged)
-        */
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
         self.tableView.addGestureRecognizer(longPress)
@@ -81,6 +81,13 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 print (video.toJson(prettyPrint: true))
             }
             sheet.addAction(action)
+            //if we are currently retrieving youtube videos keyed on song, change to key on just artist
+            if mode == .youTubeSong {
+                let action = UIAlertAction(title: "Search \(video.artist) Hits", style: .default) { result in
+                    print ("Now displaying most popular vids by \(video.artist)")
+                }
+                sheet.addAction(action)
+            }
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
             sheet.addAction(cancel)
             self.present(sheet, animated: true) { }
@@ -91,25 +98,15 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
     
-    
-    /*todo: refetch videos based just on artist name
-    func refresh(_ sender:AnyObject) {
-        self.refreshControl?.endRefreshing()
-    }
-    */
-    
     func redrawList() {
         //when its list mode, sort by artist
-        if mode == .search {
+        if mode == .library {
             self.videos = VideoLibrary.getVideos().sorted { vid in
                 return vid.0.artist < vid.1.artist
             }
         }
         else if gVideos.evaluateRefresh() {
             self.videos = gVideos.videos
-            if let _ = MusicPlayer.currentSong {
-                //self.navigationItem.title = "\(song.safeArtist) - \(song.safeTitle)"
-            }
         }
         tableView.reloadData()
     }
@@ -131,7 +128,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //the load method will paint the cell as needed
         cell.load(video: video)
         //dont show in library icon when displaying items from the library via search
-        cell.imgIsInLibrary.isHidden = self.mode == .search || !VideoLibrary.contains(id: video.id)
+        cell.imgIsInLibrary.isHidden = !self.mode.isYouTube || !VideoLibrary.contains(id: video.id)
         
         //todo: asynch fetch with cache
         cell.imgVideo.image = nil

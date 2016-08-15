@@ -16,7 +16,7 @@ class SearchController: UITabBarController {
     @IBAction func handleCancelClicked(_ sender: AnyObject) {
         self.dismiss(animated: false, completion: nil)
         //put the VideoController back into normal mode
-        RootController.getVideoController().mode = .list
+        RootController.getVideoController().mode = VideoControllerMode.default
     }
     
     var currentlyPlayingArtist: String?
@@ -36,7 +36,7 @@ class SearchController: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        RootController.getVideoController().mode = .search
+        RootController.getVideoController().mode = .library
         let searchAlbumController = self.viewControllers![1] as! SearchAlbumController
         //a song may be playing that is not in our library
         if currentlyPlayingArtist != nil {

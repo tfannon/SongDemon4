@@ -20,8 +20,11 @@ enum VideoState {
     case fetching
 }
 
+
 class Videos {
 
+    var currentUrl = ""
+    var videos = [Video]()
     var state = VideoState.fetching
 
     //the consumer of this will poll.  returning a positive answer will reset the flag
@@ -35,9 +38,6 @@ class Videos {
         }
         return false
     }
-
-    var currentUrl = ""
-    var videos = [Video]()
     
     class func fetchVideos(for song: MPMediaItem?) {
         guard let item = song else { return }
