@@ -171,10 +171,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! YouTubeCell
-        cell.play()
-        print(youTubePlayer.ready)
         youTubePlayer.loadVideoID(cell.video.id)
-        //youTubePlayer.play()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
