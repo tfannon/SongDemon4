@@ -23,9 +23,19 @@ enum VideoState {
 class Videos {
 
     var state = VideoState.fetching
-    //this signals the the catched list has changed and the VideoController will need to repaint
-    var needsRefresh = true
-    //we store this because if the one coming in is the same, its a noop
+
+    //the consumer of this will poll.  returning a positive answer will reset the flag
+    private var needsRefresh = true
+    func evaluateRefresh() -> Bool {
+        let retVal = needsRefresh && state == .available
+        if retVal {
+            print ("refreshing videos and resetting flag")
+            needsRefresh = false
+            return true
+        }
+        return false
+    }
+
     var currentUrl = ""
     var videos = [Video]()
     

@@ -10,48 +10,33 @@ import UIKit
 import YouTubePlayer
 
 class YouTubeCell: UITableViewCell, YouTubePlayerDelegate {
+
     @IBOutlet var imgVideo: UIImageView!
     @IBOutlet var lblDescription: UILabel!
     @IBOutlet weak var imgIsInLibrary: UIImageView!
     
     var YouTubePlayer = YouTubePlayerView()
     var video: Video!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        YouTubePlayer.playerVars = [
-//            "playsinline": "1",
-//            "controls": "0",
-//            "showinfo": "0"
-//        ]
-//        YouTubePlayer.delegate = self
-        //YouTubePlayer.isUserInteractionEnabled = false
+        YouTubePlayer.delegate = self
     }
 
-    
     func load(video: Video) {
         self.video = video
         self.lblDescription.text = video.title
-        //hide the song icon if the library does not contain the video
-        self.imgIsInLibrary.isHidden = !VideoLibrary.contains(id: video.id)
         self.YouTubePlayer.loadVideoID(video.id)
-        //this runs but is laggy
-        if let url = URL(string: video.artworkUrl),
-            let data = NSData(contentsOf: url) {
-            self.imgVideo.image = UIImage(data: data as Data)
-        }
     }
     
-    func onPlay() {
-        if (YouTubePlayer.ready) {
+    func play() {
+        if YouTubePlayer.ready {
             YouTubePlayer.play()
         }
     }
     
     // MARK: - YouTubePlayer
     func playerReady(_ videoPlayer: YouTubePlayerView) {
-        print ("ready to play")
     }
     func playerStateChanged(_ videoPlayer: YouTubePlayerView, playerState: YouTubePlayerState) {
     }

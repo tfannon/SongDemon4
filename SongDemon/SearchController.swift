@@ -36,7 +36,7 @@ class SearchController: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        RootController.getVideoController().mode = .list
+        RootController.getVideoController().mode = .search
         let searchAlbumController = self.viewControllers![1] as! SearchAlbumController
         //a song may be playing that is not in our library
         if currentlyPlayingArtist != nil {
