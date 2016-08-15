@@ -56,8 +56,10 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
         // -----------------------------------------------------------------
         // Test only
         // -----------------------------------------------------------------
-//        VideoLibrary.removeVideos()
-//        testVideos.forEach{ x in VideoLibrary.addVideo(video: x) }
+        if (Utils.inSimulator) {
+            VideoLibrary.removeVideos()
+            testVideos.forEach{ x in VideoLibrary.addVideo(video: x) }
+        }
         // -----------------------------------------------------------------
 
         label.layer.masksToBounds = true
@@ -177,6 +179,7 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
         let video = videos[indexPath.row]
         cell.textLabel?.text = video.artist
         cell.detailTextLabel?.text = video.title
+        cell.imageView?.image = video.getImage()
         
         return cell
     }

@@ -9,7 +9,7 @@
 import UIKit
 import YouTubePlayer
 
-protocol VideoControllerDelegate {
+protocol VideoControllerDelegate: class {
     func videoSelected()
 }
 
@@ -32,7 +32,7 @@ class VideoController: UIViewController {
             }
         }
     }
-    var delegate : VideoControllerDelegate?
+    weak var delegate : VideoControllerDelegate?
     
     private var youtubePlayer : YouTubePlayerView = YouTubePlayerView()
     
