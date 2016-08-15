@@ -25,11 +25,11 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet var tableView: UITableView!
     
     var videos = [Video]()
-    var mode = VideoControllerMode.default
+
     
     // MARK: - UIViewController
     override func viewDidLoad() {
-        print ("VideoController:\(#function):\(mode)")
+        print ("VideoController:\(#function):\(YouTubeVideoManager.videoControllerMode)")
         super.viewDidLoad()
         
         self.tableView.backgroundColor = UIColor.black
@@ -50,7 +50,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print ("VideoController:\(#function):\(mode)")
+        print ("VideoController:\(#function):\(YouTubeVideoManager.videoControllerMode)")
         super.viewWillAppear(animated)
         //this doesn't have a nav bar coming in from main view.  it only gets one from search view
         //we only do this so the elements are not hidden in the storyboard.  this is probably a hack
@@ -83,11 +83,12 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 print (video.toJson(prettyPrint: true))
             }
             sheet.addAction(action)
+            let mode = YouTubeVideoManager.videoControllerMode
             //if we are currently retrieving youtube videos keyed on song, change to key on just artist
             if mode == .youTubeSong {
                 let action = UIAlertAction(title: "More \(video.artist) videos", style: .default) { result in
                     print ("Now displaying most popular vids by \(video.artist)")
-                    self.mode = .youTubeArtist
+                    YouTubeVideoManager.videoControllerMode = .youTubeArtist
                     self.redrawList()
                 }
                 sheet.addAction(action)
@@ -95,7 +96,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
             else if mode == .youTubeArtist {
                 let action = UIAlertAction(title: "Videos for song", style: .default) { result in
                     print ("Now displaying vids by song")
-                    self.mode = .youTubeSong
+                    YouTubeVideoManager.videoControllerMode = .youTubeSong
                     self.redrawList()
                 }
                 sheet.addAction(action)
@@ -108,6 +109,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func redrawList() {
         //when its coming from library, sort by artist
+        let mode = YouTubeVideoManager.videoControllerMode
         if mode == .library {
             print ("getting videos from library")
             self.videos = VideoLibrary.getAll().sorted {
@@ -141,8 +143,9 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         cell.imgVideo.image = nil
         //the load method will paint the cell as needed
         cell.load(video: video)
+        let mode = YouTubeVideoManager.videoControllerMode
         //dont show in library icon when displaying items from the library via search
-        cell.imgIsInLibrary.isHidden = !self.mode.isYouTube || !VideoLibrary.contains(id: video.id)
+        cell.imgIsInLibrary.isHidden = !mode.isYouTube || !VideoLibrary.contains(id: video.id)
         
         //todo: asynch fetch with cache
         cell.imgVideo.image = nil
