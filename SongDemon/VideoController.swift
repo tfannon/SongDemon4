@@ -29,6 +29,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     // MARK: - UIViewController
     override func viewDidLoad() {
+        print ("VideoController:\(#function):\(mode)")
         super.viewDidLoad()
         
         self.tableView.backgroundColor = UIColor.black
@@ -84,8 +85,18 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
             sheet.addAction(action)
             //if we are currently retrieving youtube videos keyed on song, change to key on just artist
             if mode == .youTubeSong {
-                let action = UIAlertAction(title: "Search \(video.artist) Hits", style: .default) { result in
+                let action = UIAlertAction(title: "More \(video.artist) videos", style: .default) { result in
                     print ("Now displaying most popular vids by \(video.artist)")
+                    self.mode = .youTubeArtist
+                    self.redrawList()
+                }
+                sheet.addAction(action)
+            }
+            else if mode == .youTubeArtist {
+                let action = UIAlertAction(title: "Videos for song", style: .default) { result in
+                    print ("Now displaying vids by song")
+                    self.mode = .youTubeSong
+                    self.redrawList()
                 }
                 sheet.addAction(action)
             }
@@ -95,20 +106,21 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
-    func queueVideo(_ video: Video) {
-        
-    }
-    
     func redrawList() {
-        //when its list mode, sort by artist
+        //when its coming from library, sort by artist
         if mode == .library {
-            self.navigationController?.title = "Library Mode"
-            self.videos = VideoLibrary.getAll().sorted { vid in
-                return vid.0.artist < vid.1.artist
+            print ("getting videos from library")
+            self.videos = VideoLibrary.getAll().sorted {
+                return $0.0.artist < $0.1.artist
             }
         }
+        else if mode == .youTubeSong {
+            print ("getting videos from youtube by song")
+            self.videos = YouTubeVideoManager.videosForSong
+        }
         else {
-            self.videos = YouTubeVideoManager.getVideos()
+            print ("getting videos from youtube by artist")
+            self.videos = YouTubeVideoManager.videosForArtist
         }
         tableView.reloadData()
     }
