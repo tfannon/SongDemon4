@@ -28,7 +28,7 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
         mainController = self.storyboard!.instantiateViewController(withIdentifier: "MainController") as! MainController
         lyricsController = self.storyboard!.instantiateViewController(withIdentifier: "LyricsController") 
         playlistController = self.storyboard!.instantiateViewController(withIdentifier: "PlaylistController") as! UITableViewController
-        videoController = self.storyboard!.instantiateViewController(withIdentifier: "VideoListController") as! UITableViewController
+        videoController = self.storyboard!.instantiateViewController(withIdentifier: "VideoController") as! UITableViewController
 
         controllers = [playlistController, mainController, videoController, lyricsController]
 
@@ -91,9 +91,9 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
         root.setViewControllers(viewControllers, direction: .forward, animated: false, completion: {done in })
     }
     
-    class func getVideoController() -> VideoListController {
+    class func getVideoController() -> VideoController {
         let root = UIApplication.shared.keyWindow!.rootViewController as! RootController
-        return root.videoController as! VideoListController
+        return root.videoController as! VideoController
     }
     
     class func getLyricsController() -> LyricsController {

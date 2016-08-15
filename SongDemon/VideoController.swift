@@ -7,12 +7,13 @@
 //
 
 import UIKit
-enum Mode {
-    
+
+enum VideoControllerMode {
+    case search
+    case list
 }
-class VideoListController : UITableViewController {
-    
-    @IBOutlet var lblHeader: UILabel!
+
+class VideoController : UITableViewController {
     
     var data = [Video]()
 
@@ -27,7 +28,7 @@ class VideoListController : UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.tintColor = UIColor.white
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl?.addTarget(self, action: #selector(VideoListController.refresh(_:)), for: UIControlEvents.valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(VideoController.refresh(_:)), for: UIControlEvents.valueChanged)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -80,6 +81,9 @@ class VideoListController : UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //this doesn't have a nav bar coming in from main view.  it only gets one from search view
+        //we only do this so the elements are not hidden in the storyboard.  this is probably a hack
+        self.navigationController?.navigationBar.isHidden = true
         redrawList()
     }
     
@@ -89,13 +93,13 @@ class VideoListController : UITableViewController {
     }
     
     func redrawList(forceRefresh: Bool = false) {
-        lblHeader.text = ""
+        //self.navigationItem.title = "Testing"
         tableView.reloadData()
         if (gVideos.needsRefresh || forceRefresh) && gVideos.state == .available {
             self.data = gVideos.videos
             gVideos.needsRefresh = false
             if let song = MusicPlayer.currentSong {
-                lblHeader.text = "\(song.safeArtist) - \(song.safeTitle)"
+                navigationController?.title = "\(song.safeArtist) - \(song.safeTitle)"
             }
         }
     }
@@ -113,13 +117,6 @@ class VideoListController : UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "YouTubeCell", for: indexPath) as! YouTubeCell
         //the load method will paint the cell as needed
         cell.load(video: video)
-
-//        //this runs but is laggy
-//        if let url = URL(string: video.artworkUrl),
-//            let data = NSData(contentsOf: url) {
-//            cell.imgVideo.image = UIImage(data: data as Data)
-//        }
-        
         /* async fetch needs to cache the images so not refetching when it rolls back
         cell.imgVideo.image = nil
         if let url = URL(string: video.artworkUrl) {
@@ -137,18 +134,8 @@ class VideoListController : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! YouTubeCell
         cell.onPlay()
-        //tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    /*
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let video = self.data[indexPath.row]
-        let vc = RootController.getPlayVideoController()
-        vc.load(video)
-        RootController.switchToPlayVideoController()
-    }
-    */
-    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100

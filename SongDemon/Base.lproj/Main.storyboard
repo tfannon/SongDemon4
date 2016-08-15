@@ -210,7 +210,7 @@
                 <pageViewController storyboardIdentifier="RootController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0dw-RJ-QCg" userLabel="RootController" customClass="RootController" customModule="SongDemon" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byq-Df-Kjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-443" y="251"/>
+            <point key="canvasLocation" x="-589" y="132"/>
         </scene>
         <!--PlaylistController-->
         <scene sceneID="1kS-kk-1NF">
@@ -366,41 +366,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dA-Oa-nHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-443" y="873"/>
+            <point key="canvasLocation" x="-963" y="858"/>
         </scene>
-        <!--VideoListController-->
+        <!--VideoController-->
         <scene sceneID="M3q-yI-sti">
             <objects>
-                <tableViewController storyboardIdentifier="VideoListController" id="eml-f1-5Qd" userLabel="VideoListController" customClass="VideoListController" customModule="SongDemon" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="VideoController" id="eml-f1-5Qd" userLabel="VideoController" customClass="VideoController" customModule="SongDemon" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="w0g-kV-9Af">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="qFT-Tv-PWk">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lair of the Minotaur - Juggernaught of Metal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="304" translatesAutoresizingMaskIntoConstraints="NO" id="xfg-B4-IYe" userLabel="Video Title">
-                                    <frame key="frameInset" minX="8" minY="19" width="304" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="YouTubeCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="YouTubeCell" rowHeight="100" id="HWx-oY-GmT" userLabel="YouTubeCell" customClass="YouTubeCell" customModule="SongDemon" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="82" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="86" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWx-oY-GmT" id="fEV-63-sgS" userLabel="View">
                                     <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ibi-TE-ZKX" userLabel="Video Image">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GoatwhoreLastFM.png" translatesAutoresizingMaskIntoConstraints="NO" id="ibi-TE-ZKX" userLabel="Video Image">
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="130" id="Sxw-qo-rbb"/>
@@ -425,10 +410,10 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="GXG-vY-Wpx" firstAttribute="width" secondItem="ibi-TE-ZKX" secondAttribute="width" id="3e3-9z-xTw"/>
                                         <constraint firstItem="GXG-vY-Wpx" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="-146" id="53v-Pg-Vbp"/>
+                                        <constraint firstAttribute="trailing" secondItem="GXG-vY-Wpx" secondAttribute="trailing" constant="382" id="UXj-dM-XIl"/>
                                         <constraint firstItem="17i-nc-of9" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="5" id="Y6g-J4-7eB"/>
-                                        <constraint firstItem="GXG-vY-Wpx" firstAttribute="height" secondItem="ibi-TE-ZKX" secondAttribute="height" id="bY2-XP-8ry"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GXG-vY-Wpx" secondAttribute="bottom" constant="82" id="fAX-Zr-S3K"/>
                                         <constraint firstItem="Hgw-jW-eEj" firstAttribute="top" secondItem="fEV-63-sgS" secondAttribute="topMargin" constant="4" id="iCY-7q-AKg"/>
                                         <constraint firstItem="GXG-vY-Wpx" firstAttribute="top" secondItem="ibi-TE-ZKX" secondAttribute="bottom" constant="-85" id="wRi-a0-kit"/>
                                         <constraint firstItem="Hgw-jW-eEj" firstAttribute="leading" secondItem="ibi-TE-ZKX" secondAttribute="trailing" constant="8" id="yaz-lj-NS9"/>
@@ -456,14 +441,11 @@
                             <outlet property="delegate" destination="eml-f1-5Qd" id="Z5h-S7-ghr"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Videos" id="fBv-nU-6hF"/>
-                    <connections>
-                        <outlet property="lblHeader" destination="xfg-B4-IYe" id="9fe-WB-1tD"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="F1s-ka-BuH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5p-Zx-VJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-53.5" y="891.5"/>
+            <point key="canvasLocation" x="453" y="959"/>
         </scene>
         <!--SearchArtistController-->
         <scene sceneID="86y-hK-dyh">
@@ -533,7 +515,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fT3-KD-i5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="1648"/>
+            <point key="canvasLocation" x="-61" y="1761"/>
         </scene>
         <!--SearchAlbumController-->
         <scene sceneID="jy9-Rx-YdC">
@@ -656,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKk-Jd-mw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="1603"/>
+            <point key="canvasLocation" x="453" y="1761"/>
         </scene>
         <!--LyricsController-->
         <scene sceneID="V5l-cd-rGw">
@@ -681,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFf-bu-eAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="273"/>
+            <point key="canvasLocation" x="981.5" y="272.5"/>
         </scene>
         <!--Search Controller-->
         <scene sceneID="3IV-Bg-tVG">
@@ -698,7 +680,7 @@
                         <outlet property="btnCancel" destination="Hhv-Ja-XwD" id="GJI-ZH-Sd4"/>
                         <segue destination="SKL-bC-meb" kind="relationship" relationship="viewControllers" id="zug-5d-MC4"/>
                         <segue destination="cyi-hr-zL3" kind="relationship" relationship="viewControllers" id="PKe-9z-RSK"/>
-                        <segue destination="eml-f1-5Qd" kind="relationship" relationship="viewControllers" id="cT1-ud-7rP"/>
+                        <segue destination="jhD-w7-fEA" kind="relationship" relationship="viewControllers" id="cT1-ud-7rP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzO-QC-xLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -714,7 +696,30 @@
                     </connections>
                 </button>
             </objects>
-            <point key="canvasLocation" x="-533" y="1603"/>
+            <point key="canvasLocation" x="-747" y="1639"/>
+        </scene>
+        <!--Videos-->
+        <scene sceneID="45j-tn-qbb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jhD-w7-fEA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Videos" id="fBv-nU-6hF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="mIU-ZE-iXi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pGO-Cc-mdd">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="eml-f1-5Qd" kind="relationship" relationship="rootViewController" id="fMg-Vv-2na"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zuK-qd-qB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-69" y="959"/>
         </scene>
     </scenes>
     <resources>
@@ -725,6 +730,7 @@
         <image name="766-arrow-right.png" width="14" height="28"/>
         <image name="777-thumbs-up.png" width="26" height="28"/>
         <image name="778-thumbs-down.png" width="26" height="28"/>
+        <image name="GoatwhoreLastFM.png" width="500" height="500"/>
         <image name="black-red-note-120.png" width="120" height="120"/>
         <image name="blacklab2.png" width="544" height="542"/>
         <image name="play-75.png" width="75" height="75"/>

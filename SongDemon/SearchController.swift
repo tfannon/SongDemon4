@@ -23,17 +23,18 @@ class SearchController: UITabBarController {
         super.viewDidLoad()
         btnCancel.center = self.tabBar.center
         let f = btnCancel.frame
-        btnCancel.frame = CGRect(x: f.origin.x - 10, y: f.origin.y, width: f.width + 20, height: f.height)
+        btnCancel.frame = CGRect(x: f.origin.x - 10, y: f.origin.y - 5, width: f.width + 20, height: f.height)
         self.view.addSubview(btnCancel)
-        
         
         //swiping up allows user to select playlist
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(SearchController.handleCancelClicked(_:)))
         swipeUp.direction = .up
         view.addGestureRecognizer(swipeUp)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         let searchAlbumController = self.viewControllers![1] as! SearchAlbumController
         //a song may be playing that is not in our library
         if currentlyPlayingArtist != nil {

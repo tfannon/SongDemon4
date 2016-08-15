@@ -23,7 +23,7 @@ enum VideoState {
 class Videos {
 
     var state = VideoState.fetching
-    //this signals the the catched list has changed and the VideoListController will need to repaint
+    //this signals the the catched list has changed and the VideoController will need to repaint
     var needsRefresh = true
     //we store this because if the one coming in is the same, its a noop
     var currentUrl = ""
