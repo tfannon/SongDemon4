@@ -41,13 +41,13 @@ class VideoController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var videoHeightConstraint: NSLayoutConstraint!
+
     @IBAction func buttonClicked(_ sender: UIButton) {
         if VideoLibrary.contains(id: self.video.id) {
-            VideoLibrary.removeVideo(video: self.video)
+            VideoLibrary.remove(video: self.video)
         }
         else {
-            VideoLibrary.addVideo(video: self.video)
+            VideoLibrary.add(video: self.video)
         }
         delegate?.videoSelected()
     }

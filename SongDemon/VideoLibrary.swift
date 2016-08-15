@@ -27,28 +27,28 @@ class VideoLibrary: Mappable {
         videos <- map["videos"]
     }
     
-    class func getVideos() -> [Video] {
+    class func getAll() -> [Video] {
         return sharedInstance.videos.values.map { x in x }
     }
     
-    class func addVideo(id: String, artist: String, title: String, artworkUrl: String = "") -> Video {
+    class func add(id: String, artist: String, title: String, artworkUrl: String = "") -> Video {
         let v = Video(id: id, artist: artist, title: title, artworkUrl: artworkUrl)
         sharedInstance.videos[id] = v
         sharedInstance.save()
         return v
     }
     
-    class func addVideo(video: Video) {
+    class func add(video: Video) {
         sharedInstance.videos[video.id] = video
         sharedInstance.save()
     }
     
 
-    class func removeVideos() {
+    class func removeAll() {
         sharedInstance.videos.removeAll()
     }
     
-    class func removeVideo(video: Video) {
+    class func remove(video: Video) {
         sharedInstance.videos[video.id] = nil
         sharedInstance.save()
     }
@@ -103,8 +103,8 @@ class VideoLibrary: Mappable {
         //don't accidentally kill real data
         if Utils.inSimulator {
             sharedInstance.videos.removeAll()
-            _ = VideoLibrary.addVideo(id: "2XsEmI0pidA", artist: "Inquisition", title: "Inquisition - Desolate Funeral Chant (Cambridge,MA 4/28/12)", artworkUrl: "https://i.ytimg.com/vi/2XsEmI0pidA/default.jpg")
-            _ = VideoLibrary.addVideo(id: "w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013", artworkUrl: "https://i.ytimg.com/vi/w5qmjNe7RVE/default.jpg" )
+            _ = VideoLibrary.add(id: "2XsEmI0pidA", artist: "Inquisition", title: "Inquisition - Desolate Funeral Chant (Cambridge,MA 4/28/12)", artworkUrl: "https://i.ytimg.com/vi/2XsEmI0pidA/default.jpg")
+            _ = VideoLibrary.add(id: "w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013", artworkUrl: "https://i.ytimg.com/vi/w5qmjNe7RVE/default.jpg" )
         }
     }
 }

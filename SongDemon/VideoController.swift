@@ -41,7 +41,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.tableView.addGestureRecognizer(longPress)
         
         if Utils.inSimulator {
-            videos = VideoLibrary.getVideos()
+            videos = VideoLibrary.getAll()
         }
     }
     
@@ -68,13 +68,13 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
             let isInLibrary = VideoLibrary.contains(id: video.id)
             if isInLibrary {
                 let action = UIAlertAction(title: "Remove from library", style: .destructive) { result in
-                    VideoLibrary.removeVideo(video: video)
+                    VideoLibrary.remove(video: video)
                     self.redrawList()
                 }
                 sheet.addAction(action)
             } else {
                 let action = UIAlertAction(title: "Add to library", style: .default) { result in
-                    VideoLibrary.addVideo(video: video)
+                    VideoLibrary.add(video: video)
                     self.redrawList()
                 }
                 sheet.addAction(action)
@@ -109,8 +109,13 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func redrawList() {
         //when its coming from library, sort by artist
         if mode == .library {
+<<<<<<< HEAD
             print ("getting videos from library")
             self.videos = VideoLibrary.getVideos().sorted { vid in
+=======
+            self.navigationController?.title = "Library Mode"
+            self.videos = VideoLibrary.getAll().sorted { vid in
+>>>>>>> origin/master
                 return vid.0.artist < vid.1.artist
             }
         }

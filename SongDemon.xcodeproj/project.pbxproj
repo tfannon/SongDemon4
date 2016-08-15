@@ -96,11 +96,9 @@
 		65E7C9BB1D57467800BBFFBD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96A1D57467700BBFFBD /* Utils.swift */; };
 		65E7C9BD1D57467800BBFFBD /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96C1D57467700BBFFBD /* VideoController.swift */; };
 		65E7C9BE1D57467800BBFFBD /* YouTubeVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96D1D57467700BBFFBD /* YouTubeVideoManager.swift */; };
+		6607B3791D623DD30087BC91 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6607B3781D623DD30087BC91 /* VideoController.swift */; };
 		6626E8DA1D6123E10062D8B2 /* black-red-note-120.png in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C94B1D57467700BBFFBD /* black-red-note-120.png */; };
 		6626E8DB1D6124810062D8B2 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CC2D851D5F674800C0E3A8 /* VideoLibrary.swift */; };
-		6626E8DD1D612A7A0062D8B2 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626E8DC1D612A7A0062D8B2 /* SelectorViewController.swift */; };
-		6678A2071D5F5E3600F78A07 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678A2061D5F5E3600F78A07 /* VideoViewController.swift */; };
-		6678A20B1D5F5F9D00F78A07 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */; };
 		669BE20D1D5FB91F00F8DDD5 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669BE20C1D5FB91F00F8DDD5 /* Common.swift */; };
 		669BE2101D5FE04B00F8DDD5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CC2D871D5F675400C0E3A8 /* Video.swift */; };
 		6FC907FD2756837C01ADE936 /* Pods_SongDemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311597B76EF76C579BE15FBB /* Pods_SongDemon.framework */; };
@@ -246,9 +244,7 @@
 		65E7C96A1D57467700BBFFBD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		65E7C96C1D57467700BBFFBD /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		65E7C96D1D57467700BBFFBD /* YouTubeVideoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeVideoManager.swift; sourceTree = "<group>"; };
-		6626E8DC1D612A7A0062D8B2 /* SelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorViewController.swift; sourceTree = "<group>"; };
-		6678A2061D5F5E3600F78A07 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
-		6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		6607B3781D623DD30087BC91 /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		669BE20C1D5FB91F00F8DDD5 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		886CF68705C607379F4BB417 /* Pods-SongDemonChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemonChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.release.xcconfig"; sourceTree = "<group>"; };
 		B58B2F24729D0415051B3AB1 /* Pods_SongDemonChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SongDemonChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -400,9 +396,7 @@
 				6598C60E1D5EC15900042FE6 /* SongDemonChat.entitlements */,
 				6598C6011D5EC12E00042FE6 /* MainInterface.storyboard */,
 				6598C5FF1D5EC12E00042FE6 /* MessagesViewController.swift */,
-				6626E8DC1D612A7A0062D8B2 /* SelectorViewController.swift */,
-				6678A2061D5F5E3600F78A07 /* VideoViewController.swift */,
-				6678A20A1D5F5F9D00F78A07 /* VideoCell.swift */,
+				6607B3781D623DD30087BC91 /* VideoController.swift */,
 				669BE20C1D5FB91F00F8DDD5 /* Common.swift */,
 				6598C6041D5EC12E00042FE6 /* Assets.xcassets */,
 				6598C6061D5EC12E00042FE6 /* Info.plist */,
@@ -868,13 +862,11 @@
 				6626E8DB1D6124810062D8B2 /* VideoLibrary.swift in Sources */,
 				6626E8DA1D6123E10062D8B2 /* black-red-note-120.png in Sources */,
 				669BE2101D5FE04B00F8DDD5 /* Video.swift in Sources */,
-				6678A20B1D5F5F9D00F78A07 /* VideoCell.swift in Sources */,
+				6607B3791D623DD30087BC91 /* VideoController.swift in Sources */,
 				6598C6001D5EC12E00042FE6 /* MessagesViewController.swift in Sources */,
 				6598C60F1D5EC2A800042FE6 /* Utils.swift in Sources */,
-				6678A2071D5F5E3600F78A07 /* VideoViewController.swift in Sources */,
 				655826701D60373800ED3AD8 /* SwiftyJSON.swift in Sources */,
 				669BE20D1D5FB91F00F8DDD5 /* Common.swift in Sources */,
-				6626E8DD1D612A7A0062D8B2 /* SelectorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
