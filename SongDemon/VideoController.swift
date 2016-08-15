@@ -16,6 +16,7 @@ enum VideoControllerMode {
 class VideoController : UITableViewController {
     
     var data = [Video]()
+    var mode: VideoControllerMode = .list
 
     override func viewDidLoad() {
         super.viewDidLoad()
