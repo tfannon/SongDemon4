@@ -21,27 +21,42 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yZ-nc-ZL9" userLabel="SizedView">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeU-sB-IO9">
-                                        <state key="normal" title="Send Videos to Share"/>
-                                        <connections>
-                                            <action selector="shareVideos:" destination="ObA-dk-sSI" eventType="touchUpInside" id="mb8-6n-mOj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQw-sX-iK2">
-                                        <state key="normal" title="Misc"/>
-                                        <connections>
-                                            <action selector="doMisc:" destination="ObA-dk-sSI" eventType="touchUpInside" id="6bv-Gq-lvN"/>
-                                        </connections>
-                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-pO-3sh">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoCell" textLabel="WzN-OW-WTr" detailTextLabel="cIR-Nz-j3J" style="IBUITableViewCellStyleSubtitle" id="XLV-5X-AcN">
+                                                <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XLV-5X-AcN" id="hW6-We-r6U">
+                                                    <frame key="frameInset" width="288" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WzN-OW-WTr">
+                                                            <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cIR-Nz-j3J">
+                                                            <frame key="frameInset" minX="15" minY="25" width="44" height="15"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="AQw-sX-iK2" firstAttribute="height" secondItem="QeU-sB-IO9" secondAttribute="height" id="8qV-Jw-F6S"/>
-                                    <constraint firstItem="AQw-sX-iK2" firstAttribute="centerX" secondItem="8yZ-nc-ZL9" secondAttribute="centerX" id="HYb-Nw-Jod"/>
-                                    <constraint firstItem="AQw-sX-iK2" firstAttribute="width" secondItem="QeU-sB-IO9" secondAttribute="width" id="RHx-1E-1Cf"/>
-                                    <constraint firstItem="QeU-sB-IO9" firstAttribute="centerX" secondItem="8yZ-nc-ZL9" secondAttribute="centerX" id="RKf-EF-OGb"/>
-                                    <constraint firstItem="QeU-sB-IO9" firstAttribute="centerY" secondItem="8yZ-nc-ZL9" secondAttribute="centerY" id="gBj-Vu-mSx"/>
-                                    <constraint firstItem="AQw-sX-iK2" firstAttribute="top" secondItem="QeU-sB-IO9" secondAttribute="bottom" constant="8" id="nGB-xE-JS0"/>
+                                    <constraint firstAttribute="bottom" secondItem="xfk-pO-3sh" secondAttribute="bottom" id="4Ug-t4-Qla"/>
+                                    <constraint firstItem="xfk-pO-3sh" firstAttribute="top" secondItem="8yZ-nc-ZL9" secondAttribute="top" id="6gf-QP-1cF"/>
+                                    <constraint firstItem="xfk-pO-3sh" firstAttribute="leading" secondItem="8yZ-nc-ZL9" secondAttribute="leading" id="UvO-Pg-XRn"/>
+                                    <constraint firstAttribute="trailing" secondItem="xfk-pO-3sh" secondAttribute="trailing" id="vMU-K3-30Z"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -55,53 +70,12 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="tableView" destination="xfk-pO-3sh" id="UuT-xI-6l5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--Selector View Controller-->
-        <scene sceneID="8fF-hc-VVT">
-            <objects>
-                <tableViewController storyboardIdentifier="SelectorViewController" id="TTc-eg-Jmt" customClass="SelectorViewController" customModule="SongDemonChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VbU-1U-fiC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoCell" textLabel="Cj0-aQ-SBW" detailTextLabel="KLy-tk-Nbs" style="IBUITableViewCellStyleSubtitle" id="N9N-o1-2f2">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N9N-o1-2f2" id="VBG-Nd-se0">
-                                    <frame key="frameInset" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cj0-aQ-SBW">
-                                            <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KLy-tk-Nbs">
-                                            <frame key="frameInset" minX="15" minY="25" width="44" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="TTc-eg-Jmt" id="qbK-dS-tsO"/>
-                            <outlet property="delegate" destination="TTc-eg-Jmt" id="RQT-2j-uPb"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YOE-I4-Wgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="761" y="-121"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="eJu-Ga-kOX">
