@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 enum VideoControllerMode {
     case library
@@ -20,17 +21,22 @@ enum VideoControllerMode {
     static var `default` = VideoControllerMode.youTubeSong
 }
 
-class VideoController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class VideoController: UIViewController, UITableViewDataSource, UITableViewDelegate, YouTubePlayerDelegate {
 
     @IBOutlet var tableView: UITableView!
     
     var videos = [Video]()
+    var youTubePlayer = YouTubePlayerView()
 
     
     // MARK: - UIViewController
     override func viewDidLoad() {
         print ("VideoController:\(#function):\(YouTubeVideoManager.videoControllerMode)")
         super.viewDidLoad()
+        
+        //need to attach the player to the view
+        //self.view.addSubview(youTubePlayer)
+        youTubePlayer.delegate = self
         
         self.tableView.backgroundColor = UIColor.black
         //empty cells wont create lines
@@ -110,7 +116,8 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func redrawList() {
         //when its coming from library, sort by artist
         let mode = YouTubeVideoManager.videoControllerMode
-        if mode == .library {
+
+        if mode == .library || Utils.inSimulator {
             print ("getting videos from library")
             self.videos = VideoLibrary.getAll().sorted {
                 return $0.0.artist < $0.1.artist
@@ -165,10 +172,20 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! YouTubeCell
         cell.play()
+        print(youTubePlayer.ready)
+        youTubePlayer.loadVideoID(cell.video.id)
+        //youTubePlayer.play()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    // MARK: - YouTubePlayer
+    func playerReady(_ videoPlayer: YouTubePlayerView) {
+        videoPlayer.play()
+    }
+    func playerStateChanged(_ videoPlayer: YouTubePlayerView, playerState: YouTubePlayerState) {}
+    func playerQualityChanged(_ videoPlayer: YouTubePlayerView, playbackQuality: YouTubePlaybackQuality) {}
 }
