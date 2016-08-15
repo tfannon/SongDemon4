@@ -9,13 +9,12 @@
 import UIKit
 import Messages
 
-class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
+class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource, VideoControllerDelegate {
     
     // MARK: - Fields
     private let VideoCellIdentifier : String = "VideoCell"
     private let MessageURLNamePrefix = "Video"
-    private let VideoViewControllerIdentifier : String = "VideoViewController"
-    private let SelectorViewController : String = "SelectorViewController"
+    private let VideoControllerIdentifier : String = "VideoController"
     private let testVideos =
         [
             Video(id: "_jIzC1ChqDU", artist: "AR Studios", title: "Daughters"),
@@ -37,6 +36,7 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
 
     // MARK: - Outlets & Actions
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var label: UILabel!
     
 
     // MARK: - UIView
@@ -56,14 +56,16 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
         // -----------------------------------------------------------------
         // Test only
         // -----------------------------------------------------------------
-        VideoLibrary.removeVideos()
-        testVideos.forEach{ x in VideoLibrary.addVideo(video: x) }
+//        VideoLibrary.removeVideos()
+//        testVideos.forEach{ x in VideoLibrary.addVideo(video: x) }
         // -----------------------------------------------------------------
+
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 8.0
         
         tableView.dataSource = self
         tableView.delegate = self
-        videos = VideoLibrary.getVideos()
-        tableView.reloadData()
+        refreshFromLibrary()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +77,11 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
     
     // MARK: - Methods
 
+    func refreshFromLibrary() {
+        videos = VideoLibrary.getVideos()
+        tableView.reloadData()
+    }
+    
     func shareVideo(video: Video) {
         // return the extension to compact mode
         requestPresentationStyle(.compact)
@@ -106,6 +113,13 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
                 print(error)
             }
         }
+    }
+    
+    // MARK: - VideoControllerDelegate 
+    func videoSelected() {
+        refreshFromLibrary()
+        requestPresentationStyle(.compact)
+        removeViewControllers()
     }
     
     // MARK: - UI
@@ -185,21 +199,14 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
         guard let urlComponents = NSURLComponents(url: messageURL,
                                                   resolvingAgainstBaseURL: false) else { return }
         guard let queryItems = urlComponents.queryItems else { return }
+        guard let queryItem = queryItems.first(where : { x in x.name.hasPrefix(MessageURLNamePrefix) }) else { return }
+        guard let queryItemValue = queryItem.value else { return }
 
-        let videos =
-            queryItems
-                .filter { x in x.name.hasPrefix(MessageURLNamePrefix) && x.value != nil }
-                .map { x in x.value! }
-                .map { x in Video.fromJson(jsonString: x) }
-                .filter { x in x != nil }
-                .map { x in x! }
+        guard let video = Video.fromJson(jsonString: queryItemValue) else { return }
 
-        if videos.count > 0, let vc = showViewController(identifier: VideoViewControllerIdentifier) {
-            (vc as! VideoViewController).videos = videos
-        }
-        else {
-            print ("no videos to show!")
-        }
+        let vc = showViewController(identifier: VideoControllerIdentifier) as! VideoController
+        vc.delegate = self
+        vc.video = video
     }
     
     override func didResignActive(with conversation: MSConversation) {

@@ -54,6 +54,15 @@ class Video: Mappable {
     func toJson(prettyPrint: Bool = true) -> String {
         return Mapper().toJSONString(self, prettyPrint: prettyPrint)!
     }
+    
+    func getImage() -> UIImage? {
+        var image : UIImage?
+        let sUrl = (self.artworkUrl.isEmpty) ? "https://img.youtube.com/vi/\(id)/0.jpg" : self.artworkUrl
+        if let url = URL(string: sUrl), let data = NSData(contentsOf: url) {
+            image = UIImage(data: data as Data)
+        }
+        return image
+    }
 }
 
 
