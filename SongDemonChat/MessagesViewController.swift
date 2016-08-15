@@ -31,6 +31,7 @@ class MessagesViewController:
     
     // MARK: - Outlets & Actions
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var label: UILabel!
     
     // MARK: - UIView
     override func viewDidLoad() {
@@ -52,6 +53,11 @@ class MessagesViewController:
             testVideos.forEach { x in VideoLibrary.add(video: x) }
         }
         
+        // rounded edge
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 8;
+        
+        // tableview
         tableView.delegate = self
         tableView.dataSource = self
         refreshTable()
@@ -176,6 +182,7 @@ class MessagesViewController:
     func videoSelected() {
         requestPresentationStyle(.compact)
         removeViewControllers()
+        refreshTable()
     }
     
     // MARK: - Conversation Handling

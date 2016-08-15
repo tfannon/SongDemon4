@@ -80,7 +80,11 @@ class VideoController: UIViewController {
     // MARK: - Methods
     func tapImage() {
         if youtubePlayer.ready {
-            youtubePlayer.play()
+            if youtubePlayer.playerState == .Playing {
+                youtubePlayer.pause()
+            } else {
+                youtubePlayer.play()
+            }
         }
     }
 

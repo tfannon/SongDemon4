@@ -61,7 +61,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="UM0-tw-Eck" firstAttribute="top" secondItem="pvx-ul-DDS" secondAttribute="bottom" constant="10" id="4Sn-gW-CzH"/>
-                                    <constraint firstItem="pvx-ul-DDS" firstAttribute="top" secondItem="8yZ-nc-ZL9" secondAttribute="top" id="9J9-hb-SnD"/>
+                                    <constraint firstItem="pvx-ul-DDS" firstAttribute="top" secondItem="8yZ-nc-ZL9" secondAttribute="top" constant="5" id="9J9-hb-SnD"/>
                                     <constraint firstAttribute="trailing" secondItem="pvx-ul-DDS" secondAttribute="trailing" id="Abi-X1-eta"/>
                                     <constraint firstAttribute="trailing" secondItem="UM0-tw-Eck" secondAttribute="trailing" id="cdL-dM-SbZ"/>
                                     <constraint firstItem="pvx-ul-DDS" firstAttribute="leading" secondItem="8yZ-nc-ZL9" secondAttribute="leading" id="eLu-gf-4Ps"/>
@@ -81,6 +81,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
+                        <outlet property="label" destination="pvx-ul-DDS" id="Uv1-wH-otg"/>
                         <outlet property="tableView" destination="UM0-tw-Eck" id="f3E-Fk-4US"/>
                     </connections>
                 </viewController>
