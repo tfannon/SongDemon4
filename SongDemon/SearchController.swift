@@ -15,6 +15,7 @@ class SearchController: UITabBarController {
     
     @IBAction func handleCancelClicked(_ sender: AnyObject) {
         self.dismiss(animated: false, completion: nil)
+        //put the VideoController back into normal mode
         RootController.getVideoController().mode = .list
     }
     

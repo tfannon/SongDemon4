@@ -12,9 +12,9 @@ import YouTubePlayer
 class YouTubeCell: UITableViewCell, YouTubePlayerDelegate {
     @IBOutlet var imgVideo: UIImageView!
     @IBOutlet var lblDescription: UILabel!
-    @IBOutlet weak var YouTubePlayer: YouTubePlayerView!
     @IBOutlet weak var imgIsInLibrary: UIImageView!
     
+    var YouTubePlayer = YouTubePlayerView()
     var video: Video!
     
 
@@ -31,7 +31,6 @@ class YouTubeCell: UITableViewCell, YouTubePlayerDelegate {
 
     
     func load(video: Video) {
-        //recycle()
         self.video = video
         self.lblDescription.text = video.title
         //hide the song icon if the library does not contain the video

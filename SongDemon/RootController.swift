@@ -11,12 +11,11 @@ import UIKit
 class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     var mainController: MainController!
-    var lyricsController: UIViewController!
-    var playlistController: UITableViewController!
-    var videoController: UITableViewController!
+    var lyricsController: LyricsController!
+    var playlistController: PlaylistController!
+    var videoController: VideoController!
     var controllers : [UIViewController] = []
     var currentIndex = 1
-    
     
 
     override func viewDidLoad() {
@@ -26,9 +25,9 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
         self.dataSource = self;
 
         mainController = self.storyboard!.instantiateViewController(withIdentifier: "MainController") as! MainController
-        lyricsController = self.storyboard!.instantiateViewController(withIdentifier: "LyricsController") 
-        playlistController = self.storyboard!.instantiateViewController(withIdentifier: "PlaylistController") as! UITableViewController
-        videoController = self.storyboard!.instantiateViewController(withIdentifier: "VideoController") as! UITableViewController
+        lyricsController = self.storyboard!.instantiateViewController(withIdentifier: "LyricsController") as! LyricsController
+        playlistController = self.storyboard!.instantiateViewController(withIdentifier: "PlaylistController") as! PlaylistController
+        videoController = self.storyboard!.instantiateViewController(withIdentifier: "VideoController") as! VideoController
 
         controllers = [playlistController, mainController, videoController, lyricsController]
 
@@ -93,16 +92,16 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
     
     class func getVideoController() -> VideoController {
         let root = UIApplication.shared.keyWindow!.rootViewController as! RootController
-        return root.videoController as! VideoController
+        return root.videoController
     }
     
     class func getLyricsController() -> LyricsController {
         let root = UIApplication.shared.keyWindow!.rootViewController as! RootController
-        return root.lyricsController as! LyricsController
+        return root.lyricsController
     }
     
     class func getPlaylistController() -> PlaylistController {
         let root = UIApplication.shared.keyWindow!.rootViewController as! RootController
-        return root.playlistController as! PlaylistController
+        return root.playlistController
     }
 }
