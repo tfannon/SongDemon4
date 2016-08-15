@@ -38,6 +38,7 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
         findScrollView()
         
         LibraryManager.addListener(self.mainController)
+        print ("RootController:" + #function)
     }
     
     //  this will allow the slider to interpret the touch events and NOT pass them onto the underlying scroll view.  without this, the user is required to hold the slider to activate it before scrolling
@@ -86,8 +87,8 @@ class RootController: UIPageViewController, UIPageViewControllerDelegate, UIPage
     class func switchToMainView() {
         let root = UIApplication.shared.keyWindow!.rootViewController as! RootController
         root.currentIndex = 1
-        let viewControllers : [UIViewController] = [root.mainController]
-        root.setViewControllers(viewControllers, direction: .forward, animated: false, completion: {done in })
+        let viewControllers: [UIViewController] = [root.mainController]
+        root.setViewControllers(viewControllers, direction: .forward, animated: false)
     }
     
     class func getVideoController() -> VideoController {

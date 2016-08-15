@@ -465,7 +465,7 @@ class MainController: UIViewController, LibraryScanListener {
             return
         }
         Async.background {
-            Videos.fetchVideos(for: MusicPlayer.currentSong)
+            YouTubeVideoManager.fetchVideos(for: MusicPlayer.currentSong)
         }
     }
     

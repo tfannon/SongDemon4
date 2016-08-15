@@ -10,7 +10,9 @@ import ObjectMapper
 let VIDEOS = "Videos"
 
 class VideoLibrary: Mappable {
-    static let sharedInstance = VideoLibrary()
+    
+    // MARK: - Singleton
+    private static let sharedInstance = VideoLibrary()
     
     private var videos = [String:Video]()
     
@@ -32,16 +34,18 @@ class VideoLibrary: Mappable {
     class func addVideo(id: String, artist: String, title: String, artworkUrl: String = "") -> Video {
         let v = Video(id: id, artist: artist, title: title, artworkUrl: artworkUrl)
         sharedInstance.videos[id] = v
+        sharedInstance.save()
         return v
-    }
-
-    class func removeVideos() {
-        sharedInstance.videos.removeAll()
     }
     
     class func addVideo(video: Video) {
         sharedInstance.videos[video.id] = video
         sharedInstance.save()
+    }
+    
+
+    class func removeVideos() {
+        sharedInstance.videos.removeAll()
     }
     
     class func removeVideo(video: Video) {
@@ -85,12 +89,7 @@ class VideoLibrary: Mappable {
         }
     }
     
-    private func clear() {
-        videos.removeAll()
-    }
-    
-    
-    //this will take the return of the YouTube API query and return a bunch of parsed videos
+    //this will take the result of the YouTube API query and return a bunch of parsed videos
     //the artist came from the current song and has to be supplied by the caller
     class func fromYouTube(json: JSON, artist: String = "") -> [Video] {
         return json["items"].array!.map {
@@ -103,7 +102,7 @@ class VideoLibrary: Mappable {
     class func createTestData() {
         //don't accidentally kill real data
         if Utils.inSimulator {
-            sharedInstance.clear()
+            sharedInstance.videos.removeAll()
             _ = VideoLibrary.addVideo(id: "2XsEmI0pidA", artist: "Inquisition", title: "Inquisition - Desolate Funeral Chant (Cambridge,MA 4/28/12)", artworkUrl: "https://i.ytimg.com/vi/2XsEmI0pidA/default.jpg")
             _ = VideoLibrary.addVideo(id: "w5qmjNe7RVE", artist: "Sleep", title: "SLEEP live at Hellfest 2013", artworkUrl: "https://i.ytimg.com/vi/w5qmjNe7RVE/default.jpg" )
         }

@@ -15,23 +15,23 @@ class YouTubeCell: UITableViewCell, YouTubePlayerDelegate {
     @IBOutlet var lblDescription: UILabel!
     @IBOutlet weak var imgIsInLibrary: UIImageView!
     
-    var YouTubePlayer = YouTubePlayerView()
+    var YouTubePlayer: YouTubePlayerView?
     var video: Video!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        YouTubePlayer.delegate = self
+        //YouTubePlayer.delegate = self
     }
 
     func load(video: Video) {
         self.video = video
         self.lblDescription.text = video.title
-        self.YouTubePlayer.loadVideoID(video.id)
+        self.YouTubePlayer?.loadVideoID(video.id)
     }
     
     func play() {
-        if YouTubePlayer.ready {
-            YouTubePlayer.play()
+        if YouTubePlayer != nil && YouTubePlayer!.ready {
+            YouTubePlayer?.play()
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  Videos.swift
+//  YouTubeVideoManager.swift
 //  SongDemon
 //
 //  Created by Tommy Fannon on 8/31/14.
@@ -9,7 +9,7 @@ import Foundation
 import MediaPlayer
 import Alamofire
 
-let gVideos = Videos()
+
 let apiKey = "AIzaSyDcpJS_v-iEX3eojZ7hsamDVvyrnQAyTdE"
 let maxResults = 25
 
@@ -21,15 +21,22 @@ enum VideoState {
 }
 
 
-class Videos {
+class YouTubeVideoManager {
+    
+    // MARK: - Singleton
+    private static let sharedInstance = YouTubeVideoManager()
+    private var videos = [Video]()
+    
+    private init() {
+        //self.load()
+    }
 
-    var currentUrl = ""
-    var videos = [Video]()
-    var state = VideoState.fetching
+    private var currentUrl = ""
+    private var state = VideoState.fetching
 
     //the consumer of this will poll.  returning a positive answer will reset the flag
     private var needsRefresh = true
-    func evaluateRefresh() -> Bool {
+    private func evaluateRefresh() -> Bool {
         let retVal = needsRefresh && state == .available
         if retVal {
             print ("refreshing videos and resetting flag")
@@ -39,10 +46,15 @@ class Videos {
         return false
     }
     
+    
+    class func getVideos() -> [Video] {
+        return sharedInstance.videos
+    }
+    
     class func fetchVideos(for song: MPMediaItem?) {
         guard let item = song else { return }
         
-        gVideos.state = .fetching
+        sharedInstance.state = .fetching
         
         let query = Utils.inSimulator ?
             "Goatwhore In Deathless Tradition" :
@@ -53,21 +65,21 @@ class Videos {
         urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         //if there is no fetched url yet or the url is different than last one
-        if gVideos.currentUrl.isEmpty || gVideos.currentUrl != urlStr {
+        if sharedInstance.currentUrl.isEmpty || sharedInstance.currentUrl != urlStr {
             print("Loading google json async for: \(query)")
-            gVideos.currentUrl = urlStr
-            gVideos.needsRefresh = true
+            sharedInstance.currentUrl = urlStr
+            sharedInstance.needsRefresh = true
             
             Alamofire.request(urlStr, withMethod: .get)
                 .responseString { response in
                     guard response.result.isSuccess else {
-                        gVideos.state = .notAvailable
+                        sharedInstance.state = .notAvailable
                         return
                     }
                     let json = JSON(data: response.data!)
-                    gVideos.state = .available
-                    gVideos.videos = VideoLibrary.fromYouTube(json: json, artist: item.safeArtist)
-                    if let first = gVideos.videos.first {
+                    sharedInstance.state = .available
+                    sharedInstance.videos = VideoLibrary.fromYouTube(json: json, artist: item.safeArtist)
+                    if let first = sharedInstance.videos.first {
                         RootController.getVideoController().queueVideo(first)
                     }
             }

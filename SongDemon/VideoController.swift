@@ -49,10 +49,11 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print ("VideoController:\(#function):\(mode)")
         super.viewWillAppear(animated)
         //this doesn't have a nav bar coming in from main view.  it only gets one from search view
         //we only do this so the elements are not hidden in the storyboard.  this is probably a hack
-        self.navigationController?.navigationBar.isHidden = true
+        //self.navigationController?.navigationBar.isHidden = true
         redrawList()
     }
     
@@ -101,12 +102,13 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func redrawList() {
         //when its list mode, sort by artist
         if mode == .library {
+            self.navigationController?.title = "Library Mode"
             self.videos = VideoLibrary.getVideos().sorted { vid in
                 return vid.0.artist < vid.1.artist
             }
         }
-        else if gVideos.evaluateRefresh() {
-            self.videos = gVideos.videos
+        else {
+            self.videos = YouTubeVideoManager.getVideos()
         }
         tableView.reloadData()
     }
