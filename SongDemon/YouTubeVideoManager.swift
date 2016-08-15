@@ -20,8 +20,18 @@ class YouTubeVideoManager {
     private var videosBySong = [Video]()
     private var videosByArtist = [Video]()
     private var currentSong: MPMediaItem?
+    private var videoControllerMode = VideoControllerMode.default
     
     private init() {
+    }
+    
+    class var videoControllerMode: VideoControllerMode {
+        get {
+            return sharedInstance.videoControllerMode
+        }
+        set {
+            sharedInstance.videoControllerMode = newValue
+        }
     }
 
     class var videosForSong: [Video] {

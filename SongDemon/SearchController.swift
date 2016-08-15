@@ -16,13 +16,18 @@ class SearchController: UITabBarController {
     @IBAction func handleCancelClicked(_ sender: AnyObject) {
         self.dismiss(animated: false, completion: nil)
         //put the VideoController back into normal mode
-        RootController.getVideoController().mode = VideoControllerMode.default
+        YouTubeVideoManager.videoControllerMode = .default
     }
     
     var currentlyPlayingArtist: String?
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //debug
+        let mode = YouTubeVideoManager.videoControllerMode
+        print ("SearchController:\(#function):\(mode)")
+        
         btnCancel.center = self.tabBar.center
         let f = btnCancel.frame
         btnCancel.frame = CGRect(x: f.origin.x - 10, y: f.origin.y - 5, width: f.width + 20, height: f.height)
@@ -36,7 +41,12 @@ class SearchController: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        RootController.getVideoController().mode = .library
+        YouTubeVideoManager.videoControllerMode = .library
+
+        //debug
+        let mode = YouTubeVideoManager.videoControllerMode
+        print ("SearchController:\(#function):\(mode)")
+        
         let searchAlbumController = self.viewControllers![1] as! SearchAlbumController
         //a song may be playing that is not in our library
         if currentlyPlayingArtist != nil {
