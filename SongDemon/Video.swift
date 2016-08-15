@@ -55,6 +55,7 @@ class Video: Mappable {
         return Mapper().toJSONString(self, prettyPrint: prettyPrint)!
     }
     
+    /// returns the associated image of the video
     func getImage() -> UIImage? {
         var image : UIImage? = nil
         let url = (self.artworkUrl.isEmpty) ? "http://img.youtube.com/vi/\(self.id)/0.jpg" : self.artworkUrl

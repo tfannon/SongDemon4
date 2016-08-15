@@ -9,8 +9,11 @@
 import UIKit
 import Messages
 
-class MessagesViewController: MSMessagesAppViewController, SelectorViewControllerDelegate {
+class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - Constants
+    let VideoCellIdentifier : String = "VideoCell"
+
     // MARK: - Fields
     let MessageURLNamePrefix = "Video"
     let VideoViewControllerIdentifier : String = "VideoViewController"
@@ -23,23 +26,11 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
             Video(id: "BIPCn-aYMoM", artist: "Cameron",  title: "Terminator Gun Scene"),
             Video(id: "A_-KXsee5vA", artist: "Arthur",  title: "Moose"),
             Video(id: "9V7zbWNznbs", artist: "Monty Python",  title: "French Taunting")
-/*
-            Video(artist: "AR Studios", title: "Daughters", url: "https://www.youtube.com/watch?v=_jIzC1ChqDU"),
-            Video(artist: "Disney", title: "Rogue Squadron", url: "https://www.youtube.com/watch?v=frdj1zb9sMY"),
-            Video(artist: "Charlie", title: "Charlie Bit Me!", url: "https://www.youtube.com/watch?v=_OBlgSz8sSM"),
-            Video(artist: "Cameron", title: "Terminator Gun Scene", url: "https://www.youtube.com/watch?v=BIPCn-aYMoM"),
-            Video(artist: "Arthur", title: "Moose", url: "https://www.youtube.com/watch?v=A_-KXsee5vA"),
-            Video(artist: "Monty Python", title: "French Taunting", url: "https://www.youtube.com/watch?v=9V7zbWNznbs")
-*/
         ]
+    var videos : [Video] = []
     
     // MARK: - Outlets & Actions
-    @IBAction func shareVideos(_ sender: UIButton) {
-        onSelectVideoToShare()
-    }
-    @IBAction func doMisc(_ sender: UIButton) {
-        onMisc()
-    }
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - UIView
     override func viewDidLoad() {
@@ -54,6 +45,16 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
         if let bar = defaults.object(forKey: "SongDemonChat") as? String {
             print (bar)
         }
+
+        if (Utils.inSimulator)
+        {
+            VideoLibrary.removeAll()
+            
+        }
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        refreshTable()
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,33 +62,13 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Events
-    private func onSelectVideoToShare() {
-        // return the extension to compact mode
-        requestPresentationStyle(.compact)
-        
-        // do a quick sanity check to make sure we have a conversation to work with
-        guard let _ = activeConversation else { return }
-
-        // get the vc
-        let vc = showViewController(identifier: SelectorViewController) as! SelectorViewController
-        vc.delegate = self
-        vc.videos = VideoLibrary.getVideos()
+    // MARK: - Methods
+    
+    func refreshTable() {
+        videos = VideoLibrary.getAll()
+        tableView.reloadData()
     }
     
-    func onMisc() {
-//        requestPresentationStyle(.expanded)
-//        let vc = showViewController(identifier: VideoViewControllerIdentifier) as! VideoViewController
-//        vc.videos = testVideos
-        VideoLibrary.removeVideos()
-        testVideos.forEach { x in VideoLibrary.addVideo(video: x) }
-    }
-    
-    func onOpenMessage(conversation: MSConversation) {
-        
-    }
-    
-    // MARK: - SelectorViewControllerDelegate
     func shareVideo(video: Video) {
         // return the extension to compact mode
         requestPresentationStyle(.compact)
@@ -110,7 +91,7 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
         
         // create a blank, default message layout
         let layout = MSMessageTemplateLayout()
-        layout.caption = "Check out these videos!"
+        layout.caption = "Check out this video!"
         message.layout = layout
         
         // insert it into the conversation
@@ -119,6 +100,40 @@ class MessagesViewController: MSMessagesAppViewController, SelectorViewControlle
                 print(error)
             }
         }
+    }
+    
+    // MARK: - Events
+
+    
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return videos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: VideoCellIdentifier, for: indexPath)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Configure the cell...
+        let video = videos[indexPath.row]
+        cell.textLabel?.text = video.artist
+        cell.detailTextLabel?.text = video.title
+        cell.imageView?.image = video.getImage()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let video = videos[indexPath.row]
+        shareVideo(video: video)
     }
     
     // MARK: - UI

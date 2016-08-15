@@ -63,10 +63,10 @@ class VideoCell: UITableViewCell, YouTubePlayerDelegate {
         video.bringIntoLibrary = !video.bringIntoLibrary
         liker.alpha = self.alphaForBringIntoVideo
         if video.bringIntoLibrary {
-            VideoLibrary.addVideo(video: video)
+            VideoLibrary.add(video: video)
         }
         else {
-            VideoLibrary.removeVideo(video: video)
+            VideoLibrary.remove(video: video)
         }
     }
     
