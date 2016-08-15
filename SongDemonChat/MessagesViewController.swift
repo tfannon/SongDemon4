@@ -9,15 +9,15 @@
 import UIKit
 import Messages
 
-class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource {
+class MessagesViewController:
+    MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource, VideoControllerDelegate {
     
     // MARK: - Constants
     let VideoCellIdentifier : String = "VideoCell"
+    let VideoControllerIdentifier : String = "VideoController"
+    let MessageURLNamePrefix = "Video"
 
     // MARK: - Fields
-    let MessageURLNamePrefix = "Video"
-    let VideoViewControllerIdentifier : String = "VideoViewController"
-    let SelectorViewController : String = "SelectorViewController"
     let testVideos =
         [
             Video(id: "_jIzC1ChqDU", artist: "AR Studios", title: "Daughters"),
@@ -49,7 +49,7 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
         if (Utils.inSimulator)
         {
             VideoLibrary.removeAll()
-            
+            testVideos.forEach { x in VideoLibrary.add(video: x) }
         }
         
         tableView.delegate = self
@@ -172,6 +172,12 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
         return vc
     }
     
+    // MARK: - VideoControllerDelegate
+    func videoSelected() {
+        requestPresentationStyle(.compact)
+        removeViewControllers()
+    }
+    
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
@@ -185,21 +191,12 @@ class MessagesViewController: MSMessagesAppViewController, UITableViewDelegate, 
         guard let urlComponents = NSURLComponents(url: messageURL,
                                                   resolvingAgainstBaseURL: false) else { return }
         guard let queryItems = urlComponents.queryItems else { return }
+        guard let queryItem = queryItems.first(where: { x in x.name.hasPrefix(MessageURLNamePrefix) }) else { return }
+        guard let video = Video.fromJson(jsonString: queryItem.value!) else { return }
 
-        let videos =
-            queryItems
-                .filter { x in x.name.hasPrefix(MessageURLNamePrefix) && x.value != nil }
-                .map { x in x.value! }
-                .map { x in Video.fromJson(jsonString: x) }
-                .filter { x in x != nil }
-                .map { x in x! }
-
-        if videos.count > 0, let vc = showViewController(identifier: VideoViewControllerIdentifier) {
-            (vc as! VideoViewController).videos = videos
-        }
-        else {
-            print ("no videos to show!")
-        }
+        let vc = showViewController(identifier: VideoControllerIdentifier) as! VideoController
+        vc.delegate = self
+        vc.video = video
     }
     
     override func didResignActive(with conversation: MSConversation) {
