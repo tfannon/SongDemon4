@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+enum Mode {
+    
+}
 class VideoListController : UITableViewController {
     
     @IBOutlet var lblHeader: UILabel!
@@ -135,7 +137,7 @@ class VideoListController : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! YouTubeCell
         cell.onPlay()
-        tableView.deselectRow(at: indexPath, animated: true)
+        //tableView.deselectRow(at: indexPath, animated: true)
     }
     
     /*

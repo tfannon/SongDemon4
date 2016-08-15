@@ -34,12 +34,9 @@ class YouTubeCell: UITableViewCell, YouTubePlayerDelegate {
         //recycle()
         self.video = video
         self.lblDescription.text = video.title
-        //self.YouTubePlayer.loadVideoID(video.id)
         //hide the song icon if the library does not contain the video
-        imgIsInLibrary.isHidden = !VideoLibrary.contains(id: video.id)
-        imgVideo.isHidden = false
-        YouTubePlayer.isHidden = true
-        YouTubePlayer.loadVideoID(video.id)
+        self.imgIsInLibrary.isHidden = !VideoLibrary.contains(id: video.id)
+        self.YouTubePlayer.loadVideoID(video.id)
         //this runs but is laggy
         if let url = URL(string: video.artworkUrl),
             let data = NSData(contentsOf: url) {

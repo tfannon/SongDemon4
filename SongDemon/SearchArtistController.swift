@@ -17,8 +17,6 @@ class SearchArtistController: UIViewController, UITableViewDataSource, UITableVi
     var previousArtist : String! = nil
     let names = Utils.inSimulator ? ["Goatwhore", "Sleep"] : ITunesUtils.getArtists()
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = UIColor.black
