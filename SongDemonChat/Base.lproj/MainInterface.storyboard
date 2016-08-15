@@ -141,6 +141,7 @@
                         <outlet property="artistLabel" destination="BL0-yL-KK7" id="Kpk-ir-ezo"/>
                         <outlet property="button" destination="ASf-mN-Tsp" id="5my-ag-SrD"/>
                         <outlet property="image" destination="pdb-BW-YUY" id="yGG-au-87z"/>
+                        <outlet property="stackView" destination="vt8-ow-oiC" id="7YQ-r2-ChS"/>
                         <outlet property="titleLabel" destination="1kk-Xi-pX3" id="NJK-Kx-I50"/>
                     </connections>
                 </viewController>

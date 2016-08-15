@@ -34,13 +34,14 @@ class VideoController: UIViewController {
     }
     weak var delegate : VideoControllerDelegate?
     
-    private var youtubePlayer : YouTubePlayerView = YouTubePlayerView()
+    private var youtubePlayer : YouTubePlayerView!
     
     // MARK: - Outlets & Actions
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
 
     @IBAction func buttonClicked(_ sender: UIButton) {
         if VideoLibrary.contains(id: self.video.id) {
@@ -61,9 +62,14 @@ class VideoController: UIViewController {
         image.addGestureRecognizer(gesture)
         image.isUserInteractionEnabled = true
         
-        self.view.addSubview(self.youtubePlayer)
-        self.youtubePlayer.bindSizeToSuperview()
+        self.youtubePlayer = YouTubePlayerView()
+        self.stackView.addSubview(youtubePlayer)
         self.youtubePlayer.isHidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        youtubePlayer.bindSizeTo(view: stackView)
     }
 
     override func didReceiveMemoryWarning() {
