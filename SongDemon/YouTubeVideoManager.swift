@@ -60,7 +60,7 @@ class YouTubeVideoManager {
             let songQuery = Utils.inSimulator ? "Goatwhore In Deathless Tradition" :
                 "\(item.safeArtist) \(item.safeTitle)"
             let artistQuery = Utils.inSimulator ? "Goatwhore" :
-                "\(item.safeArtist)"
+                "\(item.safeArtist) music"
             print("Loading google json async for \(songQuery)")
             fetch(query: songQuery, artist: item.safeArtist) { self.sharedInstance.videosBySong = $0 }
             fetch(query: artistQuery, artist: item.safeArtist) { self.sharedInstance.videosByArtist = $0 }
