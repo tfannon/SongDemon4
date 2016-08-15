@@ -28,7 +28,7 @@ class VideoLibrary: Mappable {
     }
     
     class func getAll() -> [Video] {
-        return sharedInstance.videos.values.map { x in x }
+        return Array(sharedInstance.videos.values)
     }
     
     class func add(id: String, artist: String, title: String, artworkUrl: String = "") -> Video {

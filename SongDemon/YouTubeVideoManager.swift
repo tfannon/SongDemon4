@@ -13,14 +13,6 @@ import Alamofire
 let apiKey = "AIzaSyDcpJS_v-iEX3eojZ7hsamDVvyrnQAyTdE"
 let maxResults = 25
 
-enum VideoState {
-    case available
-    case displayed
-    case notAvailable
-    case fetching
-}
-
-
 class YouTubeVideoManager {
     
     // MARK: - Singleton
@@ -32,20 +24,6 @@ class YouTubeVideoManager {
     private init() {
     }
 
-//    private var state = VideoState.notAvailable
-//    //the consumer of this will poll.  returning a positive answer will reset the flag
-//    private var needsRefresh = true
-//    private func evaluateRefresh() -> Bool {
-//        let retVal = needsRefresh && state == .available
-//        if retVal {
-//            print ("refreshing videos and resetting flag")
-//            needsRefresh = false
-//            return true
-//        }
-//        return false
-//    }
-//    
-    
     class var videosForSong: [Video] {
         return sharedInstance.videosBySong
     }

@@ -109,14 +109,9 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func redrawList() {
         //when its coming from library, sort by artist
         if mode == .library {
-<<<<<<< HEAD
             print ("getting videos from library")
-            self.videos = VideoLibrary.getVideos().sorted { vid in
-=======
-            self.navigationController?.title = "Library Mode"
-            self.videos = VideoLibrary.getAll().sorted { vid in
->>>>>>> origin/master
-                return vid.0.artist < vid.1.artist
+            self.videos = VideoLibrary.getAll().sorted {
+                return $0.0.artist < $0.1.artist
             }
         }
         else if mode == .youTubeSong {
