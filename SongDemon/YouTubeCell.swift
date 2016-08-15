@@ -39,6 +39,7 @@ class YouTubeCell: UITableViewCell, YouTubePlayerDelegate {
         imgIsInLibrary.isHidden = !VideoLibrary.contains(id: video.id)
         imgVideo.isHidden = false
         YouTubePlayer.isHidden = true
+        YouTubePlayer.loadVideoID(video.id)
         //this runs but is laggy
         if let url = URL(string: video.artworkUrl),
             let data = NSData(contentsOf: url) {

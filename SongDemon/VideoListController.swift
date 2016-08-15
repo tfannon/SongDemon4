@@ -132,6 +132,12 @@ class VideoListController : UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! YouTubeCell
+        cell.onPlay()
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let video = self.data[indexPath.row]
