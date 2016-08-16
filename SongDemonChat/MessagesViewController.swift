@@ -71,7 +71,7 @@ class MessagesViewController:
             }
             else {
                 changeState(newState: .videoList)
-                return 
+                return
             }
             
             break
