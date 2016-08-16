@@ -108,6 +108,11 @@ class MessagesViewController:
         }
     }
     
+    func showShareableList() {
+        removeViewControllers()
+        refreshTable()
+    }
+    
     // MARK: - Events
 
     
@@ -134,7 +139,18 @@ class MessagesViewController:
         let video = videos[indexPath.row]
         cell.textLabel?.text = video.artist
         cell.detailTextLabel?.text = video.title
-        cell.imageView?.image = video.getImage()
+        if let url = URL(string: video.artworkUrl) {
+            url.getImage { image, error in
+                if let image = image {
+                    DispatchQueue.main.async {
+                        cell.imageView?.image = image
+                    }
+                }
+                else if let error = error {
+                    print (error)
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -181,29 +197,36 @@ class MessagesViewController:
     // MARK: - VideoControllerDelegate
     func videoSelected() {
         requestPresentationStyle(.compact)
-        removeViewControllers()
-        refreshTable()
     }
     
     // MARK: - Conversation Handling
+    
+    private func showSharedVideo(message : MSMessage) -> Bool {
+        guard let messageURL = message.url else { return false }
+        guard let urlComponents = NSURLComponents(url: messageURL,
+                                                  resolvingAgainstBaseURL: false) else { return false }
+        guard let queryItems = urlComponents.queryItems else { return false }
+        guard let queryItem = queryItems.first(where: { x in x.name.hasPrefix(MessageURLNamePrefix) }) else { return false }
+        guard let video = Video.fromJson(jsonString: queryItem.value!) else { return false }
+
+        let vc = showViewController(identifier: VideoControllerIdentifier) as! VideoController
+        vc.delegate = self
+        vc.video = video
+        
+        return true
+    }
+    
+    override func didSelect(_ message: MSMessage, conversation: MSConversation) {
+        let _ = showSharedVideo(message: message)
+    }
     
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.
         // This will happen when the extension is about to present UI.
         
         // Use this method to configure the extension and restore previously stored state.
-
         guard let message = conversation.selectedMessage else { return }
-        guard let messageURL = message.url else { return }
-        guard let urlComponents = NSURLComponents(url: messageURL,
-                                                  resolvingAgainstBaseURL: false) else { return }
-        guard let queryItems = urlComponents.queryItems else { return }
-        guard let queryItem = queryItems.first(where: { x in x.name.hasPrefix(MessageURLNamePrefix) }) else { return }
-        guard let video = Video.fromJson(jsonString: queryItem.value!) else { return }
-
-        let vc = showViewController(identifier: VideoControllerIdentifier) as! VideoController
-        vc.delegate = self
-        vc.video = video
+        let _ = showSharedVideo(message: message)
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -214,6 +237,7 @@ class MessagesViewController:
         // Use this method to release shared resources, save user data, invalidate timers,
         // and store enough state information to restore your extension to its current state
         // in case it is terminated later.
+        removeViewControllers()
     }
    
     override func didReceive(_ message: MSMessage, conversation: MSConversation) {
@@ -237,6 +261,9 @@ class MessagesViewController:
         // Called before the extension transitions to a new presentation style.
     
         // Use this method to prepare for the change in presentation style.
+        if presentationStyle == .compact {
+            showShareableList()
+        }
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {

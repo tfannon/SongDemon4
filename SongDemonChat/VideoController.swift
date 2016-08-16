@@ -18,17 +18,27 @@ class VideoController: UIViewController {
     // MARK: - Fields
     var video : Video! {
         didSet {
-            if let img = video.getImage() {
-                image.image = img
+            if let url = URL(string: video.artworkUrl) {
+                url.getImage { image, error in
+                    if let image = image {
+                        DispatchQueue.main.async {
+                            self.image.image = image
+                        }
+                    }
+                    else if let error = error {
+                        print (error)
+                    }
+                }
             }
             artistLabel.text = video.artist
             titleLabel.text = video.title
             self.youtubePlayer.loadVideoID(video.id)
             if VideoLibrary.contains(id: video.id) {
-                button.setTitle("Remove from Library", for: .normal)
+                button.isHidden = true
             }
             else {
                 button.setTitle("Add to Library", for: .normal)
+                button.isHidden = false
             }
         }
     }
