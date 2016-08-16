@@ -10,7 +10,7 @@ import UIKit
 import YouTubePlayer
 
 protocol VideoControllerDelegate: class {
-    func videoSelected()
+    func dismissed()
 }
 
 class VideoController: UIViewController {
@@ -19,7 +19,7 @@ class VideoController: UIViewController {
     var video : Video! {
         didSet {
             if let url = URL(string: video.artworkUrl) {
-                url.getImage { image, error in
+                url.getImageAsync { image, error in
                     if let image = image {
                         DispatchQueue.main.async {
                             self.image.image = image
@@ -60,7 +60,7 @@ class VideoController: UIViewController {
         else {
             VideoLibrary.add(video: self.video)
         }
-        delegate?.videoSelected()
+        delegate?.dismissed()
     }
     // MARK: - UI
     override func viewDidLoad() {

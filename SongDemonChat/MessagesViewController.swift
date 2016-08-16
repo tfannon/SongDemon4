@@ -12,10 +12,17 @@ import Messages
 class MessagesViewController:
     MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource, VideoControllerDelegate {
     
-    // MARK: - Constants
+    // MARK: - Constants & Enums
     let VideoCellIdentifier : String = "VideoCell"
     let VideoControllerIdentifier : String = "VideoController"
     let MessageURLNamePrefix = "Video"
+    // tracks the state of the view to manage all the nonsense
+    //  of determining when a message is clicked, sent, etc...
+    enum State {
+        case none
+        case videoList
+        case inspectingSharedVideo
+    }
 
     // MARK: - Fields
     let testVideos =
@@ -28,6 +35,50 @@ class MessagesViewController:
             Video(id: "9V7zbWNznbs", artist: "Monty Python",  title: "French Taunting")
         ]
     var videos : [Video] = []
+    var currentState : State = .none
+    
+    private func changeState(newState : State, message : MSMessage? = nil) {
+
+        guard currentState != newState else { return }
+        
+        switch(newState) {
+            
+        case .none:
+            videos.removeAll()
+            tableView.reloadData()
+            removeViewControllers()
+            break
+            
+        case .videoList:
+            requestPresentationStyle(.compact)
+            videos = VideoLibrary.getAll()
+            tableView.reloadData()
+            removeViewControllers()
+            break
+            
+        case .inspectingSharedVideo:
+            if let messageURL = message?.url,
+                let urlComponents = NSURLComponents(url: messageURL,
+                                                    resolvingAgainstBaseURL: false),
+                let queryItems = urlComponents.queryItems,
+                let queryItem = queryItems.first(where: { x in x.name.hasPrefix(MessageURLNamePrefix) }),
+                let video = Video.fromJson(jsonString: queryItem.value!) {
+                
+                requestPresentationStyle(.expanded)
+                let vc = showViewController(identifier: VideoControllerIdentifier) as! VideoController
+                vc.delegate = self
+                vc.video = video
+            }
+            else {
+                changeState(newState: .videoList)
+                return
+            }
+            
+            break
+            
+        }
+        currentState = newState
+    }
     
     // MARK: - Outlets & Actions
     @IBOutlet weak var tableView: UITableView!
@@ -60,7 +111,7 @@ class MessagesViewController:
         // tableview
         tableView.delegate = self
         tableView.dataSource = self
-        refreshTable()
+        currentState = .none
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,11 +120,6 @@ class MessagesViewController:
     }
     
     // MARK: - Methods
-    
-    func refreshTable() {
-        videos = VideoLibrary.getAll()
-        tableView.reloadData()
-    }
     
     func shareVideo(video: Video) {
         // return the extension to compact mode
@@ -97,7 +143,10 @@ class MessagesViewController:
         
         // create a blank, default message layout
         let layout = MSMessageTemplateLayout()
-        layout.caption = "Check out this video!"
+        layout.caption = "Shared from SongDemon"
+        layout.image = URL(string: video.artworkUrl)?.getImage()
+        layout.imageTitle = video.artist
+        layout.imageSubtitle = video.title
         message.layout = layout
         
         // insert it into the conversation
@@ -106,11 +155,6 @@ class MessagesViewController:
                 print(error)
             }
         }
-    }
-    
-    func showShareableList() {
-        removeViewControllers()
-        refreshTable()
     }
     
     // MARK: - Events
@@ -136,21 +180,13 @@ class MessagesViewController:
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // Configure the cell...
+        let videoCell = cell as! VideoCell
         let video = videos[indexPath.row]
-        cell.textLabel?.text = video.artist
-        cell.detailTextLabel?.text = video.title
-        if let url = URL(string: video.artworkUrl) {
-            url.getImage { image, error in
-                if let image = image {
-                    DispatchQueue.main.async {
-                        cell.imageView?.image = image
-                    }
-                }
-                else if let error = error {
-                    print (error)
-                }
-            }
-        }
+        videoCell.load(video: video)
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //(cell as! VideoCell).recycle()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -195,29 +231,18 @@ class MessagesViewController:
     }
     
     // MARK: - VideoControllerDelegate
-    func videoSelected() {
-        requestPresentationStyle(.compact)
+    func dismissed() {
+        changeState(newState: .videoList)
     }
     
     // MARK: - Conversation Handling
-    
-    private func showSharedVideo(message : MSMessage) -> Bool {
-        guard let messageURL = message.url else { return false }
-        guard let urlComponents = NSURLComponents(url: messageURL,
-                                                  resolvingAgainstBaseURL: false) else { return false }
-        guard let queryItems = urlComponents.queryItems else { return false }
-        guard let queryItem = queryItems.first(where: { x in x.name.hasPrefix(MessageURLNamePrefix) }) else { return false }
-        guard let video = Video.fromJson(jsonString: queryItem.value!) else { return false }
-
-        let vc = showViewController(identifier: VideoControllerIdentifier) as! VideoController
-        vc.delegate = self
-        vc.video = video
-        
-        return true
+    override func willSelect(_ message: MSMessage, conversation: MSConversation) {
+        guard let _ = message.url else { return }
+        changeState(newState: .inspectingSharedVideo, message: message)
     }
-    
     override func didSelect(_ message: MSMessage, conversation: MSConversation) {
-        let _ = showSharedVideo(message: message)
+        guard let _ = message.url else { return }
+        changeState(newState: .inspectingSharedVideo, message: message)
     }
     
     override func willBecomeActive(with conversation: MSConversation) {
@@ -225,8 +250,7 @@ class MessagesViewController:
         // This will happen when the extension is about to present UI.
         
         // Use this method to configure the extension and restore previously stored state.
-        guard let message = conversation.selectedMessage else { return }
-        let _ = showSharedVideo(message: message)
+        changeState(newState: .inspectingSharedVideo, message: conversation.selectedMessage)
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -237,7 +261,7 @@ class MessagesViewController:
         // Use this method to release shared resources, save user data, invalidate timers,
         // and store enough state information to restore your extension to its current state
         // in case it is terminated later.
-        removeViewControllers()
+        changeState(newState: .none)
     }
    
     override func didReceive(_ message: MSMessage, conversation: MSConversation) {
@@ -262,7 +286,7 @@ class MessagesViewController:
     
         // Use this method to prepare for the change in presentation style.
         if presentationStyle == .compact {
-            showShareableList()
+            changeState(newState: .videoList)
         }
     }
     
