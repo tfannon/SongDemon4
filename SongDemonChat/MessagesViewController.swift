@@ -12,16 +12,17 @@ import Messages
 class MessagesViewController:
     MSMessagesAppViewController, UITableViewDelegate, UITableViewDataSource, VideoControllerDelegate {
     
+    // MARK: - Constants & Enums
+    let VideoCellIdentifier : String = "VideoCell"
+    let VideoControllerIdentifier : String = "VideoController"
+    let MessageURLNamePrefix = "Video"
+    // tracks the state of the view to manage all the nonsense
+    //  of determining when a message is clicked, sent, etc...
     enum State {
         case none
         case videoList
         case inspectingSharedVideo
     }
-    
-    // MARK: - Constants
-    let VideoCellIdentifier : String = "VideoCell"
-    let VideoControllerIdentifier : String = "VideoController"
-    let MessageURLNamePrefix = "Video"
 
     // MARK: - Fields
     let testVideos =
@@ -35,7 +36,6 @@ class MessagesViewController:
         ]
     var videos : [Video] = []
     var currentState : State = .none
-    var sentMessageUrl : String?
     
     private func changeState(newState : State, message : MSMessage? = nil) {
 
@@ -151,8 +151,6 @@ class MessagesViewController:
                 print(error)
             }
         }
-        
-        sentMessageUrl = String(message.url)
     }
     
     // MARK: - Events
@@ -234,12 +232,6 @@ class MessagesViewController:
     }
     
     // MARK: - Conversation Handling
-    
-    override func willSelect(_ message: MSMessage, conversation: MSConversation) {
-        guard let _ = message.url else { return }
-        changeState(newState: .inspectingSharedVideo, message: message)
-    }
-    
     override func didSelect(_ message: MSMessage, conversation: MSConversation) {
         guard let _ = message.url else { return }
         changeState(newState: .inspectingSharedVideo, message: message)
