@@ -14,7 +14,17 @@ import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-                            
+
+    enum Shortcut: String {
+        case play = "Play"
+        case share = "Share"
+    }
+
+    func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
+        print (#function)
+        return true
+    }
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
