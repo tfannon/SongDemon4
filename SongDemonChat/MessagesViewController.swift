@@ -143,6 +143,7 @@ class MessagesViewController:
         // create a blank, default message layout
         let layout = MSMessageTemplateLayout()
         layout.caption = "Check out this video!"
+        layout.image = URL(string: video.artworkUrl)?.getImage()
         message.layout = layout
         
         // insert it into the conversation

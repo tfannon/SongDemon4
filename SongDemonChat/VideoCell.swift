@@ -31,7 +31,7 @@ class VideoCell: UITableViewCell {
         
         // load up the artwork async
         if let url = URL(string: video.artworkUrl) {
-            url.getImage { image, error in
+            url.getImageAsync { image, error in
                 // make sure by the time we get here that
                 // this cell is still used for the original video object
                 // and wasn't recycled before this got called

@@ -19,7 +19,7 @@ class VideoController: UIViewController {
     var video : Video! {
         didSet {
             if let url = URL(string: video.artworkUrl) {
-                url.getImage { image, error in
+                url.getImageAsync { image, error in
                     if let image = image {
                         DispatchQueue.main.async {
                             self.image.image = image

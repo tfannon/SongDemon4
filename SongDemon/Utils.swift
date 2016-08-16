@@ -75,7 +75,14 @@ class Stopwatch {
 }
 
 extension URL {
-    public func getImage(completion: (image: UIImage?, error: Error?) -> ()) {
+    public func getImage() -> UIImage? {
+        var image : UIImage? = nil
+        if let data = NSData(contentsOf: self) {
+            image = UIImage(data: data as Data)
+        }
+        return image
+    }
+    public func getImageAsync(completion: (image: UIImage?, error: Error?) -> ()) {
         //todo: asynch fetch with cache
         let task = URLSession.shared.dataTask(with: self) { data, response, error in
             var image : UIImage? = nil
