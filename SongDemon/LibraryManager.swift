@@ -539,28 +539,18 @@ class LibraryManager {
     
   
     
-    //MARK: functions for generating playlists for watch
-    class func serializePlaylist(_ serializeKey: String, songs : [MPMediaItem]) {
-        let ids : [String] = songs.map { song in
-            song.hashKey
-        }
-        if ids.count > 0 {
-            let userDefaults = Utils.AppGroupDefaults;
-            userDefaults.set(ids, forKey: serializeKey)
-        }
-    }
-
-    class func trimList(_ listName : String, list : inout [String:String]) {
-        let defaults = Utils.AppGroupDefaults
-        let trimmed = list.filter { ITunesUtils.getSongFrom($0.0) != nil }
-        defaults.set(trimmed, forKey: listName)
-    }
-    
+    // MARK: - clean playlists
     class func cleanPlaylists() {
         let sw = Stopwatch.start("cleanPlaylists")
         trimList(LIKED_LIST, list: &LM.LikedSongs)
         trimList(DISLIKED_LIST, list: &LM.DislikedSongs)
         trimList(QUEUED_LIST, list: &LM.QueuedSongs)
         _ = sw.stop()
+    }
+    
+    class func trimList(_ listName : String, list : inout [String:String]) {
+        let defaults = Utils.AppGroupDefaults
+        let trimmed = list.filter { ITunesUtils.getSongFrom($0.0) != nil }
+        defaults.set(trimmed, forKey: listName)
     }
 }

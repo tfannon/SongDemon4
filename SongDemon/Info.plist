@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).First</string>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).Play</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Play</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
@@ -16,13 +16,23 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).Second</string>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).Share</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Share</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>in DemonChat</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeShare</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).Add</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add Current Song</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>to your library</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeAdd</string>
 		</dict>
 	</array>
 	<key>NSAppleMusicUsageDescription</key>

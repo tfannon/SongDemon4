@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		651310C91D60F0C700A476AF /* YouTubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651310C81D60F0C700A476AF /* YouTubeCell.swift */; };
+		653847FD1D63757F0039561A /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653847FC1D63757F0039561A /* AppleMusicManager.swift */; };
 		65557B5E1D5747B8002F98F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65557B5D1D5747B8002F98F9 /* Default-568h@2x.png */; };
 		655826701D60373800ED3AD8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9241D57467700BBFFBD /* SwiftyJSON.swift */; };
 		655CB7961D5740F9005E0B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 655CB7951D5740F9005E0B78 /* Assets.xcassets */; };
@@ -96,6 +97,15 @@
 		65E7C9BB1D57467800BBFFBD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96A1D57467700BBFFBD /* Utils.swift */; };
 		65E7C9BD1D57467800BBFFBD /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96C1D57467700BBFFBD /* VideoController.swift */; };
 		65E7C9BE1D57467800BBFFBD /* YouTubeVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C96D1D57467700BBFFBD /* YouTubeVideoManager.swift */; };
+		65E7DF9D1D63617000799CAD /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF941D63617000799CAD /* Attribute.swift */; };
+		65E7DF9E1D63617000799CAD /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF951D63617000799CAD /* Entity.swift */; };
+		65E7DF9F1D63617000799CAD /* IdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF961D63617000799CAD /* IdType.swift */; };
+		65E7DFA01D63617000799CAD /* ITunesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF971D63617000799CAD /* ITunesApi.swift */; };
+		65E7DFA11D63617000799CAD /* ITunesLookupApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF981D63617000799CAD /* ITunesLookupApi.swift */; };
+		65E7DFA21D63617000799CAD /* ITunesSearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF991D63617000799CAD /* ITunesSearchApi.swift */; };
+		65E7DFA31D63617000799CAD /* LookupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF9A1D63617000799CAD /* LookupResult.swift */; };
+		65E7DFA41D63617000799CAD /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF9B1D63617000799CAD /* Media.swift */; };
+		65E7DFA51D63617000799CAD /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7DF9C1D63617000799CAD /* SortType.swift */; };
 		6607B3791D623DD30087BC91 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6607B3781D623DD30087BC91 /* VideoController.swift */; };
 		6626E8DA1D6123E10062D8B2 /* black-red-note-120.png in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C94B1D57467700BBFFBD /* black-red-note-120.png */; };
 		6626E8DB1D6124810062D8B2 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CC2D851D5F674800C0E3A8 /* VideoLibrary.swift */; };
@@ -149,6 +159,7 @@
 		42EBC2441EA489A78D2E69DA /* Pods-SongDemonChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemonChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.debug.xcconfig"; sourceTree = "<group>"; };
 		4525F2785758C7B96637FC2A /* Pods-SongDemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon.debug.xcconfig"; sourceTree = "<group>"; };
 		651310C81D60F0C700A476AF /* YouTubeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeCell.swift; sourceTree = "<group>"; };
+		653847FC1D63757F0039561A /* AppleMusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
 		65557B5D1D5747B8002F98F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		655CB78B1D5740F9005E0B78 /* SongDemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongDemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		655CB7951D5740F9005E0B78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -244,6 +255,15 @@
 		65E7C96A1D57467700BBFFBD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		65E7C96C1D57467700BBFFBD /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		65E7C96D1D57467700BBFFBD /* YouTubeVideoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeVideoManager.swift; sourceTree = "<group>"; };
+		65E7DF941D63617000799CAD /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
+		65E7DF951D63617000799CAD /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		65E7DF961D63617000799CAD /* IdType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdType.swift; sourceTree = "<group>"; };
+		65E7DF971D63617000799CAD /* ITunesApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesApi.swift; sourceTree = "<group>"; };
+		65E7DF981D63617000799CAD /* ITunesLookupApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesLookupApi.swift; sourceTree = "<group>"; };
+		65E7DF991D63617000799CAD /* ITunesSearchApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesSearchApi.swift; sourceTree = "<group>"; };
+		65E7DF9A1D63617000799CAD /* LookupResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupResult.swift; sourceTree = "<group>"; };
+		65E7DF9B1D63617000799CAD /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		65E7DF9C1D63617000799CAD /* SortType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		6607B3781D623DD30087BC91 /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		669BE20C1D5FB91F00F8DDD5 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		886CF68705C607379F4BB417 /* Pods-SongDemonChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemonChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +360,7 @@
 				655CB79A1D5740F9005E0B78 /* Info.plist */,
 				65E7C91E1D57467700BBFFBD /* Main.storyboard */,
 				65E7C9191D57467700BBFFBD /* AppDelegate.swift */,
+				653847FC1D63757F0039561A /* AppleMusicManager.swift */,
 				65E7C9201D57467700BBFFBD /* Constants.swift */,
 				65E7C9211D57467700BBFFBD /* Extensions.swift */,
 				65E7C9251D57467700BBFFBD /* FileManager.swift */,
@@ -367,6 +388,7 @@
 				65E7C96C1D57467700BBFFBD /* VideoController.swift */,
 				65E7C96D1D57467700BBFFBD /* YouTubeVideoManager.swift */,
 				651310C81D60F0C700A476AF /* YouTubeCell.swift */,
+				65E7DF931D63617000799CAD /* ITunesApi */,
 				655CB7951D5740F9005E0B78 /* Assets.xcassets */,
 			);
 			path = SongDemon;
@@ -479,6 +501,22 @@
 				65E7C95F1D57467700BBFFBD /* sliderlabel@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		65E7DF931D63617000799CAD /* ITunesApi */ = {
+			isa = PBXGroup;
+			children = (
+				65E7DF941D63617000799CAD /* Attribute.swift */,
+				65E7DF951D63617000799CAD /* Entity.swift */,
+				65E7DF961D63617000799CAD /* IdType.swift */,
+				65E7DF971D63617000799CAD /* ITunesApi.swift */,
+				65E7DF981D63617000799CAD /* ITunesLookupApi.swift */,
+				65E7DF991D63617000799CAD /* ITunesSearchApi.swift */,
+				65E7DF9A1D63617000799CAD /* LookupResult.swift */,
+				65E7DF9B1D63617000799CAD /* Media.swift */,
+				65E7DF9C1D63617000799CAD /* SortType.swift */,
+			);
+			path = ITunesApi;
 			sourceTree = "<group>";
 		};
 		C040547BB6D1C04DFADE8398 /* Frameworks */ = {
@@ -804,29 +842,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E7DFA01D63617000799CAD /* ITunesApi.swift in Sources */,
 				65CC2D861D5F674800C0E3A8 /* VideoLibrary.swift in Sources */,
 				65E7C9741D57467700BBFFBD /* Extensions.swift in Sources */,
 				65E7C9BE1D57467800BBFFBD /* YouTubeVideoManager.swift in Sources */,
 				651310C91D60F0C700A476AF /* YouTubeCell.swift in Sources */,
 				65E7C96F1D57467700BBFFBD /* AppDelegate.swift in Sources */,
 				65E7C97B1D57467700BBFFBD /* LyricsController.swift in Sources */,
+				65E7DFA51D63617000799CAD /* SortType.swift in Sources */,
 				65E7C97D1D57467700BBFFBD /* MusicPlayer.swift in Sources */,
 				65E7C9B11D57467800BBFFBD /* RootController.swift in Sources */,
 				65E7C9781D57467700BBFFBD /* ITunesUtils.swift in Sources */,
 				65E7C9B71D57467800BBFFBD /* SearchController.swift in Sources */,
 				65CC2D881D5F675400C0E3A8 /* Video.swift in Sources */,
+				65E7DFA31D63617000799CAD /* LookupResult.swift in Sources */,
 				65E7C97E1D57467700BBFFBD /* PlaylistAlbumSongCell.swift in Sources */,
+				65E7DFA41D63617000799CAD /* Media.swift in Sources */,
 				65E7C9B41D57467800BBFFBD /* SearchAlbumTrackCell.swift in Sources */,
 				65E7C9B51D57467800BBFFBD /* SearchArtistCell.swift in Sources */,
 				65E7C9791D57467700BBFFBD /* LibraryManager.swift in Sources */,
+				65E7DFA21D63617000799CAD /* ITunesSearchApi.swift in Sources */,
+				65E7DF9F1D63617000799CAD /* IdType.swift in Sources */,
 				65E7C9B21D57467800BBFFBD /* SearchAlbumController.swift in Sources */,
 				65E7C9751D57467700BBFFBD /* Async.swift in Sources */,
 				65E7C9B81D57467800BBFFBD /* SongInfo.swift in Sources */,
+				65E7DF9D1D63617000799CAD /* Attribute.swift in Sources */,
 				65E7C9761D57467700BBFFBD /* SwiftyJSON.swift in Sources */,
+				653847FD1D63757F0039561A /* AppleMusicManager.swift in Sources */,
 				65E7C97A1D57467700BBFFBD /* Lyrics.swift in Sources */,
 				65E7C97F1D57467700BBFFBD /* PlaylistAlbumTitleCell.swift in Sources */,
 				65E7C9801D57467700BBFFBD /* PlaylistCell.swift in Sources */,
 				65E7C9BB1D57467800BBFFBD /* Utils.swift in Sources */,
+				65E7DF9E1D63617000799CAD /* Entity.swift in Sources */,
 				65E7C9831D57467700BBFFBD /* Protocols.swift in Sources */,
 				65E7C9B61D57467800BBFFBD /* SearchArtistController.swift in Sources */,
 				65E7C9731D57467700BBFFBD /* Constants.swift in Sources */,
@@ -835,6 +882,7 @@
 				65E7C97C1D57467700BBFFBD /* MainController.swift in Sources */,
 				65E7C9771D57467700BBFFBD /* FileManager.swift in Sources */,
 				65E7C9BD1D57467800BBFFBD /* VideoController.swift in Sources */,
+				65E7DFA11D63617000799CAD /* ITunesLookupApi.swift in Sources */,
 				65E7C9811D57467700BBFFBD /* PlaylistController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

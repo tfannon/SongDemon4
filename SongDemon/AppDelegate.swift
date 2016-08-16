@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .share:
                 return true
             case .add:
+                AppleMusicManager.addCurrentSong()
                 return true
             }
         }
