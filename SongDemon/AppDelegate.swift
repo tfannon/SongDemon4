@@ -18,11 +18,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     enum Shortcut: String {
         case play = "Play"
         case share = "Share"
+        case add = "Add"
+        init?(shortcutItem: UIApplicationShortcutItem) {
+            guard let last = shortcutItem.type.components(separatedBy: ".").last else { return nil }
+            self.init(rawValue: last)
+        }
     }
 
     func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
         print (#function)
-        return true
+        if let shortcut = Shortcut(shortcutItem: shortcutItem) {
+            switch shortcut {
+            case .play:
+                return true
+            case .share:
+                return true
+            case .add:
+                return true
+            }
+        }
+        return false
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        _ = handleShortCutItem(shortcutItem)
     }
     
     var window: UIWindow?
