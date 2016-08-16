@@ -71,6 +71,7 @@ class MessagesViewController:
             }
             else {
                 changeState(newState: .videoList)
+                return 
             }
             
             break
@@ -142,8 +143,10 @@ class MessagesViewController:
         
         // create a blank, default message layout
         let layout = MSMessageTemplateLayout()
-        layout.caption = "Check out this video!"
+        layout.caption = "Shared from SongDemon"
         layout.image = URL(string: video.artworkUrl)?.getImage()
+        layout.imageTitle = video.artist
+        layout.imageSubtitle = video.title
         message.layout = layout
         
         // insert it into the conversation
@@ -233,6 +236,10 @@ class MessagesViewController:
     }
     
     // MARK: - Conversation Handling
+    override func willSelect(_ message: MSMessage, conversation: MSConversation) {
+        guard let _ = message.url else { return }
+        changeState(newState: .inspectingSharedVideo, message: message)
+    }
     override func didSelect(_ message: MSMessage, conversation: MSConversation) {
         guard let _ = message.url else { return }
         changeState(newState: .inspectingSharedVideo, message: message)
