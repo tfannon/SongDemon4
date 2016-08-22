@@ -27,7 +27,6 @@
 		65E7C9721D57467700BBFFBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E7C91E1D57467700BBFFBD /* Main.storyboard */; };
 		65E7C9731D57467700BBFFBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9201D57467700BBFFBD /* Constants.swift */; };
 		65E7C9741D57467700BBFFBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9211D57467700BBFFBD /* Extensions.swift */; };
-		65E7C9751D57467700BBFFBD /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9231D57467700BBFFBD /* Async.swift */; };
 		65E7C9761D57467700BBFFBD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9241D57467700BBFFBD /* SwiftyJSON.swift */; };
 		65E7C9771D57467700BBFFBD /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9251D57467700BBFFBD /* FileManager.swift */; };
 		65E7C9781D57467700BBFFBD /* ITunesUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9261D57467700BBFFBD /* ITunesUtils.swift */; };
@@ -186,7 +185,6 @@
 		65E7C91F1D57467700BBFFBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		65E7C9201D57467700BBFFBD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		65E7C9211D57467700BBFFBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		65E7C9231D57467700BBFFBD /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		65E7C9241D57467700BBFFBD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		65E7C9251D57467700BBFFBD /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		65E7C9261D57467700BBFFBD /* ITunesUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesUtils.swift; sourceTree = "<group>"; };
@@ -450,7 +448,6 @@
 		65E7C9221D57467700BBFFBD /* External */ = {
 			isa = PBXGroup;
 			children = (
-				65E7C9231D57467700BBFFBD /* Async.swift */,
 				65E7C9241D57467700BBFFBD /* SwiftyJSON.swift */,
 			);
 			path = External;
@@ -867,7 +864,6 @@
 				65E7DFA21D63617000799CAD /* ITunesSearchApi.swift in Sources */,
 				65E7DF9F1D63617000799CAD /* IdType.swift in Sources */,
 				65E7C9B21D57467800BBFFBD /* SearchAlbumController.swift in Sources */,
-				65E7C9751D57467700BBFFBD /* Async.swift in Sources */,
 				65E7C9B81D57467800BBFFBD /* SongInfo.swift in Sources */,
 				65E7DF9D1D63617000799CAD /* Attribute.swift in Sources */,
 				65E7C9761D57467700BBFFBD /* SwiftyJSON.swift in Sources */,

@@ -141,7 +141,7 @@ extension Dictionary {
         return Dictionary(self.filter(includeElement))
     }
     
-    func reduce<U>(_ initial: U, combine: @noescape (U, Element) -> U) -> U {
+    func reduce<U>(_ initial: U, combine: (U, Element) -> U) -> U {
         return self.reduce(initial, combine: combine)
     }
 }

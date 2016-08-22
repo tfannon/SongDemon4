@@ -58,14 +58,14 @@ class YouTubeVideoManager {
         }
     }
     
-    private class func fetch(query: String, artist: String, completion: (result: [Video]) -> Void) {
+    private class func fetch(query: String, artist: String, completion: @escaping (_ result: [Video]) -> Void) {
         let urlStr = getUrl(from: query)
         Alamofire.request(urlStr, withMethod: .get)
             .responseString { response in
                 guard response.result.isSuccess else { return }
                 print ("fetched \(query)")
                 let json = JSON(data: response.data!)
-                completion(result: VideoLibrary.fromYouTube(json: json, artist: artist))
+                completion(VideoLibrary.fromYouTube(json: json, artist: artist))
         }
     }
     

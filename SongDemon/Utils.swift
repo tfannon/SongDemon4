@@ -81,14 +81,14 @@ extension URL {
         }
         return image
     }
-    public func getImageAsync(completion: (image: UIImage?, error: Error?) -> ()) {
+    public func getImageAsync(completion: @escaping (_ image: UIImage?, _ error: Error?) -> ()) {
         //todo: asynch fetch with cache
         let task = URLSession.shared.dataTask(with: self) { data, response, error in
             var image : UIImage? = nil
             if error == nil {
                 image = UIImage(data: data!)
             }
-            completion(image: image, error: error)
+            completion(image, error)
         }
         task.resume()
     }

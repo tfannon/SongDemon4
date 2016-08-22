@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 import Alamofire
+import Async
 
 
 @UIApplicationMain
@@ -41,22 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
-    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-        _ = handleShortCutItem(shortcutItem)
-    }
-    
-    var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+       // _ = handleShortCutItem(shortcutItem)
         VideoLibrary.createTestData()
         setupAppearance()
-        //testVideos()
         Async.background {
             LibraryManager.scanLibrary()
         }
-        return true
     }
     
+    var window: UIWindow?
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -80,7 +80,7 @@ public class ITunesSearchApi {
     }
     
     //dependencies on AlamoFire and SwiftyJSON
-    public func request(completionHandler: (JSON?, NSError?) -> Void) -> Void {
+    public func request(completionHandler: @escaping (JSON?, NSError?) -> Void) -> Void {
         let url = self.buildUrl()
         //let req = URLRequest(url: URL(string: url)!)
         print ("Search url: \(url)")

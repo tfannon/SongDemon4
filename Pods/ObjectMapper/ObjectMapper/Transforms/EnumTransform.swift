@@ -28,13 +28,13 @@
 
 import Foundation
 
-public class EnumTransform<T: RawRepresentable>: TransformType {
+open class EnumTransform<T: RawRepresentable>: TransformType {
 	public typealias Object = T
 	public typealias JSON = T.RawValue
 	
 	public init() {}
 	
-	public func transformFromJSON(_ value: AnyObject?) -> T? {
+	public func transformFromJSON(_ value: Any?) -> T? {
 		if let raw = value as? T.RawValue {
 			return T(rawValue: raw)
 		}

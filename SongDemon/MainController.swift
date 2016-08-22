@@ -9,6 +9,7 @@
 import UIKit
 import MediaPlayer
 import AVFoundation
+import Async
 
 
 class MainController: UIViewController, LibraryScanListener {

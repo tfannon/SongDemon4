@@ -53,7 +53,7 @@ class ITunesUtils {
             let songs = x.items as NSArray
             if filter.count == 0 || filter.index(of: playlistTitle) != nil {
                 for y in songs {
-                    let id = y.value(forProperty: MPMediaItemPropertyPersistentID)!.description
+                    let id = ((y as AnyObject).value(forProperty: MPMediaItemPropertyPersistentID)! as AnyObject).description
                     songIds.append(id!)
                 }
                 retVal[playlistTitle] = songIds
