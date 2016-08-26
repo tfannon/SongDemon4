@@ -29,7 +29,7 @@ CHECKOUT OPTIONS:
     :commit: a12cda2fb96c0cd0c845ab8a8277df60af8f506f
     :git: https://github.com/duemunk/Async.git
   ObjectMapper:
-    :commit: d4042111aefb41965c9a2d9e07505b35a010c8d0
+    :commit: c4affdd91d2049d98109f197e56a814e2773852f
     :git: https://github.com/Hearst-DD/ObjectMapper.git
 
 SPEC CHECKSUMS:
@@ -38,6 +38,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
 
-PODFILE CHECKSUM: 5a29306f4fb40147a1f5d2455b91b00b76936cc6
+PODFILE CHECKSUM: 8f044e74467e23fbb8755c5321a8188d5cda172f
 
 COCOAPODS: 1.0.1
