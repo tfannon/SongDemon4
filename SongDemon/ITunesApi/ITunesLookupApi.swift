@@ -43,7 +43,7 @@ public class ITunesLookupApi {
     }
     
     //dependencies on AlamoFire and SwiftyJSON
-    public func request(completionHandler: @escaping (JSON?, NSError?) -> Void) -> Void {
+    public func request(completionHandler: @escaping (JSON?, Error?) -> Void) -> Void {
         let url = self.buildUrl()
         print ("Lookup url: \(url)")
         Alamofire.request(url, withMethod: .get)

@@ -25,7 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.init(rawValue: last)
         }
     }
-
+    
+    public func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Swift.Void) {
+        _ = handleShortCutItem(shortcutItem)
+    }
+    
     func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
         print (#function)
         if let shortcut = Shortcut(shortcutItem: shortcutItem) {
@@ -43,11 +47,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
-       // _ = handleShortCutItem(shortcutItem)
         VideoLibrary.createTestData()
+        testFetch()
         setupAppearance()
         Async.background {
             LibraryManager.scanLibrary()
+        }
+    }
+    
+    private func testFetch() {
+        if Utils.inSimulator {
+            YouTubeVideoManager.fetch2(type: .currentSong, query: "Inquisition A Black Aeon Shall Cleanse", artist: "Inquisition") { result in
+                    print (result)
+            }
+
+            YouTubeVideoManager.fetch2(type: .mostPopular, query: "Inquisition", artist: "Inquisition") { result in
+                print (result)
+            }
+            
+            YouTubeVideoManager.fetch2(type: .live, query: "Inquisition", artist: "Inquisition") { result in
+                print (result)
+            }
+            
+            YouTubeVideoManager.fetch2(type: .recent, query: "Inquisition", artist: "Inquisition") { result in
+                print (result)
+            }
+            
+            
         }
     }
     

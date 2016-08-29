@@ -23,7 +23,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Alamofire:
-    :commit: 3cc5b4e8453bec9fd6b973d60e6b0605a38e4cf4
+    :commit: 81e51c715183b5b9d718f8058ce63e84fe238a4c
     :git: https://github.com/Alamofire/Alamofire.git
   AsyncSwift:
     :commit: a12cda2fb96c0cd0c845ab8a8277df60af8f506f
@@ -38,6 +38,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
 
-PODFILE CHECKSUM: 8f044e74467e23fbb8755c5321a8188d5cda172f
+PODFILE CHECKSUM: be8cba642e97901698a77d69ce15957f57d73c5a
 
 COCOAPODS: 1.0.1
