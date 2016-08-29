@@ -66,12 +66,11 @@ class YouTubeVideoManager {
                 guard response.result.isSuccess else { return }
                 guard let data = response.data else { return }
                 print ("fetched \(query)")
-                //let theString = String(data: response.data!, encoding:String.Encoding.utf8)
-                //print (theString)
-                let jsonObject = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                print (jsonObject)
                 let json = JSON(data: response.data!)
                 completion(VideoLibrary.fromYouTube(json: json, artist: artist))
+                print (json)
+                //let jsonObject = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                //print (jsonObject)
         }
     }
     

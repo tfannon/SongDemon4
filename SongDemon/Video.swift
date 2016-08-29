@@ -22,7 +22,7 @@ class Video: Mappable {
     var id: String = ""
     var title: String = ""
     var artist: String = ""
-    var artworkHigh: Artwork!   //todo: convert others to this
+    var artworkHigh: Artwork?   //todo: convert others to this
     
     private var _artworkUrl : String = ""
     var artworkUrl: String {
@@ -41,8 +41,6 @@ class Video: Mappable {
         }
     }
     
-    var bringIntoLibrary: Bool = false
-    
     var url: String {
         get {
             return "https://www.youtube.com/watch?v=\(self.id)"
@@ -56,9 +54,10 @@ class Video: Mappable {
     init(json: JSON) {
         initialize(
             id: json["id"]["videoId"].string!,
-            artist: json["snippet"]["thumbnails"]["default"]["url"].string!,
+            artist: "",
             title: json["snippet"]["title"].string!,
-            artworkUrl: "")
+            artworkUrl: json["snippet"]["thumbnails"]["default"]["url"].string!
+        )
         
         //todo: unify this all
         artworkHigh = Artwork(json)
@@ -93,7 +92,8 @@ class Video: Mappable {
         return Mapper().toJSONString(self, prettyPrint: prettyPrint)!
     }
     
-    var cachedImage: UIImage? 
+    var cachedImage: UIImage?
+    var cachedImageHigh: UIImage?
 }
 
 

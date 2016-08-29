@@ -71,9 +71,10 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        //print ("showing")
+        let yt = viewControllerToCommit as! YouTubeVideoController
+        yt.imageView.image = nil
         self.show(viewControllerToCommit, sender: self)
-        (viewControllerToCommit as! YouTubeVideoController).play()
+        yt.play()
     }
     
     
@@ -187,6 +188,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 if error == nil {
                     DispatchQueue.main.async {
                         let image = UIImage(data: data!)
+                        video.cachedImage = image
                         cell.imgVideo.image = image
                     }
                 }
@@ -195,11 +197,12 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
 
         //can we not go fetch all high def artwork up front?
-        if let urlHigh = URL(string: video.artworkHigh.url) {
+        if let artwork = video.artworkHigh,
+            let urlHigh = URL(string: artwork.url) {
             let task = URLSession.shared.dataTask(with: urlHigh) { data, response, error in
                 if error == nil {
                     DispatchQueue.main.async {
-                        video.cachedImage = UIImage(data: data!)
+                        video.cachedImageHigh = UIImage(data: data!)
                     }
                 }
             }

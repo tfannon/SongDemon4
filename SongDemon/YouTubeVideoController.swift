@@ -36,7 +36,14 @@ class YouTubeVideoController: UIViewController, YouTubePlayerDelegate {
     var video: Video! {
         didSet {
             self.youTubePlayer.loadVideoID(video.id)
-            self.imageView = UIImageView(image: video.cachedImage!)
+            if let image = video.cachedImageHigh {
+                print ("using high image")
+                self.imageView = UIImageView(image: image)
+            }
+            else {
+                print ("using default image")                
+                self.imageView = UIImageView(image: video.cachedImage!)
+            }
             self.view.addSubview(self.imageView)
         }
     }
