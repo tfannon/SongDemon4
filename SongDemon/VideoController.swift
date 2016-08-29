@@ -21,7 +21,9 @@ enum VideoControllerMode {
     static var `default` = VideoControllerMode.youTubeSong
 }
 
-class VideoController: UIViewController, UITableViewDataSource, UITableViewDelegate, YouTubePlayerDelegate {
+
+class VideoController: UIViewController, UITableViewDataSource, UITableViewDelegate, YouTubePlayerDelegate,
+    UIViewControllerPreviewingDelegate {
 
     @IBOutlet var tableView: UITableView!
     
@@ -43,13 +45,37 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
-        self.tableView.addGestureRecognizer(longPress)
+        //let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        //self.tableView.addGestureRecognizer(longPress)
         
         if Utils.inSimulator {
             videos = VideoLibrary.getAll()
         }
+        
+        if traitCollection.forceTouchCapability == .available {
+            self.registerForPreviewing(with: self, sourceView: self.tableView)
+        }
     }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
+
+        let vc = YouTubeVideoController()
+        vc.video = videos[indexPath.row]
+        let cellFrame = tableView.cellForRow(at: indexPath)!.frame
+        previewingContext.sourceRect = view.convert(cellFrame, from: self.tableView)
+        //todo: pass into controller
+        //vc.preferredContentSize = CGSize(width: 0, height: 0)
+        //return vc
+        return vc
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        //print ("showing")
+        self.show(viewControllerToCommit, sender: self)
+        (viewControllerToCommit as! YouTubeVideoController).play()
+    }
+    
     
     override var shouldAutorotate: Bool {
         return false
@@ -64,7 +90,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         redrawList()
     }
     
-    
+        
     func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
         let p = gestureRecognizer.location(in: self.tableView)
         guard let indexPath = self.tableView.indexPathForRow(at: p) else { return }
@@ -160,12 +186,26 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 if error == nil {
                     DispatchQueue.main.async {
-                        cell.imgVideo.image = UIImage(data: data!)
+                        let image = UIImage(data: data!)
+                        cell.imgVideo.image = image
                     }
                 }
             }
             task.resume()
         }
+
+        //can we not go fetch all high def artwork up front?
+        if let urlHigh = URL(string: video.artworkHigh.url) {
+            let task = URLSession.shared.dataTask(with: urlHigh) { data, response, error in
+                if error == nil {
+                    DispatchQueue.main.async {
+                        video.cachedImage = UIImage(data: data!)
+                    }
+                }
+            }
+            task.resume()
+        }
+        
         return cell
     }
     

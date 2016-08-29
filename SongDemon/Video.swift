@@ -7,10 +7,22 @@
 //
 import ObjectMapper
 
+struct Artwork {
+    var url: String
+    var height: Int
+    var width: Int
+    init(_ json: JSON) {
+       self.url = json["snippet"]["thumbnails"]["high"]["url"].string!
+       self.height = json["snippet"]["thumbnails"]["high"]["height"].int!
+       self.width = json["snippet"]["thumbnails"]["high"]["width"].int!
+    }
+}
+
 class Video: Mappable {
     var id: String = ""
     var title: String = ""
     var artist: String = ""
+    var artworkHigh: Artwork!   //todo: convert others to this
     
     private var _artworkUrl : String = ""
     var artworkUrl: String {
@@ -47,6 +59,9 @@ class Video: Mappable {
             artist: json["snippet"]["thumbnails"]["default"]["url"].string!,
             title: json["snippet"]["title"].string!,
             artworkUrl: "")
+        
+        //todo: unify this all
+        artworkHigh = Artwork(json)
     }
     
     init(id: String, artist: String, title: String, artworkUrl: String = "") {
@@ -77,6 +92,8 @@ class Video: Mappable {
     func toJson(prettyPrint: Bool = true) -> String {
         return Mapper().toJSONString(self, prettyPrint: prettyPrint)!
     }
+    
+    var cachedImage: UIImage? 
 }
 
 

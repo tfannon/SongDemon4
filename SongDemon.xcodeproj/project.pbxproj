@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		651310C91D60F0C700A476AF /* YouTubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651310C81D60F0C700A476AF /* YouTubeCell.swift */; };
+		6532D61C1D74BE4700609A2B /* YouTubeVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532D61B1D74BE4700609A2B /* YouTubeVideoController.swift */; };
 		653847FD1D63757F0039561A /* AppleMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653847FC1D63757F0039561A /* AppleMusicManager.swift */; };
 		65557B5E1D5747B8002F98F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65557B5D1D5747B8002F98F9 /* Default-568h@2x.png */; };
 		655826701D60373800ED3AD8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7C9241D57467700BBFFBD /* SwiftyJSON.swift */; };
@@ -159,6 +160,7 @@
 		42EBC2441EA489A78D2E69DA /* Pods-SongDemonChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemonChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemonChat/Pods-SongDemonChat.debug.xcconfig"; sourceTree = "<group>"; };
 		4525F2785758C7B96637FC2A /* Pods-SongDemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongDemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SongDemon/Pods-SongDemon.debug.xcconfig"; sourceTree = "<group>"; };
 		651310C81D60F0C700A476AF /* YouTubeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeCell.swift; sourceTree = "<group>"; };
+		6532D61B1D74BE4700609A2B /* YouTubeVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeVideoController.swift; sourceTree = "<group>"; };
 		653847FC1D63757F0039561A /* AppleMusicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleMusicManager.swift; sourceTree = "<group>"; };
 		65557B5D1D5747B8002F98F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		655CB78B1D5740F9005E0B78 /* SongDemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongDemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,6 +392,7 @@
 				651310C81D60F0C700A476AF /* YouTubeCell.swift */,
 				65E7DF931D63617000799CAD /* ITunesApi */,
 				655CB7951D5740F9005E0B78 /* Assets.xcassets */,
+				6532D61B1D74BE4700609A2B /* YouTubeVideoController.swift */,
 			);
 			path = SongDemon;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				651310C91D60F0C700A476AF /* YouTubeCell.swift in Sources */,
 				65E7C96F1D57467700BBFFBD /* AppDelegate.swift in Sources */,
 				65E7C97B1D57467700BBFFBD /* LyricsController.swift in Sources */,
+				6532D61C1D74BE4700609A2B /* YouTubeVideoController.swift in Sources */,
 				65E7DFA51D63617000799CAD /* SortType.swift in Sources */,
 				65E7C97D1D57467700BBFFBD /* MusicPlayer.swift in Sources */,
 				65E7C9B11D57467800BBFFBD /* RootController.swift in Sources */,
