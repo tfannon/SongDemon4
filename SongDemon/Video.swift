@@ -22,7 +22,13 @@ class Video: Mappable {
     var id: String = ""
     var title: String = ""
     var artist: String = ""
+    var channelId: String = ""
+    var channelTitle: String = ""
+    var description: String = ""
+    var publishDate: String = ""
+    
     var artworkHigh: Artwork?   //todo: convert others to this
+    
     
     private var _artworkUrl : String = ""
     var artworkUrl: String {
@@ -58,8 +64,10 @@ class Video: Mappable {
             title: json["snippet"]["title"].string!,
             artworkUrl: json["snippet"]["thumbnails"]["default"]["url"].string!
         )
-        
-        //todo: unify this all
+        description = json["snippet"]["description"].stringValue
+        channelId = json["snippet"]["channelId"].stringValue
+        channelTitle = json["snippet"]["channelTitle"].stringValue
+        publishDate = json["snippet"]["publishedAt"].stringValue
         artworkHigh = Artwork(json)
     }
     

@@ -108,6 +108,21 @@ class YouTubeVideoManager {
         }
     }
     
+    
+    class func fetchStats(for video: Video, controller: YouTubeVideoController) {
+        //let fields = "items(id(videoId),snippet(title,description,thumbnails(default(url))))"
+        let fields = "items(statistics(viewCount))"
+        let urlStr = "https://www.googleapis.com/youtube/v3/videos?key=\(apiKey)&part=statistics&fields=\(fields)&id=\(video.id)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        Alamofire.request(urlStr, withMethod: .get)
+            .responseString { response in
+                guard response.data != nil else { return }
+                let json = JSON(data: response.data!)
+                controller.setViewCount(json["items"][0]["statistics"]["viewCount"].stringValue)
+        }
+    }
+    
+    
     enum QueryType: String {
         case currentSong
         case mostPopular

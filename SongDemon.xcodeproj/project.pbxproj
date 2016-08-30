@@ -388,11 +388,11 @@
 				65E7C9681D57467700BBFFBD /* TimeStruct.swift */,
 				65E7C96A1D57467700BBFFBD /* Utils.swift */,
 				65E7C96C1D57467700BBFFBD /* VideoController.swift */,
+				6532D61B1D74BE4700609A2B /* YouTubeVideoController.swift */,
 				65E7C96D1D57467700BBFFBD /* YouTubeVideoManager.swift */,
 				651310C81D60F0C700A476AF /* YouTubeCell.swift */,
 				65E7DF931D63617000799CAD /* ITunesApi */,
 				655CB7951D5740F9005E0B78 /* Assets.xcassets */,
-				6532D61B1D74BE4700609A2B /* YouTubeVideoController.swift */,
 			);
 			path = SongDemon;
 			sourceTree = "<group>";

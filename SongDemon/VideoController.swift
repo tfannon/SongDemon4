@@ -36,8 +36,6 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         print ("VideoController:\(#function):\(YouTubeVideoManager.videoControllerMode)")
         super.viewDidLoad()
         
-        //need to attach the player to the view
-        //self.view.addSubview(youTubePlayer)
         youTubePlayer.delegate = self
         
         self.tableView.backgroundColor = UIColor.black
@@ -59,14 +57,11 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
-
-        let vc = YouTubeVideoController()
-        vc.video = videos[indexPath.row]
+        let video = videos[indexPath.row] //go off and async fetch this stuff
+        let vc = storyboard!.instantiateViewController(withIdentifier: "YouTubeVideoController") as! YouTubeVideoController
+        vc.video = video
         let cellFrame = tableView.cellForRow(at: indexPath)!.frame
         previewingContext.sourceRect = view.convert(cellFrame, from: self.tableView)
-        //todo: pass into controller
-        //vc.preferredContentSize = CGSize(width: 0, height: 0)
-        //return vc
         return vc
     }
     
@@ -77,7 +72,7 @@ class VideoController: UIViewController, UITableViewDataSource, UITableViewDeleg
         yt.play()
     }
     
-    
+   
     override var shouldAutorotate: Bool {
         return false
     }
