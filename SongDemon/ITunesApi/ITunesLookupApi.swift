@@ -46,7 +46,7 @@ public class ITunesLookupApi {
     public func request(completionHandler: @escaping (JSON?, Error?) -> Void) -> Void {
         let url = self.buildUrl()
         print ("Lookup url: \(url)")
-        Alamofire.request(url, withMethod: .get)
+        Alamofire.request(url)
             .responseString{ response in
                 guard response.result.isSuccess
                 else {

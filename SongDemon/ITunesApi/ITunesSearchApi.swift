@@ -84,14 +84,14 @@ public class ITunesSearchApi {
         let url = self.buildUrl()
         //let req = URLRequest(url: URL(string: url)!)
         print ("Search url: \(url)")
-        Alamofire.request(url, withMethod: .get)
+        Alamofire.request(url)
             .responseString{ response in
-                guard response.result.isSuccess
+                guard let data = response.data
                 else {
                     completionHandler(nil, response.result.error)
                     return
                 }
-                let json = JSON(data: response.data!)
+                let json = JSON(data: data)
                 completionHandler(json, nil)
         }
     }

@@ -14,7 +14,7 @@ end
 
 target 'SongDemon' do
     pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'swift3'
-	#pod 'AlamofireObjectMapper', :git => 'https://github.com/tristanhimmelman/AlamofireObjectMapper.git', :branch => 'swift-3'
+    pod 'AlamofireObjectMapper', :git => 'https://github.com/tristanhimmelman/AlamofireObjectMapper.git', :branch => 'swift-3'
 	#pod 'AlamofireObjectMapper', :git => 'https://github.com/bdbergeron/AlamofireObjectMapper.git', :branch => 'swift-3'
 	pod 'AsyncSwift', :git => 'https://github.com/duemunk/Async.git', :branch => 'feature/Swift_3.0'    
     shared_pods

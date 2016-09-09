@@ -1,8 +1,8 @@
 //
-//  DateFormatterTransform.swift
+//  DataTransform.swift
 //  ObjectMapper
 //
-//  Created by Tristan Himmelman on 2015-03-09.
+//  Created by Yagrushkin, Evgeny on 8/30/16.
 //
 //  The MIT License (MIT)
 //
@@ -28,27 +28,23 @@
 
 import Foundation
 
-open class DateFormatterTransform: TransformType {
-	public typealias Object = Date
+open class DataTransform: TransformType {
+	public typealias Object = Data
 	public typealias JSON = String
 	
-	let dateFormatter: DateFormatter
+	public init() {}
 	
-	public init(dateFormatter: DateFormatter) {
-		self.dateFormatter = dateFormatter
+	public func transformFromJSON(_ value: Any?) -> Data? {
+		guard let string = value as? String else{
+			return nil
+		}
+		return Data(base64Encoded: string)
 	}
 	
-	public func transformFromJSON(_ value: Any?) -> Date? {
-		if let dateString = value as? String {
-			return dateFormatter.date(from: dateString)
+	public func transformToJSON(_ value: Data?) -> String? {
+		guard let data = value else{
+			return nil
 		}
-		return nil
-	}
-	
-	public func transformToJSON(_ value: Date?) -> String? {
-		if let date = value {
-			return dateFormatter.string(from: date)
-		}
-		return nil
+		return data.base64EncodedString()
 	}
 }

@@ -61,16 +61,15 @@ class YouTubeVideoManager {
     //used to test externally
     class func fetch(query: String, artist: String, completion: @escaping (_ result: [Video]) -> Void) {
         let urlStr = getUrl(from: query)
-        Alamofire.request(urlStr, withMethod: .get)
+        Alamofire.request(urlStr)
+        //Alamofire.request(urlStr, withMethod: .get)
             .responseString { response in
                 guard response.result.isSuccess else { return }
                 guard let data = response.data else { return }
                 print ("fetched \(query)")
-                let json = JSON(data: response.data!)
+                let json = JSON(data: data)
                 completion(VideoLibrary.fromYouTube(json: json, artist: artist))
                 print (json)
-                //let jsonObject = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                //print (jsonObject)
         }
     }
     
@@ -95,15 +94,11 @@ class YouTubeVideoManager {
     //used to test externally
     class func fetch2(type: QueryType, query: String, artist: String, completion: @escaping (_ result: [Video]) -> Void) {
         let urlStr = getUrl2(type: type, query: query)
-        Alamofire.request(urlStr, withMethod: .get)
-            //.responseObject { _ in }
+        Alamofire.request(urlStr)
             .responseString { response in
-                //guard response.result.isSuccess else { return }
-                guard response.data != nil else { return }
+                guard let data = response.data else { return }
                 print ("fetched \(urlStr)")
-                let json = JSON(data: response.data!)
-                //let jsonObject = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                //print (jsonObject)
+                let json = JSON(data: data)
                 completion(VideoLibrary.fromYouTube(json: json, artist: artist))
         }
     }
@@ -114,10 +109,10 @@ class YouTubeVideoManager {
         let fields = "items(statistics(viewCount))"
         let urlStr = "https://www.googleapis.com/youtube/v3/videos?key=\(apiKey)&part=statistics&fields=\(fields)&id=\(video.id)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
-        Alamofire.request(urlStr, withMethod: .get)
+        Alamofire.request(urlStr)
             .responseString { response in
-                guard response.data != nil else { return }
-                let json = JSON(data: response.data!)
+                guard let data = response.data else { return }
+                let json = JSON(data: data)
                 controller.setViewCount(json["items"][0]["statistics"]["viewCount"].stringValue)
         }
     }
