@@ -75,7 +75,7 @@ class Video: Mappable {
         initialize(id: id, artist: artist, title: title, artworkUrl: artworkUrl)
     }
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
     }
     
     private func initialize(id: String, artist: String, title: String, artworkUrl: String) {
@@ -85,7 +85,7 @@ class Video: Mappable {
         self.artworkUrl = artworkUrl
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         id <- map["id"]
         title <- map["title"]
         artist <- map["artist"]
@@ -93,7 +93,7 @@ class Video: Mappable {
     }
     
     class func fromJson(jsonString: String) -> Video? {
-        return Mapper<Video>().map(jsonString)
+        return Mapper<Video>().map(JSONString: jsonString)
     }
     
     func toJson(prettyPrint: Bool = true) -> String {

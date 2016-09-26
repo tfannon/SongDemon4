@@ -3,7 +3,8 @@ platform :ios, '10.0'
 use_frameworks!
 
 def shared_pods
-    pod 'ObjectMapper', :git => 'https://github.com/Hearst-DD/ObjectMapper.git', :branch => 'swift-3'
+    #pod 'ObjectMapper', :git => 'https://github.com/Hearst-DD/ObjectMapper.git', 
+    pod 'ObjectMapper', '~> 2.0'
     pod 'YouTubePlayer'
 	#pod 'SwiftyUserDefaults', git: 'https://github.com/radex/SwiftyUserDefaults.git', branch: 'swift3'    
 end
@@ -13,9 +14,11 @@ target 'SongDemonChat' do
 end
 
 target 'SongDemon' do
-    pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'swift3'
-    pod 'AlamofireObjectMapper', :git => 'https://github.com/tristanhimmelman/AlamofireObjectMapper.git', :branch => 'swift-3'
+    pod 'Alamofire', '~> 4.0'
+	pod 'AlamofireObjectMapper', '~> 4.0'   
+	pod "AsyncSwift" 
+    #pod 'AlamofireObjectMapper', :git => 'https://github.com/tristanhimmelman/AlamofireObjectMapper.git', :branch => 'swift-3'
 	#pod 'AlamofireObjectMapper', :git => 'https://github.com/bdbergeron/AlamofireObjectMapper.git', :branch => 'swift-3'
-	pod 'AsyncSwift', :git => 'https://github.com/duemunk/Async.git', :branch => 'feature/Swift_3.0'    
+	#pod 'AsyncSwift', :git => 'https://github.com/duemunk/Async.git', :branch => 'feature/Swift_3.0'    
     shared_pods
 end

@@ -20,10 +20,10 @@ class VideoLibrary: Mappable {
         self.load()
     }
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         videos <- map["videos"]
     }
     
@@ -67,7 +67,7 @@ class VideoLibrary: Mappable {
     }
     
     func fromJson(jsonString: String) -> VideoLibrary? {
-        return Mapper<VideoLibrary>().map(jsonString)
+        return Mapper<VideoLibrary>().map(JSONString: jsonString)
     }
 
     // MARK: - persistance - don't expose to outside

@@ -46,7 +46,7 @@ extension DataRequest {
         return returnError
     }
     
-    public static func ObjectMapperSerializer<T: Mappable>(_ keyPath: String?, mapToObject object: T? = nil, context: MapContext? = nil) -> DataResponseSerializer<T> {
+    public static func ObjectMapperSerializer<T: BaseMappable>(_ keyPath: String?, mapToObject object: T? = nil, context: MapContext? = nil) -> DataResponseSerializer<T> {
         return DataResponseSerializer { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)
@@ -60,7 +60,7 @@ extension DataRequest {
             
             let jsonResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
             let result = jsonResponseSerializer.serializeResponse(request, response, data, error)
-        
+            
             let JSONToMap: Any?
             if let keyPath = keyPath , keyPath.isEmpty == false {
                 JSONToMap = (result.value as AnyObject?)?.value(forKeyPath: keyPath)
@@ -69,18 +69,18 @@ extension DataRequest {
             }
             
             if let object = object {
-                _ = Mapper<T>().map(JSONToMap, toObject: object)
+                _ = Mapper<T>().map(JSONObject: JSONToMap, toObject: object)
                 return .success(object)
-            } else if let parsedObject = Mapper<T>(context: context).map(JSONToMap){
+            } else if let parsedObject = Mapper<T>(context: context).map(JSONObject: JSONToMap){
                 return .success(parsedObject)
             }
-
+            
             let failureReason = "ObjectMapper failed to serialize response."
             let error = newError(.dataSerializationFailed, failureReason: failureReason)
             return .failure(error)
         }
     }
-
+    
     /**
      Adds a handler to be called once the request has finished.
      
@@ -91,12 +91,12 @@ extension DataRequest {
      
      - returns: The request.
      */
-    
-    public func responseObject<T: Mappable>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, context: MapContext? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
+    @discardableResult
+    public func responseObject<T: BaseMappable>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, context: MapContext? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
         return response(queue: queue, responseSerializer: DataRequest.ObjectMapperSerializer(keyPath, mapToObject: object, context: context), completionHandler: completionHandler)
     }
     
-    public static func ObjectMapperArraySerializer<T: Mappable>(_ keyPath: String?, context: MapContext? = nil) -> DataResponseSerializer<[T]> {
+    public static func ObjectMapperArraySerializer<T: BaseMappable>(_ keyPath: String?, context: MapContext? = nil) -> DataResponseSerializer<[T]> {
         return DataResponseSerializer { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)
@@ -118,7 +118,7 @@ extension DataRequest {
                 JSONToMap = result.value
             }
             
-            if let parsedObject = Mapper<T>(context: context).mapArray(JSONToMap){
+            if let parsedObject = Mapper<T>(context: context).mapArray(JSONObject: JSONToMap){
                 return .success(parsedObject)
             }
             
@@ -136,8 +136,9 @@ extension DataRequest {
      - parameter completionHandler: A closure to be executed once the request has finished and the data has been mapped by ObjectMapper.
      
      - returns: The request.
-    */
-    public func responseArray<T: Mappable>(queue: DispatchQueue? = nil, keyPath: String? = nil, context: MapContext? = nil, completionHandler: @escaping (DataResponse<[T]>) -> Void) -> Self {
+     */
+    @discardableResult
+    public func responseArray<T: BaseMappable>(queue: DispatchQueue? = nil, keyPath: String? = nil, context: MapContext? = nil, completionHandler: @escaping (DataResponse<[T]>) -> Void) -> Self {
         return response(queue: queue, responseSerializer: DataRequest.ObjectMapperArraySerializer(keyPath, context: context), completionHandler: completionHandler)
     }
 }

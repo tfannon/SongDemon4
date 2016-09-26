@@ -1,54 +1,26 @@
 PODS:
-  - Alamofire (4.0.0-beta.2)
-  - AlamofireObjectMapper (4.0.0-beta):
-    - Alamofire (~> 4.0-beta)
-    - ObjectMapper (~> 1.0)
-  - AsyncSwift (1.7.2)
-  - ObjectMapper (1.4.0)
+  - Alamofire (4.0.1)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
+  - AsyncSwift (2.0.0)
+  - ObjectMapper (2.0.0)
   - YouTubePlayer (0.3.0)
 
 DEPENDENCIES:
-  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift3`)
-  - AlamofireObjectMapper (from `https://github.com/tristanhimmelman/AlamofireObjectMapper.git`, branch `swift-3`)
-  - AsyncSwift (from `https://github.com/duemunk/Async.git`, branch `feature/Swift_3.0`)
-  - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-3`)
+  - Alamofire (~> 4.0)
+  - AlamofireObjectMapper (~> 4.0)
+  - AsyncSwift
+  - ObjectMapper (~> 2.0)
   - YouTubePlayer
 
-EXTERNAL SOURCES:
-  Alamofire:
-    :branch: swift3
-    :git: https://github.com/Alamofire/Alamofire.git
-  AlamofireObjectMapper:
-    :branch: swift-3
-    :git: https://github.com/tristanhimmelman/AlamofireObjectMapper.git
-  AsyncSwift:
-    :branch: feature/Swift_3.0
-    :git: https://github.com/duemunk/Async.git
-  ObjectMapper:
-    :branch: swift-3
-    :git: https://github.com/Hearst-DD/ObjectMapper.git
-
-CHECKOUT OPTIONS:
-  Alamofire:
-    :commit: 680690beaa7abf9578487688de4d24d038f679b5
-    :git: https://github.com/Alamofire/Alamofire.git
-  AlamofireObjectMapper:
-    :commit: fec7018e11da4f5a0c7e4c2229068f7b226b045a
-    :git: https://github.com/tristanhimmelman/AlamofireObjectMapper.git
-  AsyncSwift:
-    :commit: a12cda2fb96c0cd0c845ab8a8277df60af8f506f
-    :git: https://github.com/duemunk/Async.git
-  ObjectMapper:
-    :commit: 0ba8034e626f973fc8449081c0463a0de1940b3f
-    :git: https://github.com/Hearst-DD/ObjectMapper.git
-
 SPEC CHECKSUMS:
-  Alamofire: 7f837be535fe424db2b87d9117f13836939719ca
-  AlamofireObjectMapper: 0e3c1b56acc9cd8c8afd872fba855349fa2f02fc
-  AsyncSwift: 15c496983f752a3ab8d1be17e64dd4c6f2a31239
-  ObjectMapper: a07ad0462c5adf014adc0f89ef04c29b626e855e
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  AsyncSwift: 6ba6ed9ecb51344458063f7c86fe447ab824e313
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
   YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
 
-PODFILE CHECKSUM: e8b2591bf88eb98755605054c383d56319ee3997
+PODFILE CHECKSUM: acc72f4e00b008af267685c0f94fec1fb15dbfcd
 
 COCOAPODS: 1.0.1
