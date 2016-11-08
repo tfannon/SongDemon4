@@ -6,6 +6,7 @@
 //  Copyright © 2016 Stingray Dev. All rights reserved.
 //
 import ObjectMapper
+import SwiftyJSON
 
 let VIDEOS = "Videos"
 

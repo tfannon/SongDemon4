@@ -10,6 +10,7 @@
 import Foundation
 import Alamofire
 import Async
+import SwiftyJSON
 
 public class ITunesLookupApi {
     let url = "https://itunes.apple.com/lookup"

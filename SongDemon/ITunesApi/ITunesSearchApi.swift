@@ -9,6 +9,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 public class ITunesSearchApi {
     let url = "https://itunes.apple.com/search"

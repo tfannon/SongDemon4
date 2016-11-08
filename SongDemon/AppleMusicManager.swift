@@ -32,7 +32,7 @@ class AppleMusicManager {
                     .by(artist: artist, song: title)
                     .limit(limit: 1)
                     .request { json, error in
-                        print (json)
+                        print (json! )
                         //guard?
                         if let id = json?["results"][0]["trackId"].stringValue {
                             self.sharedInstance.mediaLibrary.addItem(withProductID: id) { result in

@@ -6,6 +6,7 @@ def shared_pods
     #pod 'ObjectMapper', :git => 'https://github.com/Hearst-DD/ObjectMapper.git', 
     pod 'ObjectMapper', '~> 2.0'
     pod 'YouTubePlayer'
+    pod 'SwiftyJSON', '3.0.0'
 	#pod 'SwiftyUserDefaults', git: 'https://github.com/radex/SwiftyUserDefaults.git', branch: 'swift3'    
 end
 

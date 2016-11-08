@@ -4,7 +4,8 @@ PODS:
     - Alamofire (~> 4.0)
     - ObjectMapper (~> 2.0)
   - AsyncSwift (2.0.0)
-  - ObjectMapper (2.0.0)
+  - ObjectMapper (2.2.1)
+  - SwiftyJSON (3.0.0)
   - YouTubePlayer (0.3.0)
 
 DEPENDENCIES:
@@ -12,15 +13,17 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 4.0)
   - AsyncSwift
   - ObjectMapper (~> 2.0)
+  - SwiftyJSON (= 3.0.0)
   - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   AsyncSwift: 6ba6ed9ecb51344458063f7c86fe447ab824e313
-  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
+  SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
   YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
 
-PODFILE CHECKSUM: acc72f4e00b008af267685c0f94fec1fb15dbfcd
+PODFILE CHECKSUM: 0537633d8e0eea4dbd34379518be44275b16b3f0
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
